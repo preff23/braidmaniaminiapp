@@ -168,17 +168,19 @@ a {
   content: '';
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 65%;
-  height: 65%;
+  right: -18%;
+  transform: translateY(-50%) scale(1.0);
+  width: 160%;
+  height: 160%;
   background-image: var(--bg-icon);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.12;
+  opacity: 0.15;
   pointer-events: none;
   z-index: 0;
+  filter: saturate(0) brightness(1.15);
+  transition: opacity 0.3s ease;
 }
 
 .card:hover {
@@ -188,12 +190,16 @@ a {
 }
 
 .card:hover::before {
-  opacity: 0.15;
+  opacity: 0.22;
 }
 
 .card:active {
   transform: scale(0.97);
   box-shadow: 0 0 0 1px var(--accent) inset;
+}
+
+.card:active::before {
+  opacity: 0.22;
 }
 
 .card-icon {
@@ -247,6 +253,14 @@ a {
 .card:hover .card-badge {
   box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
   transform: scale(1.05);
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 360px) {
+  .card::before {
+    right: -12%;
+    transform: translateY(-50%) scale(0.88);
+  }
 }
 
 /* Submenu Card - карточки для подменю */

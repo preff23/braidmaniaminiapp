@@ -24,6 +24,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
       className="card" 
       onClick={onClick}
       style={cardStyle}
+      aria-hidden={backgroundIcon ? "false" : "true"}
     >
       <div className="card-badge">{count}</div>
       <div className="card-title">{title}</div>
