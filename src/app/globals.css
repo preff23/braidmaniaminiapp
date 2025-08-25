@@ -167,20 +167,22 @@ a {
 .card::before {
   content: '';
   position: absolute;
-  top: 50%;
-  right: -18%;
+  top: 10%;
+  right: -20%;
   transform: translateY(-50%) scale(1.0);
-  width: 160%;
-  height: 160%;
+  width: 140%;
+  height: 140%;
   background-image: var(--bg-icon);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.15;
+  opacity: 0.18;
   pointer-events: none;
-  z-index: 0;
-  filter: saturate(0) brightness(1.15);
-  transition: opacity 0.3s ease;
+  z-index: 1;
+  filter: brightness(1.15) contrast(1.05);
+  transition: all 0.3s ease;
+  background-color: rgba(255, 215, 0, 0.18);
+  background-blend-mode: multiply;
 }
 
 .card:hover {
@@ -190,7 +192,8 @@ a {
 }
 
 .card:hover::before {
-  opacity: 0.22;
+  opacity: 0.28;
+  transform: translateY(-50%) scale(1.05);
 }
 
 .card:active {
@@ -199,7 +202,8 @@ a {
 }
 
 .card:active::before {
-  opacity: 0.22;
+  opacity: 0.28;
+  transform: translateY(-50%) scale(1.05);
 }
 
 .card-icon {
@@ -209,7 +213,7 @@ a {
   color: var(--accent);
   transition: color 0.3s ease;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .card:hover .card-icon {
@@ -227,7 +231,7 @@ a {
   margin-top: auto;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .card-badge {
@@ -258,7 +262,7 @@ a {
 /* Адаптивность для маленьких экранов */
 @media (max-width: 360px) {
   .card::before {
-    right: -12%;
+    right: -15%;
     transform: translateY(-50%) scale(0.88);
   }
 }
