@@ -54,15 +54,16 @@ function CategoryPageContent() {
       <div className="category-header">
         <button 
           onClick={() => router.push('/')}
-          className="back-button"
+          className="category-back-button"
         >
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Назад
         </button>
-        <h2 className="category-title">{category.title}</h2>
-        <p className="category-subtitle">{category.links.length} материалов</p>
+        <div>
+          <h2 className="category-title">{category.title}</h2>
+          <p className="category-subtitle">{category.links.length} материалов</p>
+        </div>
       </div>
       
       <div className="submenu-grid">

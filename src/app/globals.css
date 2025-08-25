@@ -201,12 +201,12 @@ a {
 /* Submenu Card - карточки для подменю */
 .submenu-card {
   position: relative;
-  padding: 18px 20px;
-  background: var(--surface-dark);
+  padding: 16px 20px;
+  background: var(--surface);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   text-align: left;
-  min-height: 80px;
+  min-height: 64px;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
@@ -269,13 +269,41 @@ a {
 /* Category Page Header */
 .category-header {
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.category-back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  background: rgba(245, 214, 122, 0.1);
+  border: 1px solid rgba(245, 214, 122, 0.2);
+}
+
+.category-back-button:hover {
+  color: var(--accent-hover);
+  background: rgba(245, 214, 122, 0.15);
+  transform: scale(1.05);
+}
+
+.category-back-button svg {
+  width: 18px;
+  height: 18px;
 }
 
 .category-title {
-  font-size: 24px;
-  font-weight: 900;
+  font-size: 20px;
+  font-weight: 800;
   color: var(--text);
-  margin: 0 0 4px 0;
+  margin: 0;
   letter-spacing: .2px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
