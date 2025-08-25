@@ -4,8 +4,12 @@
 
 :root {
   --bg: #1e0f1f;
+  --bg-top: #1E122B;
+  --bg-bottom: #3B294F;
   --surface: rgba(40, 30, 45, 0.8);
   --surface-dark: #1E1B1E;
+  --card-top: #2A1F3D;
+  --card-bottom: #3B294F;
   --text: #FFFFFF;
   --text-secondary: #DDDDDD;
   --muted: #B6B6B6;
@@ -13,6 +17,8 @@
   --accent-hover: #ffdf8a;
   --border: #E6C98B;
   --glow: rgba(230, 201, 139, 0.3);
+  --badge-border: #FFD700;
+  --badge-bg: rgba(255, 215, 0, 0.2);
   --shadow: 0 8px 24px rgba(0,0,0,.35);
   --radius: 16px;
   --gap: 24px;
@@ -38,7 +44,7 @@ body {
 body {
   min-height: 100vh;
   padding-bottom: calc(80px + env(safe-area-inset-bottom));
-  background: linear-gradient(135deg, #1e0f1f 0%, #2a1a2a 25%, #3a2a3a 50%, #4a3a4a 75%, #c7a77a 100%);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
   background-attachment: fixed;
   position: relative;
 }
@@ -86,7 +92,7 @@ a {
 .header {
   display: flex;
   align-items: center;
-  padding: 24px 0 16px;
+  padding: 32px 0 16px;
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
@@ -131,9 +137,9 @@ a {
 .card {
   position: relative;
   padding: 20px;
-  background: var(--surface);
+  background: linear-gradient(135deg, var(--card-top) 0%, var(--card-bottom) 100%);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow), 0 0 20px var(--glow), inset 0 2px 4px rgba(255, 255, 255, 0.1);
   text-align: left;
   min-height: 160px;
   transition: all 0.3s ease;
@@ -142,17 +148,16 @@ a {
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(10px);
-  box-shadow: var(--shadow), 0 0 20px var(--glow);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(245, 214, 122, 0.15), 0 0 30px var(--glow);
+  transform: translateY(-4px) scale(0.97);
+  box-shadow: 0 20px 50px rgba(245, 214, 122, 0.15), 0 0 40px var(--glow), inset 0 2px 4px rgba(255, 255, 255, 0.1);
   border: 1.5px solid var(--accent);
 }
 
 .card:active {
-  transform: scale(.98);
+  transform: scale(0.97);
   box-shadow: 0 0 0 1px var(--accent) inset;
 }
 
@@ -183,22 +188,24 @@ a {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: var(--accent);
-  color: #000;
-  width: 28px;
-  height: 28px;
+  background: var(--badge-bg);
+  color: var(--badge-border);
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 12px;
-  box-shadow: 0 4px 12px rgba(245, 214, 122, 0.4), 0 0 0 1px rgba(245, 214, 122, 0.2);
+  font-size: 10px;
+  border: 1px solid var(--badge-border);
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 .card:hover .card-badge {
-  box-shadow: 0 6px 18px rgba(245, 214, 122, 0.6), 0 0 0 1px rgba(245, 214, 122, 0.4);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+  transform: scale(1.05);
 }
 
 /* Submenu Card - карточки для подменю */
@@ -359,6 +366,17 @@ a {
   backdrop-filter: blur(20px);
 }
 
+.tabbar::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(26, 26, 26, 0.4) 100%);
+  pointer-events: none;
+}
+
 .tab {
   display: flex;
   align-items: center;
@@ -381,7 +399,7 @@ a {
   color: var(--text);
   outline: 2px solid var(--accent);
   background: rgba(245, 214, 122, 0.15);
-  box-shadow: 0 6px 20px rgba(245, 214, 122, 0.3), 0 0 0 1px rgba(245, 214, 122, 0.3);
+  box-shadow: 0 6px 20px rgba(245, 214, 122, 0.4), 0 0 0 1px rgba(245, 214, 122, 0.3);
 }
 
 .tab svg {
