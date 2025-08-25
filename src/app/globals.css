@@ -181,13 +181,11 @@ a {
   z-index: 1;
   filter: brightness(1.4) contrast(1.2) saturate(1.1);
   transition: all 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.1);
-  background-blend-mode: overlay;
 }
 
 /* Поднятие иконки замка для карточки "Секретные материалы" */
 .card[data-category="secret"]::before {
-  transform: translateY(-8%) scale(1.0);
+  transform: translateY(-12%) scale(1.0);
 }
 
 .card:hover {
@@ -204,7 +202,7 @@ a {
 
 .card[data-category="secret"]:hover::before {
   opacity: 0.8;
-  transform: translateY(-8%) scale(1.05);
+  transform: translateY(-12%) scale(1.05);
   filter: brightness(1.6) contrast(1.3) saturate(1.2);
 }
 
@@ -221,7 +219,7 @@ a {
 
 .card[data-category="secret"]:active::before {
   opacity: 0.8;
-  transform: translateY(-8%) scale(1.05);
+  transform: translateY(-12%) scale(1.05);
   filter: brightness(1.6) contrast(1.3) saturate(1.2);
 }
 
@@ -288,15 +286,15 @@ a {
   }
   
   .card[data-category="secret"]::before {
-    transform: translateY(-6%) scale(1.0);
+    transform: translateY(-10%) scale(1.0);
   }
   
   .card[data-category="secret"]:hover::before {
-    transform: translateY(-6%) scale(1.05);
+    transform: translateY(-10%) scale(1.05);
   }
   
   .card[data-category="secret"]:active::before {
-    transform: translateY(-6%) scale(1.05);
+    transform: translateY(-10%) scale(1.05);
   }
 }
 
