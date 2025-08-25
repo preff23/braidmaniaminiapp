@@ -3,7 +3,6 @@
 import { useParams, useRouter } from 'next/navigation';
 import { Suspense } from 'react';
 import Header from '@/components/Header';
-import LinkPill from '@/components/LinkPill';
 import TabBar from '@/components/TabBar';
 import { HomeIcon, StarIcon } from '@/components/Icons';
 import { categories } from '@/data/categories';
@@ -24,7 +23,7 @@ function CategoryPageContent() {
           <h2 className="text-xl font-bold mb-4">Категория не найдена</h2>
           <button 
             onClick={() => router.push('/')}
-            className="link-button px-6 py-3"
+            className="back-button"
           >
             ← Назад
           </button>
@@ -39,28 +38,50 @@ function CategoryPageContent() {
     );
   }
 
+  const open = (url: string) => {
+    const telegram = window.Telegram?.WebApp;
+    if (telegram?.openTelegramLink) {
+      telegram.openTelegramLink(url);
+    } else {
+      window.open(url, '_blank');
+    }
+  };
+
   return (
     <div className="container">
       <Header />
       
-      <div className="mb-6">
+      <div className="category-header">
         <button 
           onClick={() => router.push('/')}
-          className="link-button mb-4"
+          className="back-button"
         >
-          ← Назад
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Назад
         </button>
-        <h2 className="text-xl font-bold mb-2">{category.title}</h2>
-        <p className="text-muted">{category.links.length} материалов</p>
+        <h2 className="category-title">{category.title}</h2>
+        <p className="category-subtitle">{category.links.length} материалов</p>
       </div>
       
-      <div className="space-y-2 mb-20">
+      <div className="link-list">
         {category.links.map((link, index) => (
-          <LinkPill
+          <div
             key={index}
-            label={link.title}
-            url={link.url}
-          />
+            className="link-item"
+            onClick={() => open(link.url)}
+          >
+            <div className="link-item-left">
+              <div className="link-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <div className="link-item-text">{link.title}</div>
+            </div>
+            <div className="link-item-arrow">→</div>
+          </div>
         ))}
       </div>
       
