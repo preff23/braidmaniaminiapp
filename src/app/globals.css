@@ -3,26 +3,27 @@
 @tailwind utilities;
 
 :root {
-  /* Colors */
-  --bg: #0F0F10;
-  --card: #17181A;
-  --card-hover: #1D1F22;
+  /* Colors - ХЛБ стиль */
+  --bg: #000000;
+  --bg-gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  --card: #111111;
+  --card-hover: #1a1a1a;
   --text-primary: #FFFFFF;
-  --text-secondary: #C9CBD1;
+  --text-secondary: #CCCCCC;
   
-  /* Accents */
-  --accent: #E7B980;
-  --accent-2: #D7A067;
-  --accent-3: #F0D2B2;
+  /* Accents - оранжевые */
+  --accent: #FF6A00;
+  --accent-hover: #FF8533;
+  --accent-light: rgba(255, 106, 0, 0.1);
   
   /* Radius */
-  --r-lg: 20px;
-  --r-md: 14px;
-  --r-sm: 10px;
+  --r-lg: 16px;
+  --r-md: 12px;
+  --r-sm: 8px;
   
-  /* Glow */
-  --glow: 0 0 0 1px rgba(231,185,128,0.12), 0 10px 30px rgba(231,185,128,0.10);
-  --glow-hover: 0 0 0 1px rgba(231,185,128,0.20), 0 15px 40px rgba(231,185,128,0.15);
+  /* Shadows */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 8px 30px rgba(255, 106, 0, 0.15);
 }
 
 * {
@@ -35,7 +36,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--bg);
+  background: var(--bg-gradient);
   color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -44,7 +45,6 @@ body {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--bg) 0%, #1a1a1d 100%);
 }
 
 a {
@@ -78,74 +78,80 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-3);
+  background: var(--accent);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-2);
+  background: var(--accent-hover);
 }
 
-/* Premium card effects */
-.premium-card {
-  background: linear-gradient(135deg, var(--card) 0%, var(--card-hover) 100%);
-  border: 1px solid rgba(231,185,128,0.18);
-  box-shadow: var(--glow);
+/* ХЛБ стиль карточек */
+.hlb-card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
-.premium-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(231,185,128,0.3), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.premium-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--glow-hover);
-  border-color: rgba(231,185,128,0.25);
-}
-
-.premium-card:hover::before {
-  opacity: 1;
-}
-
-/* Premium pill effects */
-.premium-pill {
-  background: linear-gradient(135deg, rgba(231,185,128,0.12) 0%, rgba(231,185,128,0.08) 100%);
-  border: 1px solid var(--accent-3);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.premium-pill::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(231,185,128,0.1), transparent);
-  transition: left 0.5s ease;
-}
-
-.premium-pill:hover {
-  background: linear-gradient(135deg, rgba(231,185,128,0.20) 0%, rgba(231,185,128,0.15) 100%);
+.hlb-card:hover {
   border-color: var(--accent);
-  transform: translateX(2px);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
 }
 
-.premium-pill:hover::before {
-  left: 100%;
+/* ХЛБ стиль кнопок */
+.hlb-button {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--r-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hlb-button:hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  transform: translateX(4px);
+}
+
+/* ХЛБ стиль поиска */
+.hlb-search {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--r-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hlb-search:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.1);
+}
+
+/* ХЛБ стиль навигации */
+.hlb-nav {
+  background: var(--card);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.hlb-nav-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hlb-nav-button.active {
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: bold;
+}
+
+.hlb-nav-button:not(.active):hover {
+  background: var(--accent-light);
+  color: var(--accent);
 }
 
 /* Smooth animations */

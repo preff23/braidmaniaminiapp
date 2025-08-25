@@ -14,27 +14,23 @@ export default function Tabs() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 premium-card border-t border-accent/18 px-4 py-3 z-50 backdrop-blur-sm">
+    <div className="fixed bottom-0 left-0 right-0 hlb-nav px-4 py-3 z-50">
       <div className="flex gap-2 max-w-md mx-auto">
         <button
           onClick={() => handleTabClick('/')}
-          className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
-            isMain
-              ? 'bg-accent text-bg font-bold shadow-lg'
-              : 'bg-transparent text-text-secondary hover:text-text-primary hover:bg-card-hover'
+          className={`hlb-nav-button flex-1 py-3 px-4 rounded-lg font-medium ${
+            isMain ? 'active' : ''
           }`}
         >
-          Главная
+          🏠 Главное
         </button>
         <button
           onClick={() => handleTabClick('/useful')}
-          className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
-            isUseful
-              ? 'bg-accent text-bg font-bold shadow-lg'
-              : 'bg-transparent text-text-secondary hover:text-text-primary hover:bg-card-hover'
+          className={`hlb-nav-button flex-1 py-3 px-4 rounded-lg font-medium ${
+            isUseful ? 'active' : ''
           }`}
         >
-          Полезное
+          🌟 Полезное
         </button>
       </div>
     </div>

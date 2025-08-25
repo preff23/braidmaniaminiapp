@@ -16,12 +16,12 @@ export default function LinkPill({ label, url }: LinkPillProps) {
   return (
     <button
       onClick={handleClick}
-      className="premium-pill group flex items-center justify-between w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50"
+      className="hlb-button group flex items-center justify-between w-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50"
     >
-      <span className="text-text-primary text-sm font-medium truncate">
+      <span className="text-text-primary text-sm font-medium leading-relaxed">
         {label}
       </span>
-      <span className="text-accent text-lg font-bold ml-2 group-hover:translate-x-1 transition-transform duration-300">
+      <span className="text-accent text-lg font-bold ml-3 group-hover:translate-x-1 transition-transform duration-300">
         →
       </span>
     </button>

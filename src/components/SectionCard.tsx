@@ -3,28 +3,29 @@ import LinkPill from './LinkPill';
 interface SectionCardProps {
   title: string;
   items: Array<{ label: string; url: string }>;
+  icon: string;
 }
 
-export default function SectionCard({ title, items }: SectionCardProps) {
+export default function SectionCard({ title, items, icon }: SectionCardProps) {
   return (
-    <div className="premium-card rounded-lg relative overflow-hidden fade-in-up">
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none" />
-      
-      <div className="relative p-6">
-        <h2 className="text-text-primary text-lg font-bold mb-4 tracking-wide">
+    <div className="hlb-card p-4 fade-in-up">
+      <div className="flex items-center mb-4">
+        <div className="text-2xl mr-3 text-accent">
+          {icon}
+        </div>
+        <h2 className="text-text-primary text-lg font-bold tracking-wide">
           {title}
         </h2>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {items.map((item, index) => (
-            <LinkPill
-              key={index}
-              label={item.label}
-              url={item.url}
-            />
-          ))}
-        </div>
+      </div>
+      
+      <div className="space-y-2">
+        {items.map((item, index) => (
+          <LinkPill
+            key={index}
+            label={item.label}
+            url={item.url}
+          />
+        ))}
       </div>
     </div>
   );

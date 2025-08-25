@@ -30,17 +30,22 @@ function UsefulPageContent() {
   return (
     <div className="container mx-auto px-4 py-6">
       <PageHeader 
-        title="Полезное" 
+        title="ПОЛЕЗНОЕ" 
         subtitle="Работы учеников и дополнительные материалы" 
       />
       
-      <div className="space-y-6">
+      <div className="space-y-4">
         {/* Работы учеников */}
-        <div>
-          <h2 className="text-text-primary text-lg font-bold mb-4">
-            Работы учеников
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="hlb-card p-4 fade-in-up">
+          <div className="flex items-center mb-4">
+            <div className="text-2xl mr-3 text-accent">
+              🎨
+            </div>
+            <h2 className="text-text-primary text-lg font-bold tracking-wide">
+              Работы учеников
+            </h2>
+          </div>
+          <div className="space-y-2">
             {studentWorks.map((item, index) => (
               <LinkPill
                 key={index}
@@ -53,11 +58,16 @@ function UsefulPageContent() {
 
         {/* Другие материалы */}
         {otherItems.length > 0 && (
-          <div>
-            <h2 className="text-text-primary text-lg font-bold mb-4">
-              Дополнительно
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="hlb-card p-4 fade-in-up">
+            <div className="flex items-center mb-4">
+              <div className="text-2xl mr-3 text-accent">
+                👋
+              </div>
+              <h2 className="text-text-primary text-lg font-bold tracking-wide">
+                Знакомство
+              </h2>
+            </div>
+            <div className="space-y-2">
               {otherItems.map((item, index) => (
                 <LinkPill
                   key={index}
@@ -77,7 +87,7 @@ export default function UsefulPage() {
   return (
     <Suspense fallback={
       <div className="container mx-auto px-4 py-6">
-        <PageHeader title="Полезное" subtitle="Загрузка..." />
+        <PageHeader title="ПОЛЕЗНОЕ" subtitle="Загрузка..." />
         <div className="space-y-4">
           {[1, 2, 3, 4, 5].map((i) => (
             <Skeleton key={i} className="h-12" />

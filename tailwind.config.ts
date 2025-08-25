@@ -15,8 +15,8 @@ const config: Config = {
         'text-primary': 'var(--text-primary)',
         'text-secondary': 'var(--text-secondary)',
         accent: 'var(--accent)',
-        'accent-2': 'var(--accent-2)',
-        'accent-3': 'var(--accent-3)',
+        'accent-hover': 'var(--accent-hover)',
+        'accent-light': 'var(--accent-light)',
       },
       borderRadius: {
         'lg': 'var(--r-lg)',
@@ -24,7 +24,8 @@ const config: Config = {
         'sm': 'var(--r-sm)',
       },
       boxShadow: {
-        'glow': 'var(--glow)',
+        'card': 'var(--shadow-card)',
+        'hover': 'var(--shadow-hover)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
