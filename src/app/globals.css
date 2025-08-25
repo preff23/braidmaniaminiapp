@@ -167,21 +167,21 @@ a {
 .card::before {
   content: '';
   position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%) scale(1.0);
-  width: 80px;
-  height: 80px;
+  bottom: -5%;
+  right: -10%;
+  transform: scale(1.0);
+  width: 90%;
+  height: 90%;
   background-image: var(--bg-icon);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.18;
+  opacity: 0.4;
   pointer-events: none;
   z-index: 1;
-  filter: brightness(1.15) contrast(1.05);
+  filter: brightness(1.2);
   transition: all 0.3s ease;
-  background-color: rgba(255, 215, 0, 0.18);
+  background-color: rgba(255, 215, 0, 0.35);
   background-blend-mode: multiply;
 }
 
@@ -192,8 +192,8 @@ a {
 }
 
 .card:hover::before {
-  opacity: 0.28;
-  transform: translateY(-50%) scale(1.05);
+  opacity: 0.5;
+  transform: scale(1.05);
 }
 
 .card:active {
@@ -202,8 +202,8 @@ a {
 }
 
 .card:active::before {
-  opacity: 0.28;
-  transform: translateY(-50%) scale(1.05);
+  opacity: 0.5;
+  transform: scale(1.05);
 }
 
 .card-icon {
@@ -262,9 +262,10 @@ a {
 /* Адаптивность для маленьких экранов */
 @media (max-width: 360px) {
   .card::before {
-    width: 60px;
-    height: 60px;
-    right: 15px;
+    width: 85%;
+    height: 85%;
+    right: -8%;
+    bottom: -3%;
   }
 }
 
