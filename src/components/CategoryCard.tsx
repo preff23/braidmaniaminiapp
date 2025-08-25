@@ -4,26 +4,31 @@ import React from 'react';
 
 interface CategoryCardProps {
   title: string;
-  count: number;
+  links: Array<{ title: string; url: string }>;
   onClick: () => void;
   backgroundIcon?: string;
+  categoryKey?: string;
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ 
   title, 
-  count, 
+  links, 
   onClick,
-  backgroundIcon 
+  backgroundIcon,
+  categoryKey
 }) => {
   const cardStyle = backgroundIcon ? {
     '--bg-icon': `url(${backgroundIcon})`
   } as React.CSSProperties : {};
+
+  const count = links?.length ?? 0;
 
   return (
     <div 
       className="card" 
       onClick={onClick}
       style={cardStyle}
+      data-category={categoryKey}
       aria-hidden={backgroundIcon ? "false" : "true"}
     >
       <div className="card-badge">{count}</div>

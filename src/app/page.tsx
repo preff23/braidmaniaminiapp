@@ -17,8 +17,9 @@ function HomePageContent() {
           <CategoryCard
             key={category.key}
             title={category.title}
-            count={category.links.length}
+            links={category.links}
             backgroundIcon={category.backgroundIcon}
+            categoryKey={category.key}
             onClick={() => {
               window.location.href = `/category/${category.key}`;
             }}

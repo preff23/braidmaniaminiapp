@@ -6,7 +6,7 @@ import Header from '@/components/Header';
 import CategoryCard from '@/components/CategoryCard';
 import TabBar from '@/components/TabBar';
 import { HomeIcon, StarIcon } from '@/components/Icons';
-import { USEFUL_PAGE } from '@/data/content';
+import { extraSections } from '@/data/categories';
 
 function UsefulPageContent() {
   const searchParams = useSearchParams();
@@ -18,14 +18,6 @@ function UsefulPageContent() {
       window.location.href = '/';
     }
   }, [searchParams]);
-
-  // Группируем работы учеников
-  const studentWorks = USEFUL_PAGE.items.filter(item => 
-    item.label.includes('Работы учеников')
-  );
-  const otherItems = USEFUL_PAGE.items.filter(item => 
-    !item.label.includes('Работы учеников')
-  );
 
   const open = (url: string) => {
     const telegram = window.Telegram?.WebApp;
@@ -41,33 +33,21 @@ function UsefulPageContent() {
       <Header />
       
       <div className="grid">
-        {/* Работы учеников */}
-        <CategoryCard
-          title="Работы учеников"
-          backgroundIcon="/photo/image.png"
-          count={studentWorks.length}
-          onClick={() => {
-            // Открываем первую ссылку из работ учеников
-            if (studentWorks.length > 0) {
-              open(studentWorks[0].url);
-            }
-          }}
-        />
-
-        {/* Знакомство */}
-        {otherItems.length > 0 && (
+        {extraSections.map((section) => (
           <CategoryCard
-            title="Знакомство"
-            backgroundIcon="/photo/users.png"
-            count={otherItems.length}
+            key={section.key}
+            title={section.title}
+            links={section.links}
+            backgroundIcon={section.backgroundIcon}
+            categoryKey={section.key}
             onClick={() => {
-              // Открываем первую ссылку из знакомства
-              if (otherItems.length > 0) {
-                open(otherItems[0].url);
+              // Открываем первую ссылку из секции
+              if (section.links.length > 0) {
+                open(section.links[0].url);
               }
             }}
           />
-        )}
+        ))}
       </div>
       
       <TabBar
