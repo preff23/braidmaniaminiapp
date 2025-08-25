@@ -3,7 +3,6 @@ export default function Header() {
     <header className="header">
       <div className="titles">
         <h1>Braid Mania</h1>
-        <div className="subtitle">мини-приложение</div>
       </div>
     </header>
   );
