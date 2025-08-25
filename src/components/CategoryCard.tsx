@@ -1,20 +1,34 @@
 'use client';
 
-import { ReactNode } from 'react';
+import React from 'react';
 
 interface CategoryCardProps {
   title: string;
-  icon: ReactNode;
   count: number;
   onClick: () => void;
+  backgroundIcon?: string;
 }
 
-export default function CategoryCard({ title, icon, count, onClick }: CategoryCardProps) {
+const CategoryCard: React.FC<CategoryCardProps> = ({ 
+  title, 
+  count, 
+  onClick,
+  backgroundIcon 
+}) => {
+  const cardStyle = backgroundIcon ? {
+    '--bg-icon': `url(${backgroundIcon})`
+  } as React.CSSProperties : {};
+
   return (
-    <button className="card" onClick={onClick}>
+    <div 
+      className="card" 
+      onClick={onClick}
+      style={cardStyle}
+    >
       <div className="card-badge">{count}</div>
-      <div className="card-icon">{icon}</div>
       <div className="card-title">{title}</div>
-    </button>
+    </div>
   );
-}
+};
+
+export default CategoryCard;

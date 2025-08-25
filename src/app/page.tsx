@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { Suspense } from 'react';
 import Header from '@/components/Header';
 import CategoryCard from '@/components/CategoryCard';
 import TabBar from '@/components/TabBar';
@@ -9,21 +8,6 @@ import { HomeIcon, StarIcon } from '@/components/Icons';
 import { categories } from '@/data/categories';
 
 function HomePageContent() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-
-  useEffect(() => {
-    // Обработка параметра startapp
-    const startapp = searchParams.get('startapp');
-    if (startapp === 'useful') {
-      router.push('/useful');
-    }
-  }, [searchParams, router]);
-
-  const handleCategoryClick = (categoryKey: string) => {
-    router.push(`/category/${categoryKey}`);
-  };
-
   return (
     <div className="container">
       <Header />
@@ -33,9 +17,11 @@ function HomePageContent() {
           <CategoryCard
             key={category.key}
             title={category.title}
-            icon={category.icon}
             count={category.links.length}
-            onClick={() => handleCategoryClick(category.key)}
+            backgroundIcon={category.backgroundIcon}
+            onClick={() => {
+              window.location.href = `/category/${category.key}`;
+            }}
           />
         ))}
       </div>
@@ -59,7 +45,6 @@ export default function HomePage() {
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <div key={i} className="card">
               <div className="card-badge">0</div>
-              <div className="card-icon"></div>
               <div className="card-title">Загрузка...</div>
             </div>
           ))}

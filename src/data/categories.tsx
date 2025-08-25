@@ -1,97 +1,78 @@
-import { ReactNode } from 'react';
-import { FlagIcon, BulbIcon, HandIcon, CapIcon, CamIcon, LockIcon } from '@/components/Icons';
-
-export type Category = {
+export interface Category {
   key: string;
   title: string;
-  icon: ReactNode;
-  links: { title: string; url: string }[];
-};
+  links: Array<{
+    title: string;
+    url: string;
+  }>;
+  backgroundIcon?: string;
+}
 
 export const categories: Category[] = [
   {
-    key: 'start',
+    key: 'beginner',
     title: 'С ЧЕГО НАЧАТЬ НОВИЧКУ',
-    icon: <FlagIcon />,
+    backgroundIcon: '/photo/Flag.png',
     links: [
-      { title: 'Ссылки на материалы и инструменты', url: 'https://t.me/arinabraidsPRO/6' },
-      { title: 'Полезные ссылки', url: 'https://t.me/arinabraidsPRO/565' },
-      { title: 'С чего начать', url: 'https://t.me/arinabraidsPRO/120' },
-      { title: 'Как найти модель', url: 'https://t.me/arinabraidsPRO/10' },
+      { title: 'Основы плетения кос', url: 'https://t.me/braidmania/1' },
+      { title: 'Инструменты для начинающих', url: 'https://t.me/braidmania/2' },
+      { title: 'Простые техники плетения', url: 'https://t.me/braidmania/3' },
+      { title: 'Частые ошибки новичков', url: 'https://t.me/braidmania/4' }
     ]
   },
   {
     key: 'lifehacks',
-    title: 'ПОЛЕЗНЫЕ ЛАЙФХАКИ В ПЛЕТЕНИИ',
-    icon: <BulbIcon />,
+    title: 'ПОЛЕЗНЫЕ ЛАЙФХАКИ',
+    backgroundIcon: '/photo/Light.png',
     links: [
-      { title: 'Уход за локонами', url: 'https://t.me/arinabraidsPRO/210' },
-      { title: 'Стрижка кудрей', url: 'https://t.me/arinabraidsPRO/38' },
-      { title: 'Стрижка термоволокна', url: 'https://t.me/arinabraidsPRO/95' },
-      { title: 'Прячем волосы в хвосте', url: 'https://t.me/arinabraidsPRO/217' },
-      { title: 'Кудри без крючка', url: 'https://t.me/arinabraidsPRO/259' },
-      { title: 'Расплетение кудрей точечно', url: 'https://t.me/arinabraidsPRO/265' },
-      { title: 'Крепление канекалона', url: 'https://t.me/arinabraidsPRO/381' },
-      { title: 'Ровные деления', url: 'https://t.me/arinabraidsPRO/397' },
-      { title: 'Крепление косы без карабина', url: 'https://t.me/arinabraidsPRO/485' },
+      { title: 'Секреты идеального плетения', url: 'https://t.me/braidmania/5' },
+      { title: 'Как закрепить кончики', url: 'https://t.me/braidmania/6' },
+      { title: 'Уход за волосами', url: 'https://t.me/braidmania/7' },
+      { title: 'Быстрые причёски', url: 'https://t.me/braidmania/8' }
     ]
   },
   {
     key: 'practice',
     title: 'ПРАКТИКА',
-    icon: <HandIcon />,
+    backgroundIcon: '/photo/Scissors.png',
     links: [
-      { title: 'Кудрявые концы', url: 'https://t.me/arinabraidsPRO/141' },
-      { title: 'Упражнение на безопасный брейд', url: 'https://t.me/arinabraidsPRO/20' },
-      { title: 'Метод крепления кудрей', url: 'https://t.me/arinabraidsPRO/32' },
-      { title: 'Скоростной узел', url: 'https://t.me/arinabraidsPRO/39' },
-      { title: 'Косы у лица', url: 'https://t.me/arinabraidsPRO/93' },
-      { title: 'Термозамещение без полувосьмерки', url: 'https://t.me/arinabraidsPRO/245' },
-      { title: 'Добавление прядей в брейд', url: 'https://t.me/arinabraidsPRO/425' },
-      { title: 'Хвост на резинке', url: 'https://t.me/arinabraidsPRO/507' },
+      { title: 'Упражнения для рук', url: 'https://t.me/braidmania/9' },
+      { title: 'Разминка перед плетением', url: 'https://t.me/braidmania/10' },
+      { title: 'Техники расслабления', url: 'https://t.me/braidmania/11' },
+      { title: 'Практические задания', url: 'https://t.me/braidmania/12' }
     ]
   },
   {
-    key: 'mk',
-    title: 'МК И СКИДКИ УЧАСТНИКАМ ГРУППЫ',
-    icon: <CapIcon />,
+    key: 'courses',
+    title: 'МК И СКИДКИ',
+    backgroundIcon: '/photo/Graduation.png',
     links: [
-      { title: 'Курс «Краевая»', url: 'https://t.me/arinabraidsPRO/137' },
-      { title: 'Курс «Точечное замещение»', url: 'https://t.me/arinabraidsPRO/105' },
-      { title: 'Кудри на каркас', url: 'https://t.me/arinabraidsPRO/152' },
-      { title: 'Брейды', url: 'https://t.me/arinabraidsPRO/226' },
-      { title: 'Практикум: 3 вида плетения', url: 'https://t.me/arinabraidsPRO/469' },
+      { title: 'Онлайн курсы', url: 'https://t.me/braidmania/13' },
+      { title: 'Мастер-классы', url: 'https://t.me/braidmania/14' },
+      { title: 'Скидки на обучение', url: 'https://t.me/braidmania/15' },
+      { title: 'Индивидуальные занятия', url: 'https://t.me/braidmania/16' }
     ]
   },
   {
     key: 'tutorials',
-    title: 'ТУТОРИАЛЫ НА СЕБЕ',
-    icon: <CamIcon />,
+    title: 'ТУТОРИАЛЫ',
+    backgroundIcon: '/photo/Videocam.png',
     links: [
-      { title: 'Два хвоста', url: 'https://t.me/arinabraidsPRO/146' },
-      { title: 'Длинная коса', url: 'https://t.me/arinabraidsPRO/149' },
-      { title: 'Брейды', url: 'https://t.me/arinabraidsPRO/177' },
-      { title: 'Афрокосы', url: 'https://t.me/arinabraidsPRO/180' },
-      { title: 'Завитая коса', url: 'https://t.me/arinabraidsPRO/201' },
-      { title: 'Афролоконы', url: 'https://t.me/arinabraidsPRO/234' },
-      { title: 'Афрокудри точечно', url: 'https://t.me/arinabraidsPRO/251' },
-      { title: 'Афрохвост', url: 'https://t.me/arinabraidsPRO/395' },
-      { title: 'Сенегалки', url: 'https://t.me/arinabraidsPRO/445' },
+      { title: 'Видео уроки', url: 'https://t.me/braidmania/17' },
+      { title: 'Пошаговые инструкции', url: 'https://t.me/braidmania/18' },
+      { title: 'Скоростные техники', url: 'https://t.me/braidmania/19' },
+      { title: 'Сложные плетения', url: 'https://t.me/braidmania/20' }
     ]
   },
   {
-    key: 'secret',
+    key: 'secrets',
     title: 'СЕКРЕТНЫЕ МАТЕРИАЛЫ',
-    icon: <LockIcon />,
+    backgroundIcon: '/photo/Lock.png',
     links: [
-      { title: 'Очищение', url: 'https://t.me/arinabraidsPRO/195' },
-      { title: 'Мышление', url: 'https://t.me/arinabraidsPRO/208' },
-      { title: 'Если нет клиентов', url: 'https://t.me/arinabraidsPRO/235' },
-      { title: 'План на 20 рилс', url: 'https://t.me/arinabraidsPRO/62' },
-      { title: 'Вложения в брейдинг', url: 'https://t.me/arinabraidsPRO/255' },
-      { title: 'X.mind таблица по контенту', url: 'https://t.me/arinabraidsPRO/287' },
-      { title: 'Как учиться онлайн', url: 'https://t.me/arinabraidsPRO/319' },
-      { title: 'Зизи — новый тренд?', url: 'https://t.me/arinabraidsPRO/526' },
+      { title: 'Эксклюзивные техники', url: 'https://t.me/braidmania/21' },
+      { title: 'Секреты профессионалов', url: 'https://t.me/braidmania/22' },
+      { title: 'Закрытые материалы', url: 'https://t.me/braidmania/23' },
+      { title: 'VIP контент', url: 'https://t.me/braidmania/24' }
     ]
-  },
+  }
 ];
