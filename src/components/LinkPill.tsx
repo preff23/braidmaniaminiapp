@@ -16,7 +16,7 @@ export default function LinkPill({ label, url }: LinkPillProps) {
   return (
     <button
       onClick={handleClick}
-      className="hlb-button group flex items-center justify-between w-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50"
+      className="hlb-link-button group flex items-center justify-between w-full px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent/50"
     >
       <span className="text-text-primary text-sm font-medium leading-relaxed">
         {label}

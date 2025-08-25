@@ -18,15 +18,15 @@ export default function Tabs() {
       <div className="flex gap-2 max-w-md mx-auto">
         <button
           onClick={() => handleTabClick('/')}
-          className={`hlb-nav-button flex-1 py-3 px-4 rounded-lg font-medium ${
+          className={`hlb-nav-button flex-1 py-3 px-4 rounded-lg font-medium relative ${
             isMain ? 'active' : ''
           }`}
         >
-          🏠 Главное
+          🏠 Главная
         </button>
         <button
           onClick={() => handleTabClick('/useful')}
-          className={`hlb-nav-button flex-1 py-3 px-4 rounded-lg font-medium ${
+          className={`hlb-nav-button flex-1 py-3 px-4 rounded-lg font-medium relative ${
             isUseful ? 'active' : ''
           }`}
         >

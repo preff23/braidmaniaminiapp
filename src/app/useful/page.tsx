@@ -34,17 +34,18 @@ function UsefulPageContent() {
         subtitle="Работы учеников и дополнительные материалы" 
       />
       
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Работы учеников */}
-        <div className="hlb-card p-4 fade-in-up">
-          <div className="flex items-center mb-4">
-            <div className="text-2xl mr-3 text-accent">
-              🎨
-            </div>
-            <h2 className="text-text-primary text-lg font-bold tracking-wide">
-              Работы учеников
-            </h2>
+        <div className="hlb-menu-card p-6 fade-in-up">
+          <div className="hlb-count-badge">
+            {studentWorks.length}
           </div>
+          <div className="text-4xl mb-4 text-text-primary opacity-80">
+            🎨
+          </div>
+          <h3 className="text-text-primary text-lg font-bold leading-tight mb-4">
+            Работы учеников
+          </h3>
           <div className="space-y-2">
             {studentWorks.map((item, index) => (
               <LinkPill
@@ -56,17 +57,18 @@ function UsefulPageContent() {
           </div>
         </div>
 
-        {/* Другие материалы */}
+        {/* Знакомство */}
         {otherItems.length > 0 && (
-          <div className="hlb-card p-4 fade-in-up">
-            <div className="flex items-center mb-4">
-              <div className="text-2xl mr-3 text-accent">
-                👋
-              </div>
-              <h2 className="text-text-primary text-lg font-bold tracking-wide">
-                Знакомство
-              </h2>
+          <div className="hlb-menu-card p-6 fade-in-up">
+            <div className="hlb-count-badge">
+              {otherItems.length}
             </div>
+            <div className="text-4xl mb-4 text-text-primary opacity-80">
+              👋
+            </div>
+            <h3 className="text-text-primary text-lg font-bold leading-tight mb-4">
+              Знакомство
+            </h3>
             <div className="space-y-2">
               {otherItems.map((item, index) => (
                 <LinkPill
@@ -88,9 +90,9 @@ export default function UsefulPage() {
     <Suspense fallback={
       <div className="container mx-auto px-4 py-6">
         <PageHeader title="ПОЛЕЗНОЕ" subtitle="Загрузка..." />
-        <div className="space-y-4">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <Skeleton key={i} className="h-12" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[1, 2].map((i) => (
+            <Skeleton key={i} className="h-32" />
           ))}
         </div>
       </div>

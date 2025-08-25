@@ -5,7 +5,7 @@
 :root {
   /* Colors - ХЛБ стиль */
   --bg: #000000;
-  --bg-gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  --bg-gradient: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
   --card: #111111;
   --card-hover: #1a1a1a;
   --text-primary: #FFFFFF;
@@ -17,13 +17,13 @@
   --accent-light: rgba(255, 106, 0, 0.1);
   
   /* Radius */
-  --r-lg: 16px;
-  --r-md: 12px;
-  --r-sm: 8px;
+  --r-lg: 20px;
+  --r-md: 16px;
+  --r-sm: 12px;
   
   /* Shadows */
-  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
-  --shadow-hover: 0 8px 30px rgba(255, 106, 0, 0.15);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 12px 40px rgba(255, 106, 0, 0.2);
 }
 
 * {
@@ -86,8 +86,8 @@ a {
   background: var(--accent-hover);
 }
 
-/* ХЛБ стиль карточек */
-.hlb-card {
+/* ХЛБ стиль карточек-меню */
+.hlb-menu-card {
   background: var(--card);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--r-lg);
@@ -95,26 +95,44 @@ a {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
-.hlb-card:hover {
+.hlb-menu-card:hover {
   border-color: var(--accent);
   box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 
-/* ХЛБ стиль кнопок */
-.hlb-button {
-  background: var(--card);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/* Оранжевый кружок с числом */
+.hlb-count-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--accent);
+  color: var(--text-primary);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+}
+
+/* ХЛБ стиль кнопок-ссылок */
+.hlb-link-button {
+  background: transparent;
+  border: none;
   border-radius: var(--r-md);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
-.hlb-button:hover {
-  border-color: var(--accent);
+.hlb-link-button:hover {
   background: var(--accent-light);
   transform: translateX(4px);
 }
@@ -144,13 +162,22 @@ a {
 }
 
 .hlb-nav-button.active {
+  color: var(--accent);
+}
+
+.hlb-nav-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
   background: var(--accent);
-  color: var(--bg);
-  font-weight: bold;
+  border-radius: 1px;
 }
 
 .hlb-nav-button:not(.active):hover {
-  background: var(--accent-light);
   color: var(--accent);
 }
 

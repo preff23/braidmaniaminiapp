@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PageHeader from '@/components/PageHeader';
 import SearchInput from '@/components/SearchInput';
-import SectionCard from '@/components/SectionCard';
+import MenuCard from '@/components/MenuCard';
 import Skeleton from '@/components/Skeleton';
 import { MAIN_SECTIONS } from '@/data/content';
 
@@ -16,6 +16,16 @@ const CATEGORY_ICONS = {
   'МК И СКИДКИ УЧАСТНИКАМ ГРУППЫ': '🎓',
   'ТУТОРИАЛЫ НА СЕБЕ': '📹',
   'СЕКРЕТНЫЕ МАТЕРИАЛЫ': '🔒',
+};
+
+// Маршруты для категорий
+const CATEGORY_ROUTES = {
+  'С ЧЕГО НАЧАТЬ НОВИЧКУ': '/category/beginner',
+  'ПОЛЕЗНЫЕ ЛАЙФХАКИ В ПЛЕТЕНИИ': '/category/lifehacks',
+  'ПРАКТИКА': '/category/practice',
+  'МК И СКИДКИ УЧАСТНИКАМ ГРУППЫ': '/category/courses',
+  'ТУТОРИАЛЫ НА СЕБЕ': '/category/tutorials',
+  'СЕКРЕТНЫЕ МАТЕРИАЛЫ': '/category/secrets',
 };
 
 function HomePageContent() {
@@ -50,19 +60,20 @@ function HomePageContent() {
   return (
     <div className="container mx-auto px-4 py-6">
       <PageHeader 
-        title="ХЛБ/МЕНЮ" 
+        title="Braid Mania" 
         subtitle="Полезные материалы по плетению косичек и брейдингу" 
       />
       
       <SearchInput onSearch={handleSearch} />
       
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {filteredSections.map((section, index) => (
-          <SectionCard
+          <MenuCard
             key={index}
             title={section.title}
-            items={section.items}
+            count={section.items.length}
             icon={CATEGORY_ICONS[section.title as keyof typeof CATEGORY_ICONS] || '📁'}
+            route={CATEGORY_ROUTES[section.title as keyof typeof CATEGORY_ROUTES] || '/category/default'}
           />
         ))}
       </div>
@@ -82,17 +93,10 @@ export default function HomePage() {
   return (
     <Suspense fallback={
       <div className="container mx-auto px-4 py-6">
-        <PageHeader title="ХЛБ/МЕНЮ" subtitle="Загрузка материалов..." />
-        <div className="space-y-4">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="space-y-4">
-              <Skeleton className="h-6 w-48" />
-              <div className="space-y-2">
-                {[1, 2, 3].map((j) => (
-                  <Skeleton key={j} className="h-12" />
-                ))}
-              </div>
-            </div>
+        <PageHeader title="Braid Mania" subtitle="Загрузка материалов..." />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <Skeleton key={i} className="h-32" />
           ))}
         </div>
       </div>
