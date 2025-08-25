@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Header from '@/components/Header';
 import CategoryCard from '@/components/CategoryCard';
@@ -9,7 +9,6 @@ import { HomeIcon, StarIcon } from '@/components/Icons';
 import { categories } from '@/data/categories';
 
 function HomePageContent() {
-  const [filteredCategories, setFilteredCategories] = useState(categories);
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -21,22 +20,6 @@ function HomePageContent() {
     }
   }, [searchParams, router]);
 
-  const handleSearch = (query: string) => {
-    if (!query.trim()) {
-      setFilteredCategories(categories);
-      return;
-    }
-
-    const filtered = categories.map(category => ({
-      ...category,
-      links: category.links.filter(link =>
-        link.title.toLowerCase().includes(query.toLowerCase())
-      )
-    })).filter(category => category.links.length > 0);
-
-    setFilteredCategories(filtered);
-  };
-
   const handleCategoryClick = (categoryKey: string) => {
     router.push(`/category/${categoryKey}`);
   };
@@ -45,17 +28,8 @@ function HomePageContent() {
     <div className="container">
       <Header />
       
-      <div className="mb-6">
-        <input
-          type="text"
-          placeholder="Поиск по материалам…"
-          onChange={(e) => handleSearch(e.target.value)}
-          className="search"
-        />
-      </div>
-      
       <div className="grid">
-        {filteredCategories.map((category) => (
+        {categories.map((category) => (
           <CategoryCard
             key={category.key}
             title={category.title}
@@ -65,12 +39,6 @@ function HomePageContent() {
           />
         ))}
       </div>
-      
-      {filteredCategories.length === 0 && (
-        <div className="text-center py-12">
-          <p className="text-muted">По вашему запросу ничего не найдено</p>
-        </div>
-      )}
       
       <TabBar
         items={[
