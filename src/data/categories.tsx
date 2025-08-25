@@ -12,7 +12,7 @@ export const categories: Category[] = [
   {
     key: 'beginner',
     title: 'С ЧЕГО НАЧАТЬ НОВИЧКУ',
-    backgroundIcon: '/photo/Flag.png',
+    backgroundIcon: '/photo/flag.png',
     links: [
       { title: 'Основы плетения кос', url: 'https://t.me/braidmania/1' },
       { title: 'Инструменты для начинающих', url: 'https://t.me/braidmania/2' },
@@ -23,7 +23,7 @@ export const categories: Category[] = [
   {
     key: 'lifehacks',
     title: 'ПОЛЕЗНЫЕ ЛАЙФХАКИ',
-    backgroundIcon: '/photo/Light.png',
+    backgroundIcon: '/photo/light.png',
     links: [
       { title: 'Секреты идеального плетения', url: 'https://t.me/braidmania/5' },
       { title: 'Как закрепить кончики', url: 'https://t.me/braidmania/6' },
@@ -34,7 +34,7 @@ export const categories: Category[] = [
   {
     key: 'practice',
     title: 'ПРАКТИКА',
-    backgroundIcon: '/photo/Scissors.png',
+    backgroundIcon: '/photo/scissors.png',
     links: [
       { title: 'Упражнения для рук', url: 'https://t.me/braidmania/9' },
       { title: 'Разминка перед плетением', url: 'https://t.me/braidmania/10' },
@@ -45,7 +45,7 @@ export const categories: Category[] = [
   {
     key: 'courses',
     title: 'МК И СКИДКИ',
-    backgroundIcon: '/photo/Graduation.png',
+    backgroundIcon: '/photo/graduation.png',
     links: [
       { title: 'Онлайн курсы', url: 'https://t.me/braidmania/13' },
       { title: 'Мастер-классы', url: 'https://t.me/braidmania/14' },
@@ -56,7 +56,7 @@ export const categories: Category[] = [
   {
     key: 'tutorials',
     title: 'ТУТОРИАЛЫ',
-    backgroundIcon: '/photo/Videocam.png',
+    backgroundIcon: '/photo/videocam.png',
     links: [
       { title: 'Видео уроки', url: 'https://t.me/braidmania/17' },
       { title: 'Пошаговые инструкции', url: 'https://t.me/braidmania/18' },
@@ -67,7 +67,7 @@ export const categories: Category[] = [
   {
     key: 'secrets',
     title: 'СЕКРЕТНЫЕ МАТЕРИАЛЫ',
-    backgroundIcon: '/photo/Lock.png',
+    backgroundIcon: '/photo/lock.png',
     links: [
       { title: 'Эксклюзивные техники', url: 'https://t.me/braidmania/21' },
       { title: 'Секреты профессионалов', url: 'https://t.me/braidmania/22' },

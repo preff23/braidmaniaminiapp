@@ -44,7 +44,7 @@ function UsefulPageContent() {
         {/* Работы учеников */}
         <CategoryCard
           title="Работы учеников"
-          backgroundIcon="/photo/Image.png"
+          backgroundIcon="/photo/image.png"
           count={studentWorks.length}
           onClick={() => {
             // Открываем первую ссылку из работ учеников
@@ -58,7 +58,7 @@ function UsefulPageContent() {
         {otherItems.length > 0 && (
           <CategoryCard
             title="Знакомство"
-            backgroundIcon="/photo/Users.png"
+            backgroundIcon="/photo/users.png"
             count={otherItems.length}
             onClick={() => {
               // Открываем первую ссылку из знакомства
