@@ -176,11 +176,13 @@ a {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.4;
+  opacity: 0.6;
   pointer-events: none;
   z-index: 1;
-  filter: brightness(1.2);
+  filter: brightness(1.4) contrast(1.2) saturate(1.1);
   transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  background-blend-mode: overlay;
 }
 
 /* Поднятие иконки замка для карточки "Секретные материалы" */
@@ -195,13 +197,15 @@ a {
 }
 
 .card:hover::before {
-  opacity: 0.5;
+  opacity: 0.8;
   transform: scale(1.05);
+  filter: brightness(1.6) contrast(1.3) saturate(1.2);
 }
 
 .card[data-category="secret"]:hover::before {
-  opacity: 0.5;
+  opacity: 0.8;
   transform: translateY(-8%) scale(1.05);
+  filter: brightness(1.6) contrast(1.3) saturate(1.2);
 }
 
 .card:active {
@@ -210,13 +214,15 @@ a {
 }
 
 .card:active::before {
-  opacity: 0.5;
+  opacity: 0.8;
   transform: scale(1.05);
+  filter: brightness(1.6) contrast(1.3) saturate(1.2);
 }
 
 .card[data-category="secret"]:active::before {
-  opacity: 0.5;
+  opacity: 0.8;
   transform: translateY(-8%) scale(1.05);
+  filter: brightness(1.6) contrast(1.3) saturate(1.2);
 }
 
 .card-icon {
@@ -378,19 +384,21 @@ a {
   justify-content: center;
   width: 32px;
   height: 32px;
-  color: var(--accent);
+  color: #2A1F3D;
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 8px;
-  background: rgba(245, 214, 122, 0.1);
-  border: 1px solid rgba(245, 214, 122, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #2A1F3D;
+  box-shadow: 0 2px 8px rgba(42, 31, 61, 0.3);
 }
 
 .category-back-button:hover {
-  color: var(--accent-hover);
-  background: rgba(245, 214, 122, 0.15);
+  color: #FFFFFF;
+  background: #2A1F3D;
   transform: scale(1.05);
-  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+  box-shadow: 0 4px 12px rgba(42, 31, 61, 0.5);
+  filter: drop-shadow(0 0 8px rgba(42, 31, 61, 0.4));
 }
 
 .category-back-button svg {
