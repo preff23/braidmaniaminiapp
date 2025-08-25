@@ -181,8 +181,6 @@ a {
   z-index: 1;
   filter: brightness(1.2);
   transition: all 0.3s ease;
-  background-color: rgba(255, 215, 0, 0.35);
-  background-blend-mode: multiply;
 }
 
 .card:hover {
