@@ -4,19 +4,18 @@
 
 :root {
   --bg: #1e0f1f;
-  --bg-top: #E8D5D5;
-  --bg-bottom: #F5E6E6;
+  --bg-top: #EFD9E0;
+  --bg-bottom: #D8AFC0;
   --surface: rgba(40, 30, 45, 0.8);
   --surface-dark: #1E1B1E;
-  --card-top: #2A1F3D;
-  --card-bottom: #3B294F;
+  --card-bg: #2E1F3D;
   --text: #FFFFFF;
   --text-secondary: #DDDDDD;
   --muted: #B6B6B6;
   --accent: #f5d67a;
   --accent-hover: #ffdf8a;
-  --border: #D4AF37;
-  --glow: rgba(212, 175, 55, 0.3);
+  --border: #FFD700;
+  --glow: rgba(255, 215, 0, 0.3);
   --badge-border: #FFD700;
   --badge-bg: rgba(255, 215, 0, 0.2);
   --shadow: 0 8px 24px rgba(0,0,0,.35);
@@ -105,6 +104,20 @@ a {
   letter-spacing: .2px;
   color: #2A1F3D;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: inline-block;
+}
+
+.titles h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
 /* Grid */
@@ -137,7 +150,7 @@ a {
 .card {
   position: relative;
   padding: 20px;
-  background: linear-gradient(135deg, var(--card-top) 0%, var(--card-bottom) 100%);
+  background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow), 0 0 20px var(--glow), inset 0 2px 4px rgba(255, 255, 255, 0.1);
   text-align: left;
@@ -171,6 +184,7 @@ a {
 
 .card:hover .card-icon {
   color: var(--accent-hover);
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
 }
 
 .card-title {
@@ -211,12 +225,12 @@ a {
 /* Submenu Card - карточки для подменю */
 .submenu-card {
   position: relative;
-  padding: 14px 20px;
-  background: linear-gradient(135deg, var(--card-top) 0%, var(--card-bottom) 100%);
+  padding: 16px 20px;
+  background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow), inset 0 2px 4px rgba(255, 255, 255, 0.1);
   text-align: left;
-  min-height: 60px;
+  min-height: 69px;
   transition: all 0.3s ease;
   border: 1.5px solid var(--border);
   cursor: pointer;
@@ -253,10 +267,11 @@ a {
 
 .submenu-card:hover .submenu-card-icon {
   color: var(--accent-hover);
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
 }
 
 .submenu-card-text {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 17px;
   line-height: 1.3;
   color: var(--text);
@@ -274,6 +289,7 @@ a {
 .submenu-card:hover .submenu-card-arrow {
   transform: translateX(2px);
   color: var(--accent-hover);
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
 }
 
 /* Category Page Header */
@@ -302,6 +318,7 @@ a {
   color: var(--accent-hover);
   background: rgba(245, 214, 122, 0.15);
   transform: scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
 }
 
 .category-back-button svg {
