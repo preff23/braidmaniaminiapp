@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PageHeader from '@/components/PageHeader';
 import SearchInput from '@/components/SearchInput';
@@ -8,8 +8,7 @@ import SectionCard from '@/components/SectionCard';
 import Skeleton from '@/components/Skeleton';
 import { MAIN_SECTIONS } from '@/data/content';
 
-export default function HomePage() {
-  const [isLoading, setIsLoading] = useState(false); // Изменено на false
+function HomePageContent() {
   const [filteredSections, setFilteredSections] = useState(MAIN_SECTIONS);
   const searchParams = useSearchParams();
 
@@ -38,26 +37,6 @@ export default function HomePage() {
     setFilteredSections(filtered);
   };
 
-  if (isLoading) {
-    return (
-      <div className="container mx-auto px-4 py-6">
-        <PageHeader title="Главная" subtitle="Загрузка материалов..." />
-        <div className="space-y-6">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="space-y-4">
-              <Skeleton className="h-6 w-48" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {[1, 2, 3].map((j) => (
-                  <Skeleton key={j} className="h-12" />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="container mx-auto px-4 py-6">
       <PageHeader 
@@ -85,5 +64,29 @@ export default function HomePage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <Suspense fallback={
+      <div className="container mx-auto px-4 py-6">
+        <PageHeader title="Главная" subtitle="Загрузка материалов..." />
+        <div className="space-y-6">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="space-y-4">
+              <Skeleton className="h-6 w-48" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {[1, 2, 3].map((j) => (
+                  <Skeleton key={j} className="h-12" />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    }>
+      <HomePageContent />
+    </Suspense>
   );
 }

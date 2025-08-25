@@ -1,14 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PageHeader from '@/components/PageHeader';
 import LinkPill from '@/components/LinkPill';
 import Skeleton from '@/components/Skeleton';
 import { USEFUL_PAGE } from '@/data/content';
 
-export default function UsefulPage() {
-  const [isLoading, setIsLoading] = useState(false); // Изменено на false
+function UsefulPageContent() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -27,19 +26,6 @@ export default function UsefulPage() {
   const otherItems = USEFUL_PAGE.items.filter(item => 
     !item.label.includes('Работы учеников')
   );
-
-  if (isLoading) {
-    return (
-      <div className="container mx-auto px-4 py-6">
-        <PageHeader title="Полезное" subtitle="Загрузка..." />
-        <div className="space-y-4">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <Skeleton key={i} className="h-12" />
-          ))}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="container mx-auto px-4 py-6">
@@ -84,5 +70,22 @@ export default function UsefulPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function UsefulPage() {
+  return (
+    <Suspense fallback={
+      <div className="container mx-auto px-4 py-6">
+        <PageHeader title="Полезное" subtitle="Загрузка..." />
+        <div className="space-y-4">
+          {[1, 2, 3, 4, 5].map((i) => (
+            <Skeleton key={i} className="h-12" />
+          ))}
+        </div>
+      </div>
+    }>
+      <UsefulPageContent />
+    </Suspense>
   );
 }
