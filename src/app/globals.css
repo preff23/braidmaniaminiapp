@@ -4,8 +4,8 @@
 
 :root {
   --bg: #1e0f1f;
-  --bg-top: #1E122B;
-  --bg-bottom: #3B294F;
+  --bg-top: #E8D5D5;
+  --bg-bottom: #F5E6E6;
   --surface: rgba(40, 30, 45, 0.8);
   --surface-dark: #1E1B1E;
   --card-top: #2A1F3D;
@@ -15,8 +15,8 @@
   --muted: #B6B6B6;
   --accent: #f5d67a;
   --accent-hover: #ffdf8a;
-  --border: #E6C98B;
-  --glow: rgba(230, 201, 139, 0.3);
+  --border: #D4AF37;
+  --glow: rgba(212, 175, 55, 0.3);
   --badge-border: #FFD700;
   --badge-bg: rgba(255, 215, 0, 0.2);
   --shadow: 0 8px 24px rgba(0,0,0,.35);
@@ -103,8 +103,8 @@ a {
   font-weight: 900;
   margin: 0;
   letter-spacing: .2px;
-  color: var(--text);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: #2A1F3D;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Grid */
@@ -212,13 +212,13 @@ a {
 .submenu-card {
   position: relative;
   padding: 14px 20px;
-  background: var(--surface);
+  background: linear-gradient(135deg, var(--card-top) 0%, var(--card-bottom) 100%);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow), inset 0 2px 4px rgba(255, 255, 255, 0.1);
   text-align: left;
   min-height: 60px;
   transition: all 0.3s ease;
-  border: none;
+  border: 1.5px solid var(--border);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -227,8 +227,8 @@ a {
 
 .submenu-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(245, 214, 122, 0.15);
-  border: 1px solid rgba(245, 214, 122, 0.2);
+  box-shadow: 0 12px 32px rgba(245, 214, 122, 0.15), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  border: 1.5px solid var(--accent);
 }
 
 .submenu-card:active {
@@ -312,15 +312,15 @@ a {
 .category-title {
   font-size: 20px;
   font-weight: 800;
-  color: var(--text);
+  color: #2A1F3D;
   margin: 0;
   letter-spacing: .2px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .category-subtitle {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: #666;
   margin: 0;
   font-weight: 500;
 }
@@ -397,9 +397,9 @@ a {
 
 .tab.active {
   color: var(--text);
-  outline: 2px solid var(--accent);
-  background: rgba(245, 214, 122, 0.15);
-  box-shadow: 0 6px 20px rgba(245, 214, 122, 0.4), 0 0 0 1px rgba(245, 214, 122, 0.3);
+  outline: 2px solid var(--border);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(245, 214, 122, 0.15) 100%);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.3);
 }
 
 .tab svg {

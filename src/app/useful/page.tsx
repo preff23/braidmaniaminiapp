@@ -27,6 +27,15 @@ function UsefulPageContent() {
     !item.label.includes('Работы учеников')
   );
 
+  const open = (url: string) => {
+    const telegram = window.Telegram?.WebApp;
+    if (telegram?.openTelegramLink) {
+      telegram.openTelegramLink(url);
+    } else {
+      window.open(url, '_blank');
+    }
+  };
+
   return (
     <div className="container">
       <Header />
@@ -42,8 +51,10 @@ function UsefulPageContent() {
           }
           count={studentWorks.length}
           onClick={() => {
-            // Здесь можно добавить переход на страницу с работами учеников
-            console.log('Работы учеников');
+            // Открываем первую ссылку из работ учеников
+            if (studentWorks.length > 0) {
+              open(studentWorks[0].url);
+            }
           }}
         />
 
@@ -59,8 +70,10 @@ function UsefulPageContent() {
             }
             count={otherItems.length}
             onClick={() => {
-              // Здесь можно добавить переход на страницу знакомства
-              console.log('Знакомство');
+              // Открываем первую ссылку из знакомства
+              if (otherItems.length > 0) {
+                open(otherItems[0].url);
+              }
             }}
           />
         )}
