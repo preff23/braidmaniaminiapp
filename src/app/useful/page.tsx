@@ -2,9 +2,10 @@
 
 import { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import PageHeader from '@/components/PageHeader';
-import LinkPill from '@/components/LinkPill';
-import Skeleton from '@/components/Skeleton';
+import Header from '@/components/Header';
+import CategoryCard from '@/components/CategoryCard';
+import TabBar from '@/components/TabBar';
+import { HomeIcon, StarIcon } from '@/components/Icons';
 import { USEFUL_PAGE } from '@/data/content';
 
 function UsefulPageContent() {
@@ -14,7 +15,6 @@ function UsefulPageContent() {
     // Обработка параметра startapp
     const startapp = searchParams.get('startapp');
     if (startapp === 'main') {
-      // Перенаправляем на главную
       window.location.href = '/';
     }
   }, [searchParams]);
@@ -28,59 +28,50 @@ function UsefulPageContent() {
   );
 
   return (
-    <div className="container mx-auto px-4 py-6">
-      <PageHeader 
-        title="ПОЛЕЗНОЕ" 
-        subtitle="Работы учеников и дополнительные материалы" 
-      />
+    <div className="container">
+      <Header />
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid mb-20">
         {/* Работы учеников */}
-        <div className="hlb-menu-card p-6 fade-in-up">
-          <div className="hlb-count-badge">
-            {studentWorks.length}
-          </div>
-          <div className="text-4xl mb-4 text-text-primary opacity-80">
-            🎨
-          </div>
-          <h3 className="text-text-primary text-lg font-bold leading-tight mb-4">
-            Работы учеников
-          </h3>
-          <div className="space-y-2">
-            {studentWorks.map((item, index) => (
-              <LinkPill
-                key={index}
-                label={item.label}
-                url={item.url}
-              />
-            ))}
-          </div>
-        </div>
+        <CategoryCard
+          title="Работы учеников"
+          icon={
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2L16.09 6.26L21 7L16.09 7.74L14 12L11.91 7.74L7 7L11.91 6.26L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          }
+          count={studentWorks.length}
+          onClick={() => {
+            // Здесь можно добавить переход на страницу с работами учеников
+            console.log('Работы учеников');
+          }}
+        />
 
         {/* Знакомство */}
         {otherItems.length > 0 && (
-          <div className="hlb-menu-card p-6 fade-in-up">
-            <div className="hlb-count-badge">
-              {otherItems.length}
-            </div>
-            <div className="text-4xl mb-4 text-text-primary opacity-80">
-              👋
-            </div>
-            <h3 className="text-text-primary text-lg font-bold leading-tight mb-4">
-              Знакомство
-            </h3>
-            <div className="space-y-2">
-              {otherItems.map((item, index) => (
-                <LinkPill
-                  key={index}
-                  label={item.label}
-                  url={item.url}
-                />
-              ))}
-            </div>
-          </div>
+          <CategoryCard
+            title="Знакомство"
+            icon={
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+              </svg>
+            }
+            count={otherItems.length}
+            onClick={() => {
+              // Здесь можно добавить переход на страницу знакомства
+              console.log('Знакомство');
+            }}
+          />
         )}
       </div>
+      
+      <TabBar
+        items={[
+          { key: 'home', label: 'Главная', icon: <HomeIcon /> },
+          { key: 'useful', label: 'Полезное', icon: <StarIcon /> },
+        ]}
+      />
     </div>
   );
 }
@@ -88,11 +79,15 @@ function UsefulPageContent() {
 export default function UsefulPage() {
   return (
     <Suspense fallback={
-      <div className="container mx-auto px-4 py-6">
-        <PageHeader title="ПОЛЕЗНОЕ" subtitle="Загрузка..." />
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="container">
+        <Header />
+        <div className="grid">
           {[1, 2].map((i) => (
-            <Skeleton key={i} className="h-32" />
+            <div key={i} className="card">
+              <div className="card-badge">0</div>
+              <div className="card-icon"></div>
+              <div className="card-title">Загрузка...</div>
+            </div>
           ))}
         </div>
       </div>

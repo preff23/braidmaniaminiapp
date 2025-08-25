@@ -2,71 +2,74 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import { Suspense } from 'react';
-import PageHeader from '@/components/PageHeader';
+import Header from '@/components/Header';
 import LinkPill from '@/components/LinkPill';
-import Skeleton from '@/components/Skeleton';
-import { MAIN_SECTIONS } from '@/data/content';
-
-// Названия категорий
-const CATEGORY_NAMES = {
-  'beginner': 'С ЧЕГО НАЧАТЬ НОВИЧКУ',
-  'lifehacks': 'ПОЛЕЗНЫЕ ЛАЙФХАКИ В ПЛЕТЕНИИ',
-  'practice': 'ПРАКТИКА',
-  'courses': 'МК И СКИДКИ УЧАСТНИКАМ ГРУППЫ',
-  'tutorials': 'ТУТОРИАЛЫ НА СЕБЕ',
-  'secrets': 'СЕКРЕТНЫЕ МАТЕРИАЛЫ',
-};
+import TabBar from '@/components/TabBar';
+import { HomeIcon, StarIcon } from '@/components/Icons';
+import { categories } from '@/data/categories';
 
 function CategoryPageContent() {
   const params = useParams();
   const router = useRouter();
   const slug = params.slug as string;
 
-  // Находим соответствующую секцию
-  const categoryName = CATEGORY_NAMES[slug as keyof typeof CATEGORY_NAMES];
-  const section = MAIN_SECTIONS.find(s => s.title === categoryName);
+  // Находим соответствующую категорию
+  const category = categories.find(c => c.key === slug);
 
-  if (!section) {
+  if (!category) {
     return (
-      <div className="container mx-auto px-4 py-6">
-        <PageHeader 
-          title="Категория не найдена" 
-          subtitle="Вернитесь на главную страницу" 
+      <div className="container">
+        <Header />
+        <div className="text-center py-12">
+          <h2 className="text-xl font-bold mb-4">Категория не найдена</h2>
+          <button 
+            onClick={() => router.push('/')}
+            className="link-button px-6 py-3"
+          >
+            ← Назад
+          </button>
+        </div>
+        <TabBar
+          items={[
+            { key: 'home', label: 'Главная', icon: <HomeIcon /> },
+            { key: 'useful', label: 'Полезное', icon: <StarIcon /> },
+          ]}
         />
-        <button 
-          onClick={() => router.push('/')}
-          className="hlb-link-button px-6 py-3 rounded-lg text-accent"
-        >
-          ← Назад
-        </button>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-6">
-      <div className="flex items-center mb-6">
+    <div className="container">
+      <Header />
+      
+      <div className="mb-6">
         <button 
           onClick={() => router.push('/')}
-          className="mr-4 text-accent text-lg"
+          className="link-button mb-4"
         >
-          ←
+          ← Назад
         </button>
-        <PageHeader 
-          title={section.title}
-          subtitle={`${section.items.length} материалов`}
-        />
+        <h2 className="text-xl font-bold mb-2">{category.title}</h2>
+        <p className="text-muted">{category.links.length} материалов</p>
       </div>
       
-      <div className="space-y-2">
-        {section.items.map((item, index) => (
+      <div className="space-y-2 mb-20">
+        {category.links.map((link, index) => (
           <LinkPill
             key={index}
-            label={item.label}
-            url={item.url}
+            label={link.title}
+            url={link.url}
           />
         ))}
       </div>
+      
+      <TabBar
+        items={[
+          { key: 'home', label: 'Главная', icon: <HomeIcon /> },
+          { key: 'useful', label: 'Полезное', icon: <StarIcon /> },
+        ]}
+      />
     </div>
   );
 }
@@ -74,12 +77,10 @@ function CategoryPageContent() {
 export default function CategoryPage() {
   return (
     <Suspense fallback={
-      <div className="container mx-auto px-4 py-6">
-        <PageHeader title="Загрузка..." subtitle="Загрузка материалов..." />
-        <div className="space-y-2">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <Skeleton key={i} className="h-12" />
-          ))}
+      <div className="container">
+        <Header />
+        <div className="text-center py-12">
+          <p className="text-muted">Загрузка...</p>
         </div>
       </div>
     }>

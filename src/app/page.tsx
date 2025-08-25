@@ -1,90 +1,83 @@
 'use client';
 
 import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import PageHeader from '@/components/PageHeader';
-import SearchInput from '@/components/SearchInput';
-import MenuCard from '@/components/MenuCard';
-import Skeleton from '@/components/Skeleton';
-import { MAIN_SECTIONS } from '@/data/content';
-
-// Иконки для категорий
-const CATEGORY_ICONS = {
-  'С ЧЕГО НАЧАТЬ НОВИЧКУ': '🏁',
-  'ПОЛЕЗНЫЕ ЛАЙФХАКИ В ПЛЕТЕНИИ': '💡',
-  'ПРАКТИКА': '🖐️',
-  'МК И СКИДКИ УЧАСТНИКАМ ГРУППЫ': '🎓',
-  'ТУТОРИАЛЫ НА СЕБЕ': '📹',
-  'СЕКРЕТНЫЕ МАТЕРИАЛЫ': '🔒',
-};
-
-// Маршруты для категорий
-const CATEGORY_ROUTES = {
-  'С ЧЕГО НАЧАТЬ НОВИЧКУ': '/category/beginner',
-  'ПОЛЕЗНЫЕ ЛАЙФХАКИ В ПЛЕТЕНИИ': '/category/lifehacks',
-  'ПРАКТИКА': '/category/practice',
-  'МК И СКИДКИ УЧАСТНИКАМ ГРУППЫ': '/category/courses',
-  'ТУТОРИАЛЫ НА СЕБЕ': '/category/tutorials',
-  'СЕКРЕТНЫЕ МАТЕРИАЛЫ': '/category/secrets',
-};
+import { useSearchParams, useRouter } from 'next/navigation';
+import Header from '@/components/Header';
+import CategoryCard from '@/components/CategoryCard';
+import TabBar from '@/components/TabBar';
+import { HomeIcon, StarIcon } from '@/components/Icons';
+import { categories } from '@/data/categories';
 
 function HomePageContent() {
-  const [filteredSections, setFilteredSections] = useState(MAIN_SECTIONS);
+  const [filteredCategories, setFilteredCategories] = useState(categories);
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   useEffect(() => {
     // Обработка параметра startapp
     const startapp = searchParams.get('startapp');
     if (startapp === 'useful') {
-      // Перенаправляем на полезное
-      window.location.href = '/useful';
+      router.push('/useful');
     }
-  }, [searchParams]);
+  }, [searchParams, router]);
 
   const handleSearch = (query: string) => {
     if (!query.trim()) {
-      setFilteredSections(MAIN_SECTIONS);
+      setFilteredCategories(categories);
       return;
     }
 
-    const filtered = MAIN_SECTIONS.map(section => ({
-      ...section,
-      items: section.items.filter(item =>
-        item.label.toLowerCase().includes(query.toLowerCase())
+    const filtered = categories.map(category => ({
+      ...category,
+      links: category.links.filter(link =>
+        link.title.toLowerCase().includes(query.toLowerCase())
       )
-    })).filter(section => section.items.length > 0);
+    })).filter(category => category.links.length > 0);
 
-    setFilteredSections(filtered);
+    setFilteredCategories(filtered);
+  };
+
+  const handleCategoryClick = (categoryKey: string) => {
+    router.push(`/category/${categoryKey}`);
   };
 
   return (
-    <div className="container mx-auto px-4 py-6">
-      <PageHeader 
-        title="Braid Mania" 
-        subtitle="Полезные материалы по плетению косичек и брейдингу" 
-      />
+    <div className="container">
+      <Header />
       
-      <SearchInput onSearch={handleSearch} />
+      <div className="mb-6">
+        <input
+          type="text"
+          placeholder="Поиск по материалам…"
+          onChange={(e) => handleSearch(e.target.value)}
+          className="search"
+        />
+      </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {filteredSections.map((section, index) => (
-          <MenuCard
-            key={index}
-            title={section.title}
-            count={section.items.length}
-            icon={CATEGORY_ICONS[section.title as keyof typeof CATEGORY_ICONS] || '📁'}
-            route={CATEGORY_ROUTES[section.title as keyof typeof CATEGORY_ROUTES] || '/category/default'}
+      <div className="grid">
+        {filteredCategories.map((category) => (
+          <CategoryCard
+            key={category.key}
+            title={category.title}
+            icon={category.icon}
+            count={category.links.length}
+            onClick={() => handleCategoryClick(category.key)}
           />
         ))}
       </div>
       
-      {filteredSections.length === 0 && (
+      {filteredCategories.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-text-secondary text-lg">
-            По вашему запросу ничего не найдено
-          </p>
+          <p className="text-muted">По вашему запросу ничего не найдено</p>
         </div>
       )}
+      
+      <TabBar
+        items={[
+          { key: 'home', label: 'Главная', icon: <HomeIcon /> },
+          { key: 'useful', label: 'Полезное', icon: <StarIcon /> },
+        ]}
+      />
     </div>
   );
 }
@@ -92,11 +85,15 @@ function HomePageContent() {
 export default function HomePage() {
   return (
     <Suspense fallback={
-      <div className="container mx-auto px-4 py-6">
-        <PageHeader title="Braid Mania" subtitle="Загрузка материалов..." />
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="container">
+        <Header />
+        <div className="grid">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <Skeleton key={i} className="h-32" />
+            <div key={i} className="card">
+              <div className="card-badge">0</div>
+              <div className="card-icon"></div>
+              <div className="card-title">Загрузка...</div>
+            </div>
           ))}
         </div>
       </div>
