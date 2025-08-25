@@ -65,22 +65,22 @@ function CategoryPageContent() {
         <p className="category-subtitle">{category.links.length} материалов</p>
       </div>
       
-      <div className="link-list">
+      <div className="submenu-grid">
         {category.links.map((link, index) => (
           <div
             key={index}
-            className="link-item"
+            className="submenu-card"
             onClick={() => open(link.url)}
           >
-            <div className="link-item-left">
-              <div className="link-item-icon">
+            <div className="submenu-card-left">
+              <div className="submenu-card-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <div className="link-item-text">{link.title}</div>
+              <div className="submenu-card-text">{link.title}</div>
             </div>
-            <div className="link-item-arrow">→</div>
+            <div className="submenu-card-arrow">→</div>
           </div>
         ))}
       </div>
