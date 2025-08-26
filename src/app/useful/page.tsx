@@ -43,14 +43,6 @@ function UsefulPageContent() {
       <Header />
       
       <div className="grid">
-        {/* CTA кнопка "КУПИТЬ КУРС" */}
-        <CategoryCard
-          title="КУПИТЬ КУРС"
-          onClick={openDM}
-          variant="cta"
-          spanFull
-        />
-
         {/* Существующие карточки */}
         {extraSections.map((section) => (
           <CategoryCard
@@ -67,6 +59,15 @@ function UsefulPageContent() {
             }}
           />
         ))}
+
+        {/* CTA кнопка "КУПИТЬ КУРС" внизу */}
+        <CategoryCard
+          title="КУПИТЬ КУРС"
+          onClick={openDM}
+          variant="cta"
+          spanFull
+          ctaIcon="/photo/bag.png"
+        />
       </div>
       
       <TabBar
@@ -85,19 +86,22 @@ export default function UsefulPage() {
       <div className="container">
         <Header />
         <div className="grid">
-          {/* CTA skeleton */}
-          <div className="card card--cta card--span-full">
-            <div className="card-content">
-              <div className="card-title">Загрузка...</div>
-              <div className="card-chevron">→</div>
-            </div>
-          </div>
           {[1, 2].map((i) => (
             <div key={i} className="card">
               <div className="card-badge">0</div>
               <div className="card-title">Загрузка...</div>
             </div>
           ))}
+          {/* CTA skeleton */}
+          <div className="card card--cta card--span-full">
+            <div className="card-content">
+              <div className="card-cta-icon">
+                <div style={{ width: '28px', height: '28px', background: '#ccc', borderRadius: '4px' }}></div>
+              </div>
+              <div className="card-title">Загрузка...</div>
+              <div className="card-chevron">→</div>
+            </div>
+          </div>
         </div>
       </div>
     }>

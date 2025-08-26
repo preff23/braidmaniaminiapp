@@ -10,6 +10,7 @@ interface CategoryCardProps {
   categoryKey?: string;
   variant?: 'default' | 'cta';
   spanFull?: boolean;
+  ctaIcon?: string;
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ 
@@ -19,7 +20,8 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
   backgroundIcon,
   categoryKey,
   variant = 'default',
-  spanFull = false
+  spanFull = false,
+  ctaIcon
 }) => {
   const cardStyle = backgroundIcon ? {
     '--bg-icon': `url(${backgroundIcon})`
@@ -58,6 +60,11 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
       
       {variant === 'cta' && (
         <div className="card-content">
+          {ctaIcon && (
+            <div className="card-cta-icon">
+              <img src={ctaIcon} alt="" />
+            </div>
+          )}
           <div className="card-title">{title}</div>
           <div className="card-chevron">→</div>
         </div>
