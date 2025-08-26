@@ -22,7 +22,7 @@ export default function SubListPage({ params }: SubListPageProps) {
 
   if (!category) {
     return (
-      <div className="container">
+      <div className="container page-transition">
         <div className="submenu-header">
           <button className="back-button" onClick={() => router.back()}>
             <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
@@ -37,7 +37,7 @@ export default function SubListPage({ params }: SubListPageProps) {
   }
 
   return (
-    <div className="container">
+    <div className="container page-transition">
       <div className="submenu-header">
         <button className="back-button" onClick={() => router.back()}>
           <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">

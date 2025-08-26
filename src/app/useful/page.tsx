@@ -19,7 +19,7 @@ export default function UsefulPage() {
   };
 
   return (
-    <div className="container">
+    <div className="container page-transition">
       <PageHeader />
       
       <div className="grid">

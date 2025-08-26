@@ -15,7 +15,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="container">
+    <div className="container page-transition">
       <PageHeader />
       
       <div className="grid">
@@ -26,7 +26,7 @@ export default function HomePage() {
             icon={category.icon}
             count={category.links.length}
             onClick={() => handleCategoryClick(category.id)}
-            specialIcon={category.id === 'self'}
+            specialIcon={category.id === 'start'}
           />
         ))}
       </div>
