@@ -318,27 +318,24 @@ a {
 .card::before {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 0%;
   right: -10%;
   bottom: -5%;
-  width: 90%;
-  height: 90%;
+  width: 81%;
+  height: 81%;
   background-image: var(--bg-icon);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.8;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
   transition: all 0.3s ease;
-  /* Отладка: добавляем границу чтобы видеть область иконки */
-  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .card:hover::before {
   opacity: 1;
   transform: scale(1.05);
-  border: 1px solid rgba(212, 175, 55, 0.5);
 }
 
 /* Поднятие иконки замка для карточки "Секретные материалы" */
@@ -449,7 +446,7 @@ a {
   border: none;
   box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  z-index: 2;
+  z-index: 3;
 }
 
 .card:hover .card-badge {
