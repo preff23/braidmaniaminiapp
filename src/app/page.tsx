@@ -26,6 +26,7 @@ export default function HomePage() {
             icon={category.icon}
             count={category.links.length}
             onClick={() => handleCategoryClick(category.id)}
+            specialIcon={category.id === 'self'}
           />
         ))}
       </div>

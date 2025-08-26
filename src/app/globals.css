@@ -129,7 +129,7 @@ body {
 
 .watermark {
   position: absolute;
-  width: 56%;
+  width: 84%;
   right: -10%;
   bottom: -8%;
   opacity: 0.15;
@@ -137,6 +137,11 @@ body {
   pointer-events: none;
   user-select: none;
   z-index: 1;
+}
+
+/* Special icon for "Туториалы на себе" */
+.category-card--special-icon .watermark {
+  filter: saturate(0) brightness(1.2) invert(1);
 }
 
 /* Bottom Navigation */
