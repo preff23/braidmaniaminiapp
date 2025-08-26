@@ -58,7 +58,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--bg-gradient);
+  background: linear-gradient(180deg, #FDF8F3 0%, #F6EDE3 100%);
+  background-image: 
+    linear-gradient(180deg, #FDF8F3 0%, #F6EDE3 100%),
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(230, 203, 165, 0.02) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 40%, rgba(212, 175, 55, 0.01) 50%, transparent 60%);
+  background-size: 100% 100%, 300px 300px, 400px 400px, 100px 100px;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
   min-height: 100vh;
   color: var(--text);
   overflow-x: hidden;
@@ -203,7 +211,8 @@ a {
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 4px 20px rgba(230, 203, 165, 0.2);
-  border: none;
+  border: 2px solid transparent;
+  background-clip: padding-box;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
@@ -212,6 +221,20 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #D4AF37 0%, #E6CBA5 100%);
+  border-radius: 18px;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
 }
 
 .card::after {
@@ -240,10 +263,10 @@ a {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
-  animation: gradientShift 4s ease-in-out infinite;
+  animation: gradientMove 2s ease-in-out infinite;
 }
 
-@keyframes gradientShift {
+@keyframes gradientMove {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
@@ -254,10 +277,11 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 30%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
   border-radius: 12px 12px 0 0;
   pointer-events: none;
+  z-index: 1;
 }
 
 .card--cta:hover {
@@ -274,16 +298,17 @@ a {
   left: 50%;
   width: 0;
   height: 0;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(212, 175, 55, 0.3) 50%, transparent 70%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  animation: ripple 0.6s ease-out;
+  animation: rippleEffect 0.6s ease-out;
+  z-index: 2;
 }
 
-@keyframes ripple {
+@keyframes rippleEffect {
   to {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     opacity: 0;
   }
 }
@@ -294,14 +319,14 @@ a {
   font-weight: 700;
   text-transform: uppercase;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .card--cta .card-chevron {
   color: #FFFFFF;
   opacity: 0.9;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .card--cta:hover .card-chevron {
@@ -365,11 +390,12 @@ a {
 }
 
 /* Иконки в карточках */
-.card::before {
+.card-icon {
   content: '';
   position: absolute;
   bottom: 20px;
-  right: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 42px;
   height: 42px;
   background-image: var(--bg-icon);
@@ -385,111 +411,50 @@ a {
   -webkit-mask: linear-gradient(135deg, #D4AF37 0%, #E6CBA5 100%);
 }
 
-.card:hover::before {
+.card:hover .card-icon {
   opacity: 1;
-  transform: scale(1.05);
+  transform: translateX(-50%) scale(1.1);
   filter: brightness(0) saturate(100%) invert(67%) sepia(89%) saturate(638%) hue-rotate(359deg) brightness(95%) contrast(95%);
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  animation: iconBreathing 0.3s ease-in-out;
 }
 
-/* Поднятие иконки замка для карточки "Секретные материалы" */
-.card[data-category="secret"]::before {
-  transform: translateY(-12%) scale(1.0);
-}
-
-.card:hover {
-  box-shadow: 0 8px 30px rgba(230, 203, 165, 0.3), 0 0 20px rgba(230, 203, 165, 0.2);
-  transform: translateY(-2px);
-}
-
-.card:active {
-  transform: scale(1.05);
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 4px 20px rgba(230, 203, 165, 0.2);
-  border: 2px solid #D4AF37;
-}
-
-.card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: var(--radius);
-  background: linear-gradient(45deg, transparent 0%, rgba(212, 175, 55, 0.05) 50%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.card:hover::after {
-  opacity: 1;
-}
-
-.card:hover::before {
-  opacity: 0.8;
-  transform: scale(1.05);
-}
-
-.card[data-category="secret"]:hover::before {
-  opacity: 0.8;
-  transform: translateY(-12%) scale(1.05);
-  filter: brightness(1.6) contrast(1.3) saturate(1.2);
-}
-
-.card:active {
-  transform: translateY(0);
-  box-shadow: var(--shadow);
-}
-
-.card[data-category="secret"]:active::before {
-  opacity: 0.8;
-  transform: translateY(-12%) scale(1.05);
-  filter: brightness(1.6) contrast(1.3) saturate(1.2);
-}
-
-.card-icon {
-  width: 28px;
-  height: 28px;
-  margin: 0 auto 16px 0;
-  color: var(--accent);
-  transition: color 0.3s ease;
-  position: relative;
-  z-index: 2;
-}
-
-.card:hover .card-icon {
-  color: var(--accent-hover);
-  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+@keyframes iconBreathing {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
+  100% { transform: translateX(-50%) scale(1); }
 }
 
 .card-title {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 16px;
-  line-height: 1.3;
-  letter-spacing: .3px;
+  line-height: 1.4;
+  letter-spacing: .4px;
   color: #2F2F2F;
   text-transform: uppercase;
   margin-top: auto;
+  margin-bottom: 60px;
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 
 .card-subtitle {
   font-size: 14px;
   color: var(--text-secondary);
-  margin-top: 4px;
+  margin-top: 8px;
+  margin-bottom: 60px;
   font-weight: 400;
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 
 .card-badge {
   position: absolute;
   top: 20px;
   left: 20px;
-  background: #FFD700;
+  background: linear-gradient(135deg, #FFD700 0%, #FFED4E 50%, #FFD700 100%);
   color: #FFFFFF;
   width: 28px;
   height: 28px;
@@ -497,16 +462,38 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
+  font-weight: 300;
   font-size: 12px;
-  border: 2px solid #FDF8F3;
-  box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  border: none;
+  box-shadow: 
+    0 3px 10px rgba(255, 215, 0, 0.3), 
+    0 1px 4px rgba(0, 0, 0, 0.1), 
+    inset 0 1px 2px rgba(255, 255, 255, 0.4),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   z-index: 3;
+  position: relative;
+}
+
+.card-badge::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.2) 100%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .card:hover .card-badge {
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 15px rgba(255, 215, 0, 0.4), 
+    0 2px 6px rgba(0, 0, 0, 0.15), 
+    inset 0 1px 2px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
   transform: scale(1.1);
 }
 
@@ -787,17 +774,18 @@ a {
 .nav-button:hover {
   background: rgba(212, 175, 55, 0.1);
   color: #D4AF37;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
 }
 
 .nav-button.active {
   background: #D4AF37;
   color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3), 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
 .nav-button.active:hover {
   background: #E6CBA5;
-  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4), 0 0 25px rgba(212, 175, 55, 0.3);
 }
 
 @keyframes skeleton-loading {

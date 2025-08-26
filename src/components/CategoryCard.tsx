@@ -55,6 +55,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
         <>
           <div className="card-badge">{count}</div>
           <div className="card-title">{title}</div>
+          {backgroundIcon && <div className="card-icon"></div>}
         </>
       )}
       
