@@ -94,18 +94,6 @@ html {
   }
 }
 
-/* Counter animation */
-@keyframes counterCount {
-  from {
-    transform: scale(0.8);
-    opacity: 0.7;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 /* Prevent flash during navigation */
 .container {
   opacity: 0;
@@ -194,9 +182,6 @@ html {
   font-size: 12px;
   font-weight: 700;
   color: #1F1328;
-  animation: counterCount 0.5s ease-out forwards;
-  animation-delay: 0.3s;
-  opacity: 0;
 }
 
 .category-title {

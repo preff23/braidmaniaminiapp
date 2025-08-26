@@ -15,7 +15,7 @@ export default function UsefulPage() {
   };
 
   const handleBuyCourse = () => {
-    window.open('https://t.me/arinabraidsPRO', '_blank');
+    window.open('https://t.me/arinabraids', '_blank');
   };
 
   return (
