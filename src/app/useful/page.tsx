@@ -65,6 +65,7 @@ function UsefulPageContent() {
           title="КУПИТЬ КУРС"
           onClick={openDM}
           variant="cta"
+          spanFull
           ctaIcon="/photo/bag.png"
         />
       </div>
@@ -92,7 +93,7 @@ export default function UsefulPage() {
             </div>
           ))}
           {/* CTA skeleton */}
-          <div className="card card--cta">
+          <div className="card card--cta card--span-full">
             <div className="card-content">
               <div className="card-cta-icon">
                 <div style={{ width: '24px', height: '24px', background: '#ccc', borderRadius: '4px' }}></div>
