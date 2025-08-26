@@ -28,22 +28,22 @@ html, body, #root {
 body {
   margin: 0;
   font-family: system-ui, Inter, 'Segoe UI', Roboto, Arial, sans-serif;
-  background: var(--bg);
+  background: linear-gradient(180deg, #1c0f2e 0%, #000000 100%);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background-color: var(--bg) !important;
+  background: linear-gradient(180deg, #1c0f2e 0%, #000000 100%) !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background-color: var(--bg) !important;
+  background: linear-gradient(180deg, #1c0f2e 0%, #000000 100%) !important;
 }
 
 #root {
-  background-color: var(--bg) !important;
+  background: linear-gradient(180deg, #1c0f2e 0%, #000000 100%) !important;
 }
 
 /* Page Transitions */
@@ -82,11 +82,35 @@ html {
   }
 }
 
+/* Icon appearance animation */
+@keyframes iconAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+}
+
+/* Counter animation */
+@keyframes counterCount {
+  from {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /* Prevent flash during navigation */
 .container {
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  background-color: var(--bg) !important;
+  background: linear-gradient(180deg, #1c0f2e 0%, #000000 100%) !important;
 }
 
 /* Layout */
@@ -152,6 +176,8 @@ html {
 
 .category-card:active {
   transform: scale(0.99);
+  background: linear-gradient(135deg, var(--panel) 0%, rgba(245, 210, 108, 0.1) 100%);
+  transition: all 0.2s ease-in-out;
 }
 
 .category-badge {
@@ -168,6 +194,9 @@ html {
   font-size: 12px;
   font-weight: 700;
   color: #1F1328;
+  animation: counterCount 0.5s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
 }
 
 .category-title {
@@ -187,16 +216,27 @@ html {
   width: 84%;
   right: -10%;
   bottom: -8%;
-  opacity: 0.15;
+  opacity: 0;
   filter: saturate(0) brightness(1.2) invert(1);
   pointer-events: none;
   user-select: none;
   z-index: 1;
+  animation: iconAppear 0.4s ease-out forwards;
+  animation-delay: 0.2s;
 }
 
 /* Special icon for "С чего начать новичку" */
 .category-card--special-icon .watermark {
   filter: saturate(0) brightness(1.2);
+}
+
+/* Premium effects for special cards */
+.category-card--premium {
+  box-shadow: var(--shadow-glow), 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+.category-card--premium:hover {
+  box-shadow: var(--shadow-glow), 0 0 20px rgba(255, 215, 0, 0.6), 0 12px 40px rgba(23, 12, 31, 0.3);
 }
 
 /* Bottom Navigation */
@@ -308,6 +348,8 @@ html {
 
 .submenu-item:active {
   transform: scale(0.99);
+  background: linear-gradient(135deg, var(--panel) 0%, rgba(245, 210, 108, 0.1) 100%);
+  transition: all 0.2s ease-in-out;
 }
 
 .submenu-item-title {
@@ -341,15 +383,18 @@ html {
   align-items: center;
   justify-content: center;
   gap: 12px;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--shadow-glow), 0 0 20px rgba(255, 215, 0, 0.6);
 }
 
 .cta-button:active {
   transform: scale(0.99);
+  background: linear-gradient(135deg, var(--brand) 0%, rgba(255, 215, 0, 0.8) 100%);
+  transition: all 0.2s ease-in-out;
 }
 
 /* Responsive */

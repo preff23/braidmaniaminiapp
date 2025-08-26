@@ -8,6 +8,7 @@ interface CategoryCardProps {
   count: number;
   onClick: () => void;
   specialIcon?: boolean;
+  premium?: boolean;
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ 
@@ -15,10 +16,17 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
   icon, 
   count, 
   onClick,
-  specialIcon = false
+  specialIcon = false,
+  premium = false
 }) => {
+  const cardClasses = [
+    'category-card',
+    specialIcon ? 'category-card--special-icon' : '',
+    premium ? 'category-card--premium' : ''
+  ].filter(Boolean).join(' ');
+
   return (
-    <div className={`category-card ${specialIcon ? 'category-card--special-icon' : ''}`} onClick={onClick}>
+    <div className={cardClasses} onClick={onClick}>
       <div className="category-badge">{count}</div>
       <div className="category-title">{title}</div>
       <img 

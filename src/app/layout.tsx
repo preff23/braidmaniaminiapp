@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" style={{ backgroundColor: '#F1DDE1' }}>
-      <body className={inter.className} style={{ backgroundColor: '#F1DDE1' }}>
+    <html lang="ru" style={{ background: 'linear-gradient(180deg, #1c0f2e 0%, #000000 100%)' }}>
+      <body className={inter.className} style={{ background: 'linear-gradient(180deg, #1c0f2e 0%, #000000 100%)' }}>
         <TelegramProvider>
           {children}
         </TelegramProvider>
