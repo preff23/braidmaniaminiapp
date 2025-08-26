@@ -1,19 +1,12 @@
-interface PageHeaderProps {
-  title: string;
-  subtitle?: string;
-}
+import React from 'react';
 
-export default function PageHeader({ title, subtitle }: PageHeaderProps) {
+const PageHeader: React.FC = () => {
   return (
-    <div className="mb-6">
-      <h1 className="text-text-primary text-2xl font-bold mb-2">
-        {title}
-      </h1>
-      {subtitle && (
-        <p className="text-text-secondary text-sm">
-          {subtitle}
-        </p>
-      )}
+    <div className="header">
+      <h1 className="header-title">Braid Mania</h1>
+      <div className="header-accent"></div>
     </div>
   );
-}
+};
+
+export default PageHeader;

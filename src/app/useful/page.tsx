@@ -1,111 +1,47 @@
 'use client';
 
-import { useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import Header from '@/components/Header';
-import CategoryCard from '@/components/CategoryCard';
-import TabBar from '@/components/TabBar';
-import { HomeIcon, StarIcon } from '@/components/Icons';
-import { extraSections } from '@/data/categories';
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import PageHeader from '../../components/PageHeader';
+import BottomNav from '../../components/BottomNav';
+import CategoryCard from '../../components/CategoryCard';
+import { usefulCategories } from '../../data/useful';
 
-function UsefulPageContent() {
-  const searchParams = useSearchParams();
+export default function UsefulPage() {
+  const router = useRouter();
 
-  useEffect(() => {
-    // Обработка параметра startapp
-    const startapp = searchParams.get('startapp');
-    if (startapp === 'main') {
-      window.location.href = '/';
-    }
-  }, [searchParams]);
-
-  const open = (url: string) => {
-    const telegram = window.Telegram?.WebApp;
-    if (telegram?.openTelegramLink) {
-      telegram.openTelegramLink(url);
-    } else {
-      window.open(url, '_blank');
-    }
+  const handleCategoryClick = (id: string) => {
+    router.push(`/list/${id}`);
   };
 
-  const openDM = () => {
-    const url = 'https://t.me/arinabraids';
-    const telegram = window.Telegram?.WebApp;
-    if (telegram?.openTelegramLink) {
-      telegram.openTelegramLink(url);
-    } else {
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
+  const handleBuyCourse = () => {
+    window.open('https://t.me/arinabraidsPRO', '_blank');
   };
 
   return (
     <div className="container">
-      <Header />
+      <PageHeader />
       
       <div className="grid">
-        {/* Существующие карточки */}
-        {extraSections.map((section) => (
+        {usefulCategories.map((category) => (
           <CategoryCard
-            key={section.key}
-            title={section.title}
-            links={section.links}
-            backgroundIcon={section.backgroundIcon}
-            categoryKey={section.key}
-            onClick={() => {
-              // Открываем первую ссылку из секции
-              if (section.links.length > 0) {
-                open(section.links[0].url);
-              }
-            }}
+            key={category.id}
+            title={category.title}
+            icon={category.icon}
+            count={category.links.length}
+            onClick={() => handleCategoryClick(category.id)}
           />
         ))}
-
-        {/* CTA кнопка "КУПИТЬ КУРС" внизу */}
-        <CategoryCard
-          title="КУПИТЬ КУРС"
-          onClick={openDM}
-          variant="cta"
-          spanFull
-          ctaIcon="/photo/bag.png"
-        />
+        
+        <button className="cta-button" onClick={handleBuyCourse}>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 15c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+          Купить курс
+        </button>
       </div>
-      
-      <TabBar
-        items={[
-          { key: 'home', label: 'Главная', icon: <HomeIcon /> },
-          { key: 'useful', label: 'Полезное', icon: <StarIcon /> },
-        ]}
-      />
+
+      <BottomNav activeTab="useful" />
     </div>
-  );
-}
-
-export default function UsefulPage() {
-  return (
-    <Suspense fallback={
-      <div className="container">
-        <Header />
-        <div className="grid">
-          {[1, 2].map((i) => (
-            <div key={i} className="card">
-              <div className="card-badge">0</div>
-              <div className="card-title">Загрузка...</div>
-            </div>
-          ))}
-          {/* CTA skeleton */}
-          <div className="card card--cta card--span-full">
-            <div className="card-content">
-              <div className="card-cta-icon">
-                <div style={{ width: '21px', height: '21px', background: '#ccc', borderRadius: '4px' }}></div>
-              </div>
-              <div className="card-title">Загрузка...</div>
-              <div className="card-chevron">→</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    }>
-      <UsefulPageContent />
-    </Suspense>
   );
 }
