@@ -28,11 +28,30 @@ function UsefulPageContent() {
     }
   };
 
+  const openDM = () => {
+    const url = 'https://t.me/arinabraids';
+    const telegram = window.Telegram?.WebApp;
+    if (telegram?.openTelegramLink) {
+      telegram.openTelegramLink(url);
+    } else {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <div className="container">
       <Header />
       
       <div className="grid">
+        {/* CTA кнопка "КУПИТЬ КУРС" */}
+        <CategoryCard
+          title="КУПИТЬ КУРС"
+          onClick={openDM}
+          variant="cta"
+          spanFull
+        />
+
+        {/* Существующие карточки */}
         {extraSections.map((section) => (
           <CategoryCard
             key={section.key}
@@ -66,6 +85,13 @@ export default function UsefulPage() {
       <div className="container">
         <Header />
         <div className="grid">
+          {/* CTA skeleton */}
+          <div className="card card--cta card--span-full">
+            <div className="card-content">
+              <div className="card-title">Загрузка...</div>
+              <div className="card-chevron">→</div>
+            </div>
+          </div>
           {[1, 2].map((i) => (
             <div key={i} className="card">
               <div className="card-badge">0</div>
