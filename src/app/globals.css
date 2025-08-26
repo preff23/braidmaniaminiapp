@@ -116,13 +116,25 @@ a {
 .header-title {
   font-size: 28px;
   font-weight: 800;
-  color: var(--accent);
+  color: var(--text);
   text-align: center;
   margin: 0;
   letter-spacing: 1px;
   text-transform: uppercase;
   position: relative;
   z-index: 2;
+}
+
+.header-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, #D4AF37 0%, #E6CBA5 100%);
+  border-radius: 1px;
 }
 
 .header-subtitle {
@@ -185,7 +197,7 @@ a {
   background: var(--surface);
   border-radius: var(--radius);
   padding: 24px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 20px rgba(230, 203, 165, 0.2);
   border: none;
   position: relative;
   overflow: hidden;
@@ -199,18 +211,32 @@ a {
 
 /* CTA вариант карточки */
 .card--cta {
-  background: var(--accent);
-  box-shadow: var(--shadow), 0 0 30px rgba(212, 175, 55, 0.2);
+  background: linear-gradient(90deg, #D4AF37 0%, #E6CBA5 100%);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3), 0 0 30px rgba(212, 175, 55, 0.2);
   border: none;
   min-height: 60px;
   grid-column: 1 / 3;
   margin-right: 0;
   border-radius: var(--radius-button);
+  position: relative;
+  overflow: hidden;
+}
+
+.card--cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  border-radius: var(--radius-button) var(--radius-button) 0 0;
+  pointer-events: none;
 }
 
 .card--cta:hover {
-  background: var(--accent-hover);
-  box-shadow: var(--shadow-hover), 0 0 40px rgba(212, 175, 55, 0.3);
+  background: linear-gradient(90deg, #E6CBA5 0%, #F0D9B8 100%);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4), 0 0 40px rgba(212, 175, 55, 0.3);
   transform: translateY(-2px);
 }
 
@@ -218,11 +244,15 @@ a {
   color: var(--text-light);
   font-size: 16px;
   font-weight: 700;
+  position: relative;
+  z-index: 2;
 }
 
 .card--cta .card-chevron {
   color: var(--text-light);
   opacity: 0.9;
+  position: relative;
+  z-index: 2;
 }
 
 .card--cta:hover .card-chevron {
@@ -249,8 +279,8 @@ a {
 }
 
 .card-cta-icon {
-  width: 28px;
-  height: 28px;
+  width: 21px;
+  height: 21px;
   margin-right: 12px;
   display: flex;
   align-items: center;
@@ -261,12 +291,12 @@ a {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: brightness(1.2) contrast(1.1);
+  filter: brightness(0) saturate(100%) invert(67%) sepia(89%) saturate(638%) hue-rotate(359deg) brightness(89%) contrast(89%);
   transition: all 0.3s ease;
 }
 
 .card--cta:hover .card-cta-icon img {
-  filter: brightness(1.4) contrast(1.2);
+  filter: brightness(0) saturate(100%) invert(67%) sepia(89%) saturate(638%) hue-rotate(359deg) brightness(95%) contrast(95%);
   transform: scale(1.05);
 }
 
@@ -284,22 +314,23 @@ a {
   filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
 }
 
+/* Иконки в карточках */
 .card::before {
   content: '';
   position: absolute;
-  bottom: -5%;
+  top: 50%;
   right: -10%;
-  transform: scale(1.0);
+  bottom: -5%;
   width: 90%;
   height: 90%;
-  background-image: var(--bg-icon);
+  background-image: var(--background-icon);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.6;
-  pointer-events: none;
+  opacity: 0.4;
   z-index: 1;
-  filter: brightness(1.4) contrast(1.2) saturate(1.1);
+  pointer-events: none;
+  filter: brightness(0) saturate(100%) invert(67%) sepia(89%) saturate(638%) hue-rotate(359deg) brightness(89%) contrast(89%);
   transition: all 0.3s ease;
 }
 
@@ -309,19 +340,37 @@ a {
 }
 
 .card:hover {
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 8px 30px rgba(230, 203, 165, 0.3), 0 0 20px rgba(212, 175, 55, 0.15);
   transform: translateY(-2px);
 }
 
 .card:active {
   transform: translateY(0);
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 20px rgba(230, 203, 165, 0.2);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(45deg, transparent 0%, rgba(212, 175, 55, 0.05) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover::after {
+  opacity: 1;
 }
 
 .card:hover::before {
-  opacity: 0.8;
+  opacity: 0.6;
   transform: scale(1.05);
-  filter: brightness(1.6) contrast(1.3) saturate(1.2);
+  filter: brightness(0) saturate(100%) invert(67%) sepia(89%) saturate(638%) hue-rotate(359deg) brightness(95%) contrast(95%);
 }
 
 .card[data-category="secret"]:hover::before {
@@ -362,7 +411,7 @@ a {
   line-height: 1.3;
   letter-spacing: .3px;
   color: var(--text);
-  text-transform: uppercase;
+  text-transform: none;
   margin-top: auto;
   position: relative;
   z-index: 2;
@@ -381,7 +430,7 @@ a {
   position: absolute;
   top: 20px;
   left: 20px;
-  background: var(--badge-bg);
+  background: #FFD700;
   color: var(--badge-text);
   width: 28px;
   height: 28px;
@@ -392,13 +441,13 @@ a {
   font-weight: 700;
   font-size: 12px;
   border: none;
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   z-index: 2;
 }
 
 .card:hover .card-badge {
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.15);
   transform: scale(1.05);
 }
 
