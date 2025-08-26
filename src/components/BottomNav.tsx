@@ -6,16 +6,16 @@ interface BottomNavProps {
 
 const BottomNav: React.FC<BottomNavProps> = ({ activeTab }) => {
   const handleNavigation = (path: string) => {
-    // Добавляем класс для плавного перехода
+    // Добавляем класс для анимации исчезновения
     const container = document.querySelector('.container');
     if (container) {
-      container.classList.add('page-transition--fast');
+      container.classList.add('page-transition--out');
     }
     
-    // Небольшая задержка для анимации
+    // Увеличиваем задержку для завершения анимации исчезновения
     setTimeout(() => {
       window.location.href = path;
-    }, 100);
+    }, 200);
   };
 
   return (

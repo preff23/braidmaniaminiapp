@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
-      <body className={inter.className}>
+    <html lang="ru" style={{ backgroundColor: '#F1DDE1' }}>
+      <body className={inter.className} style={{ backgroundColor: '#F1DDE1' }}>
         <TelegramProvider>
           {children}
         </TelegramProvider>
