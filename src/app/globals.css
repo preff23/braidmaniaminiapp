@@ -11,6 +11,7 @@
   --color-text-muted: #2B2B2B;           /* вторичный текст при необходимости */
   --color-tabbar: #3B2C35;               /* подложка нижнего таббара */
   --shadow-glow: 0 0 18px rgba(255, 211, 105, 0.35); /* мягкое золотистое свечение */
+  --spark-color: #FFF7FA;                 /* тёплый белый для искры и ракеты */
 
   --radius-lg: 20px;
   --radius-md: 16px;
@@ -444,4 +445,42 @@ html {
   .container {
     padding: 12px;
   }
+}
+
+/* Spark animation styles */
+#spark {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--spark-color);
+  box-shadow: 0 0 24px rgba(255,247,250,0.35);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transform: translate3d(0,0,0) scale(0.6);
+  will-change: transform, opacity;
+}
+
+@keyframes spark-move {
+  0%   { opacity: .0;   transform: translate3d(var(--sx,0), var(--sy,0), 0) scale(.6); }
+  10%  { opacity: .9; }
+  100% { opacity: .9;   transform: translate3d(var(--tx,0), var(--ty,0), 0) scale(1.05); }
+}
+
+.rocket--painted svg,
+.rocket--painted path,
+.rocket--painted use {
+  fill: var(--spark-color) !important;
+}
+
+.rocket--painted img {
+  /* Если иконка PNG — сделать её светлой и «беловатой» */
+  filter: brightness(0) invert(1) saturate(60%) sepia(0%) contrast(95%);
+  opacity: 0.9;
+}
+
+/* На случай системного ограничения анимаций */
+@media (prefers-reduced-motion: reduce) {
+  #spark { display: none !important; }
 }

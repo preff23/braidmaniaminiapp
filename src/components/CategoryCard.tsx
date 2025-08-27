@@ -9,6 +9,7 @@ interface CategoryCardProps {
   onClick: () => void;
   specialIcon?: boolean;
   premium?: boolean;
+  id?: string;
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ 
@@ -17,7 +18,8 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
   count, 
   onClick,
   specialIcon = false,
-  premium = false
+  premium = false,
+  id
 }) => {
   const cardClasses = [
     'category-card',
@@ -26,13 +28,14 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
   ].filter(Boolean).join(' ');
 
   return (
-    <div className={cardClasses} onClick={onClick}>
+    <div className={cardClasses} onClick={onClick} id={id}>
       <div className="category-badge">{count}</div>
       <div className="category-title">{title}</div>
       <img 
         src={`/photo/${icon}`} 
         alt="" 
         className="watermark"
+        id={specialIcon ? 'rocket-icon' : undefined}
       />
     </div>
   );
