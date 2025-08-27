@@ -12,6 +12,7 @@
   --card-fill: rgba(255, 255, 255, 0.06); /* НЕ меняет розовую заливку, лишь лёгкий слой для глубины */
   --card-icon: rgba(0, 0, 0, 0.14);       /* базовый цвет иконок внутри карточек (повышаем контраст) */
   --card-icon-boost: rgba(0, 0, 0, 0.22); /* усиление при hover/press */
+  --card-shadow: 0 2px 6px rgba(0,0,0,0.08); /* мягкая тень для карточек */
 
   /* Текст */
   --text-white: #ffffff;
@@ -21,11 +22,17 @@
   /* Низ навигации */
   --nav-shadow: rgba(0,0,0,0.25);
 
+  /* Жёлтые элементы - более мягкие оттенки */
+  --color-gold: #FFD94D;  /* пастельно-жёлтый вместо яркого #FFD700 */
+
+  /* Иконки - светлый акцент */
+  --icon-light: #F9C9DC;  /* светлый розовый для иконок */
+  --icon-light-hover: #FADCE9; /* ещё светлее при hover */
+
   /* Существующие переменные */
   --color-bg: #B44D79;
   --color-card: #F47FB0;
   --color-icon-ghost: #D46A92;
-  --color-gold: #FFD700;
   --color-text: #FFFFFF;
   --color-text-muted: #FFFFFF;
   --color-tabbar: #F47FB0;
@@ -263,8 +270,8 @@ html {
   height: 176px;
   background: var(--color-card);
   border: 1.5px solid var(--color-gold);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -335,7 +342,7 @@ html {
   right: -10%;
   bottom: -8%;
   opacity: 0;
-  filter: brightness(0) opacity(0.14);
+  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.2) saturate(0.8);
   pointer-events: none;
   user-select: none;
   z-index: 1;
@@ -343,22 +350,32 @@ html {
   animation-delay: 0.2s;
 }
 
-.category-card:hover .watermark,
+.category-card:hover .watermark {
+  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.4) saturate(0.9);
+  transition: filter 0.2s ease;
+}
+
 .category-card:active .watermark {
-  filter: brightness(0) opacity(0.22);
+  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.6) saturate(1.0);
+  transition: filter 0.1s ease;
 }
 
 /* Special icon for "С чего начать новичку" */
 .category-card--special-icon .watermark {
-  filter: brightness(0) opacity(0.14);
+  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.2) saturate(0.8);
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
   opacity: 0;
 }
 
-.category-card--special-icon:hover .watermark,
+.category-card--special-icon:hover .watermark {
+  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.4) saturate(0.9);
+  transition: filter 0.2s ease;
+}
+
 .category-card--special-icon:active .watermark {
-  filter: brightness(0) opacity(0.22);
+  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.6) saturate(1.0);
+  transition: filter 0.1s ease;
 }
 
 /* Premium effects for special cards */
@@ -474,7 +491,7 @@ html {
 .submenu-item {
   background: var(--color-card);
   border: 1.5px solid var(--color-gold);
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
   padding: 20px;
   height: 72px;
   display: flex;
@@ -482,7 +499,7 @@ html {
   justify-content: space-between;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--card-shadow);
 }
 
 .submenu-item:hover {
@@ -518,7 +535,7 @@ html {
   grid-column: 1 / 3;
   background: var(--color-gold);
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
   padding: 16px 20px;
   color: #2B1E1F;
   font-weight: 700;
@@ -530,7 +547,7 @@ html {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--card-shadow);
   animation: ctaPulse 3s ease-in-out infinite;
   will-change: transform;
 }
