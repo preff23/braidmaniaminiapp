@@ -143,9 +143,7 @@ body {
   width: 100%;
   height: auto;
   display: block;
-  border: 2px solid red;
-  background: yellow;
-  min-height: 50px;
+  filter: brightness(0) saturate(100%) invert(89%) sepia(8%) saturate(1000%) hue-rotate(300deg) brightness(110%) contrast(95%);
 }
 
 /* Bottom Navigation */

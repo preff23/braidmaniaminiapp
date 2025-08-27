@@ -36,13 +36,6 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
         alt="" 
         className="card-icon"
         id={specialIcon ? 'rocket-icon' : undefined}
-        onError={(e) => {
-          console.error('Failed to load image:', `/photo/${icon}`);
-          e.currentTarget.style.display = 'none';
-        }}
-        onLoad={() => {
-          console.log('Successfully loaded image:', `/photo/${icon}`);
-        }}
       />
     </div>
   );

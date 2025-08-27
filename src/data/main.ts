@@ -2,7 +2,7 @@ export const mainCategories = [
   {
     id: "start",
     title: "С ЧЕГО НАЧАТЬ НОВИЧКУ",
-    icon: "flag.png",
+    icon: "flag.svg",
     links: [
       { title: "Ссылки на материалы и инструменты", url: "https://t.me/arinabraidsPRO/6" },
       { title: "Полезные ссылки", url: "https://t.me/arinabraidsPRO/565" },
@@ -13,7 +13,7 @@ export const mainCategories = [
   {
     id: "lifehacks",
     title: "ПОЛЕЗНЫЕ ЛАЙФХАКИ В ПЛЕТЕНИИ",
-    icon: "light.png",
+    icon: "light.svg",
     links: [
       { title: "Уход за локонами", url: "https://t.me/arinabraidsPRO/210" },
       { title: "Стрижка кудрей", url: "https://t.me/arinabraidsPRO/38" },
@@ -29,7 +29,7 @@ export const mainCategories = [
   {
     id: "practice",
     title: "ПРАКТИКА",
-    icon: "scissors.png",
+    icon: "scissors.svg",
     links: [
       { title: "Кудрявые концы", url: "https://t.me/arinabraidsPRO/141" },
       { title: "Упражнение на безопасный брейд", url: "https://t.me/arinabraidsPRO/20" },
@@ -44,7 +44,7 @@ export const mainCategories = [
   {
     id: "courses",
     title: "МК И СКИДКИ УЧАСТНИКАМ ГРУППЫ",
-    icon: "graduation.png",
+    icon: "graduation.svg",
     links: [
       { title: "Курс «Краевая»", url: "https://t.me/arinabraidsPRO/137" },
       { title: "Курс «Точечное замещение»", url: "https://t.me/arinabraidsPRO/105" },
@@ -56,7 +56,7 @@ export const mainCategories = [
   {
     id: "self",
     title: "ТУТОРИАЛЫ НА СЕБЕ",
-    icon: "videocam.png",
+    icon: "videocam.svg",
     links: [
       { title: "Два хвоста", url: "https://t.me/arinabraidsPRO/146" },
       { title: "Длинная коса", url: "https://t.me/arinabraidsPRO/149" },
@@ -72,7 +72,7 @@ export const mainCategories = [
   {
     id: "secret",
     title: "СЕКРЕТНЫЕ МАТЕРИАЛЫ",
-    icon: "lock.png",
+    icon: "lock.svg",
     links: [
       { title: "Очищение", url: "https://t.me/arinabraidsPRO/195" },
       { title: "Мышление", url: "https://t.me/arinabraidsPRO/208" },

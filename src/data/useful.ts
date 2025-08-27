@@ -2,7 +2,7 @@ export const usefulCategories = [
   {
     id: "works",
     title: "РАБОТЫ УЧЕНИКОВ",
-    icon: "image.png",
+    icon: "image.svg",
     links: [
       "https://t.me/arinabraidsPRO/58","https://t.me/arinabraidsPRO/87",
       "https://t.me/arinabraidsPRO/150","https://t.me/arinabraidsPRO/171",
@@ -14,7 +14,7 @@ export const usefulCategories = [
   {
     id: "intro",
     title: "ЗНАКОМСТВО",
-    icon: "users.png",
+    icon: "users.svg",
     links: [
       { title: "Пост-знакомство", url: "https://t.me/arinabraidsPRO/79" }
     ],
