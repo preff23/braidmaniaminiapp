@@ -4,18 +4,18 @@
 
 :root {
   /* Новая палитра по ТЗ */
-  --pink-soft: #95507A;    /* единый фон приложения + цвет иконок */
-  --pink-strong: #e574b9;   /* яркие карточки */
+  --pink-soft: #fecbdc;    /* основной фон приложения */
+  --pink-strong: #e67cbd;   /* фон карточек (оставить как сейчас) */
   --text-on-pink: #FFFFFF;  /* белый текст */
   --accent-gold: #FFD54F;  /* золотистые элементы (не менять) */
 
   /* Градиент фона */
-  --bg-top: #95507A;       /* единый цвет */
-  --bg-bottom: #95507A;    /* единый цвет */
+  --bg-top: #fecbdc;       /* основной цвет */
+  --bg-bottom: #ffb9c;     /* градиентный цвет */
 
   /* Карточки и кнопки */
-  --card-bg: #e574b9;      /* яркие карточки */
-  --icon-light: #dba8c9;   /* цвет иконок */
+  --card-bg: #e67cbd;      /* фон карточек */
+  --icon-light: #f7cbd8;   /* цвет иконок */
   --card-shadow: 0px 4px 12px rgba(0,0,0,0.12); /* мягкая тень */
 
   /* Карточки */
@@ -32,9 +32,9 @@
   --nav-shadow: rgba(0,0,0,0.25);
 
   /* Существующие переменные */
-  --color-bg: #95507A;
-  --color-card: #e574b9;
-  --color-icon-ghost: #95507A;
+  --color-bg: #fecbdc;
+  --color-card: #e67cbd;
+  --color-icon-ghost: #f7cbd8;
   --color-gold: #FFD54F
   --color-text: #FFFFFF;
   --color-text-muted: #FFFFFF;
@@ -47,12 +47,12 @@
 
 /* Глобальные стили для чистого фона */
 html, body, #root, .App, .AppRoot, .AppWrapper {
-  background: var(--pink-soft) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) !important;
   background-image: none !important;
   position: relative;
 }
 
-/* Псевдоэлемент с фоном */
+/* Псевдоэлемент с градиентом */
 html::before, body::before, #root::before {
   content: '';
   position: fixed;
@@ -60,7 +60,7 @@ html::before, body::before, #root::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--pink-soft);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
   z-index: -1;
   pointer-events: none;
 }
@@ -92,8 +92,8 @@ html::after, body::after, #root::after {
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: var(--pink-soft);
-  background-color: var(--pink-soft) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  background-color: var(--bg-top) !important;
   background-image: none !important;
   min-height: 100vh;
   margin: 0;
@@ -109,7 +109,7 @@ html::after, body::after, #root::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--pink-soft);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
   z-index: -1;
   pointer-events: none;
 }
@@ -121,18 +121,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: var(--pink-soft) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) !important;
   background-image: none !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: var(--pink-soft) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) !important;
   background-image: none !important;
 }
 
 #root {
-  background: var(--pink-soft) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) !important;
   background-image: none !important;
 }
 
@@ -234,7 +234,7 @@ html {
 .container {
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  background: var(--pink-soft) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) !important;
   background-image: none !important;
 }
 
