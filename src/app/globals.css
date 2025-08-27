@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #FAD6E5;
+  --color-bg: #FFD6E8;
   --color-card: #F47FB0;
-  --color-icon-ghost: #FAD6E5;
+  --color-icon-ghost: #D46A92;
   --color-gold: #FFD700;
   --color-text: #FFFFFF;
   --color-text-muted: #FFFFFF;
@@ -22,8 +22,8 @@
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: linear-gradient(180deg, #FAD6E5 0%, #F8C8D8 100%);
-  background-color: #FAD6E5 !important;
+  background: linear-gradient(180deg, #FFD6E8 0%, #FF9ACD 100%);
+  background-color: #FFD6E8 !important;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -36,16 +36,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: linear-gradient(180deg, #FAD6E5 0%, #F8C8D8 100%) !important;
+  background: linear-gradient(180deg, #FFD6E8 0%, #FF9ACD 100%) !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: linear-gradient(180deg, #FAD6E5 0%, #F8C8D8 100%) !important;
+  background: linear-gradient(180deg, #FFD6E8 0%, #FF9ACD 100%) !important;
 }
 
 #root {
-  background: linear-gradient(180deg, #FAD6E5 0%, #F8C8D8 100%) !important;
+  background: linear-gradient(180deg, #FFD6E8 0%, #FF9ACD 100%) !important;
 }
 
 /* Page Transitions */
@@ -246,7 +246,7 @@ html {
 
 /* Special icon for "С чего начать новичку" */
 .category-card--special-icon .watermark {
-  filter: brightness(0) invert(1);
+  filter: opacity(0.25) brightness(0) saturate(100%) hue-rotate(340deg) brightness(0.8) saturate(0.9);
   animation: iconAppear 0.4s ease-out forwards, rocketPulse 3s ease-in-out infinite;
   animation-delay: 0.2s, 1s;
   opacity: 0;
@@ -301,7 +301,7 @@ html {
 .nav-button.active {
   background: rgba(255, 209, 102, 0.15);
   border-color: var(--color-gold);
-  color: #FFFFFF;
+  color: var(--color-text);
 }
 
 .nav-button svg {
