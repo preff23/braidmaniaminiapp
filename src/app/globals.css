@@ -191,6 +191,36 @@ html {
   animation-delay: 0.2s, 0.6s;
 }
 
+/* Цвет всех иконок в карточках */
+.category-card svg {
+  fill: #f5cbd5 !important;
+}
+
+.category-card svg path,
+.category-card svg rect,
+.category-card svg circle {
+  stroke: #f5cbd5 !important;
+  fill: #f5cbd5 !important;
+}
+
+/* Цвет font-иконок */
+.category-card i,
+.category-card span {
+  color: #f5cbd5 !important;
+}
+
+/* Цвет SVG в других местах */
+svg {
+  fill: #f5cbd5 !important;
+}
+
+svg path,
+svg rect,
+svg circle {
+  stroke: #f5cbd5 !important;
+  fill: #f5cbd5 !important;
+}
+
 /* CTA button pulse animation */
 @keyframes ctaPulse {
   0%, 100% {
