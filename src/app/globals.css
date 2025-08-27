@@ -228,7 +228,7 @@ svg {
   color: #f8cad4 !important;
 }
 
-/* Стили для PNG иконок в карточках */
+/* Стили для SVG иконок в карточках */
 .card-icon {
   position: absolute;
   width: 84%;
@@ -240,7 +240,10 @@ svg {
   z-index: 1;
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
-  filter: brightness(160%) saturate(60%) contrast(90%);
+}
+
+.card-icon svg {
+  fill: #f8cad4;
 }
 
 /* CTA button pulse animation */
@@ -400,32 +403,35 @@ svg {
   animation-delay: 0.2s;
 }
 
-.category-card:hover .card-icon {
-  filter: brightness(160%) saturate(60%) contrast(90%);
-  transition: filter 0.2s ease;
+.category-card:hover .card-icon svg {
+  fill: #f8cad4;
+  transition: fill 0.2s ease;
 }
 
-.category-card:active .card-icon {
-  filter: brightness(160%) saturate(60%) contrast(90%);
-  transition: filter 0.1s ease;
+.category-card:active .card-icon svg {
+  fill: #f8cad4;
+  transition: fill 0.1s ease;
 }
 
 /* Special icon for "С чего начать новичку" */
 .category-card--special-icon .card-icon {
-  filter: brightness(160%) saturate(60%) contrast(90%);
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
   opacity: 0;
 }
 
-.category-card--special-icon:hover .card-icon {
-  filter: brightness(160%) saturate(60%) contrast(90%);
-  transition: filter 0.2s ease;
+.category-card--special-icon .card-icon svg {
+  fill: #f8cad4;
 }
 
-.category-card--special-icon:active .card-icon {
-  filter: brightness(160%) saturate(60%) contrast(90%);
-  transition: filter 0.1s ease;
+.category-card--special-icon:hover .card-icon svg {
+  fill: #f8cad4;
+  transition: fill 0.2s ease;
+}
+
+.category-card--special-icon:active .card-icon svg {
+  fill: #f8cad4;
+  transition: fill 0.1s ease;
 }
 
 /* Premium effects for special cards */
