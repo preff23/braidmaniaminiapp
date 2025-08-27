@@ -230,26 +230,12 @@ svg {
   pointer-events: none;
   user-select: none;
   z-index: 1;
-  animation: iconAppear 0.4s ease-out forwards;
-  animation-delay: 0.2s;
-  filter: none !important;
-  mix-blend-mode: normal !important;
-  background: none !important;
-  fill: none !important;
-  color: none !important;
 }
 
 .card-icon img {
-  width: 84%;
+  width: 100%;
   height: auto;
-  position: absolute;
-  right: -10%;
-  bottom: 0;
-  opacity: 1;
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
-  filter: none !important;
+  display: block;
 }
 
 /* CTA button pulse animation */
@@ -411,50 +397,16 @@ svg {
 
 .category-card:hover .card-icon {
   transition: all 0.2s ease;
-  filter: none !important;
-}
-
-.category-card:hover .card-icon img {
-  filter: none !important;
 }
 
 .category-card:active .card-icon {
   transition: all 0.1s ease;
-  filter: none !important;
-}
-
-.category-card:active .card-icon img {
-  filter: none !important;
 }
 
 /* Special icon for "С чего начать новичку" */
 .category-card--special-icon .card-icon {
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
-  opacity: 1;
-  filter: none !important;
-}
-
-.category-card--special-icon .card-icon img {
-  filter: none !important;
-}
-
-.category-card--special-icon:hover .card-icon {
-  transition: all 0.2s ease;
-  filter: none !important;
-}
-
-.category-card--special-icon:hover .card-icon img {
-  filter: none !important;
-}
-
-.category-card--special-icon:active .card-icon {
-  transition: all 0.1s ease;
-  filter: none !important;
-}
-
-.category-card--special-icon:active .card-icon img {
-  filter: none !important;
 }
 
 /* Premium effects for special cards */
