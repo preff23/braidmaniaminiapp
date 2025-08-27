@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #D46A92;
+  --color-bg: #E487A7;
   --color-card: #F47FB0;
   --color-icon-ghost: #D46A92;
   --color-gold: #FFD700;
@@ -22,8 +22,8 @@
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: #D46A92;
-  background-color: #D46A92 !important;
+  background: #E487A7;
+  background-color: #E487A7 !important;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -36,16 +36,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: #D46A92 !important;
+  background: #E487A7 !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: #D46A92 !important;
+  background: #E487A7 !important;
 }
 
 #root {
-  background: #D46A92 !important;
+  background: #E487A7 !important;
 }
 
 /* Page Transitions */
