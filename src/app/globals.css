@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #fcd0da;
+  --color-bg: #D66F9A;
+  --bg-top: #D66F9A;
+  --bg-mid: #F6AAC7;
+  --bg-bottom: #FFE3EC;
+  --tile-icon-opacity: 0.35;
   --color-card: #F47FB0;
   --color-icon-ghost: #D46A92;
   --color-gold: #FFD700;
@@ -18,12 +22,12 @@
 
 /* Глобальные стили для чистого фона */
 html, body, #root, .App, .AppRoot, .AppWrapper {
-  background: linear-gradient(180deg, #fcd0da 0%, #f8a6c4 100%) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-bottom) 100%) !important;
   background-image: none !important;
   position: relative;
 }
 
-/* Псевдоэлемент с теми же фильтрами что и у иконок */
+/* Псевдоэлемент с градиентом */
 html::before, body::before, #root::before {
   content: '';
   position: fixed;
@@ -31,7 +35,7 @@ html::before, body::before, #root::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #fcd0da 0%, #f8a6c4 100%);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-bottom) 100%);
   z-index: -1;
   pointer-events: none;
 }
@@ -53,8 +57,8 @@ html::before, body::before, #root::before {
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: linear-gradient(180deg, #fcd0da 0%, #f8a6c4 100%);
-  background-color: #fcd0da !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-bottom) 100%);
+  background-color: var(--bg-top) !important;
   background-image: none !important;
   min-height: 100vh;
   margin: 0;
@@ -70,7 +74,7 @@ html::after, body::after, #root::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #fcd0da 0%, #f8a6c4 100%);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-bottom) 100%);
   z-index: -1;
   pointer-events: none;
 }
@@ -82,18 +86,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: linear-gradient(180deg, #fcd0da 0%, #f8a6c4 100%) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-bottom) 100%) !important;
   background-image: none !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: linear-gradient(180deg, #fcd0da 0%, #f8a6c4 100%) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-bottom) 100%) !important;
   background-image: none !important;
 }
 
 #root {
-  background: linear-gradient(180deg, #fcd0da 0%, #f8a6c4 100%) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-bottom) 100%) !important;
   background-image: none !important;
 }
 
@@ -179,7 +183,7 @@ html {
 .container {
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  background: linear-gradient(180deg, #fcd0da 0%, #f8a6c4 100%) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-bottom) 100%) !important;
   background-image: none !important;
 }
 
@@ -286,7 +290,7 @@ html {
   right: -10%;
   bottom: -8%;
   opacity: 0;
-  filter: opacity(0.35) brightness(0) saturate(100%) hue-rotate(340deg) brightness(0.8) saturate(0.9);
+  filter: opacity(var(--tile-icon-opacity)) brightness(0) saturate(100%) hue-rotate(340deg) brightness(0.8) saturate(0.9);
   pointer-events: none;
   user-select: none;
   z-index: 1;
@@ -296,9 +300,9 @@ html {
 
 /* Special icon for "С чего начать новичку" */
 .category-card--special-icon .watermark {
-  filter: opacity(0.25) brightness(0) saturate(100%) hue-rotate(340deg) brightness(0.8) saturate(0.9);
-  animation: iconAppear 0.4s ease-out forwards, rocketPulse 3s ease-in-out infinite;
-  animation-delay: 0.2s, 1s;
+  filter: opacity(var(--tile-icon-opacity)) brightness(0) saturate(100%) hue-rotate(340deg) brightness(0.8) saturate(0.9);
+  animation: iconAppear 0.4s ease-out forwards;
+  animation-delay: 0.2s;
   opacity: 0;
 }
 
