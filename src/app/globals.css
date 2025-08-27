@@ -247,6 +247,7 @@ html {
   filter: saturate(0) brightness(1.2) invert(1) hue-rotate(45deg) saturate(1.6) brightness(1.4);
   animation: iconAppear 0.4s ease-out forwards, rocketPulse 3s ease-in-out infinite;
   animation-delay: 0.2s, 1s;
+  opacity: 0.35;
 }
 
 /* Premium effects for special cards */
