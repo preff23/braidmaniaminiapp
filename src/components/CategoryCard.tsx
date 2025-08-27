@@ -34,7 +34,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
       <img 
         src={`/photo/${icon}`} 
         alt="" 
-        className="watermark"
+        className="card-icon"
         id={specialIcon ? 'rocket-icon' : undefined}
       />
     </div>
