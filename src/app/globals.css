@@ -4,14 +4,14 @@
 
 :root {
   /* Новая палитра по ТЗ */
-  --pink-soft: #dba8c9;    /* единый фон приложения + цвет иконок */
+  --pink-soft: #95507A;    /* единый фон приложения + цвет иконок */
   --pink-strong: #e574b9;   /* яркие карточки */
   --text-on-pink: #FFFFFF;  /* белый текст */
   --accent-gold: #FFD54F;  /* золотистые элементы (не менять) */
 
   /* Градиент фона */
-  --bg-top: #dba8c9;       /* единый цвет */
-  --bg-bottom: #dba8c9;    /* единый цвет */
+  --bg-top: #95507A;       /* единый цвет */
+  --bg-bottom: #95507A;    /* единый цвет */
 
   /* Карточки и кнопки */
   --card-bg: #e574b9;      /* яркие карточки */
@@ -32,9 +32,9 @@
   --nav-shadow: rgba(0,0,0,0.25);
 
   /* Существующие переменные */
-  --color-bg: #dba8c9;
+  --color-bg: #95507A;
   --color-card: #e574b9;
-  --color-icon-ghost: #dba8c9;
+  --color-icon-ghost: #95507A;
   --color-gold: #FFD54F;
   --color-text: #FFFFFF;
   --color-text-muted: #FFFFFF;
