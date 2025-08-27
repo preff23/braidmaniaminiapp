@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #FFD6E8;
+  --color-bg: #F4B3C7;
   --color-card: #F47FB0;
   --color-icon-ghost: #D46A92;
   --color-gold: #FFD700;
@@ -22,8 +22,8 @@
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: linear-gradient(180deg, #FFD6E8 0%, #FF9ACD 100%);
-  background-color: #FFD6E8 !important;
+  background: linear-gradient(180deg, #F4B3C7 0%, #E487A7 50%, #C95B84 100%);
+  background-color: #F4B3C7 !important;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -36,16 +36,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: linear-gradient(180deg, #FFD6E8 0%, #FF9ACD 100%) !important;
+  background: linear-gradient(180deg, #F4B3C7 0%, #E487A7 50%, #C95B84 100%) !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: linear-gradient(180deg, #FFD6E8 0%, #FF9ACD 100%) !important;
+  background: linear-gradient(180deg, #F4B3C7 0%, #E487A7 50%, #C95B84 100%) !important;
 }
 
 #root {
-  background: linear-gradient(180deg, #FFD6E8 0%, #FF9ACD 100%) !important;
+  background: linear-gradient(180deg, #F4B3C7 0%, #E487A7 50%, #C95B84 100%) !important;
 }
 
 /* Page Transitions */
