@@ -3,18 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --bg: #F1DDE1;            /* пыльно-розовый фон страницы */
-  --panel: #2B2036;         /* глубокий сливовый для карточек */
-  --panel-2: #24192F;       /* чуть темнее для слоёв */
-  --text: #FFFFFF;
-  --brand: #F5D26C;         /* мягкое золото */
-  --brand-ghost: rgba(245,210,108,.22);
-  --muted: rgba(255,255,255,.72);
+  --color-bg: #F6E1EC;                    /* общий фон экрана */
+  --color-card: #ECA3C8;                  /* фон карточек/кнопок */
+  --color-icon-ghost: #E6B7CF;           /* полупрозрачные фоновые иконки на карточках */
+  --color-gold: #FFD369;                  /* обводки карточек, бейджи-счётчики, акценты и стрелки */
+  --color-text: #1C1C1C;                  /* основной текст (заголовки и названия в карточках) */
+  --color-text-muted: #2B2B2B;           /* вторичный текст при необходимости */
+  --color-tabbar: rgba(44, 22, 40, 0.85); /* подложка нижнего таббара — тёмно-сливовый прозрачный */
+  --shadow-glow: 0 0 18px rgba(255, 211, 105, 0.35); /* мягкое золотистое свечение */
 
   --radius-lg: 20px;
   --radius-md: 16px;
   --shadow-card: 0 10px 30px rgba(23, 12, 31,.25);
-  --shadow-glow: 0 0 0 1px rgba(245,210,108,.65), 0 8px 24px rgba(245,210,108,.25);
 }
 
 * {
@@ -28,22 +28,22 @@ html, body, #root {
 body {
   margin: 0;
   font-family: system-ui, Inter, 'Segoe UI', Roboto, Arial, sans-serif;
-  background: linear-gradient(180deg, #1c0f2e 0%, #000000 100%);
-  color: var(--text);
+  background: var(--color-bg);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: linear-gradient(180deg, #1c0f2e 0%, #000000 100%) !important;
+  background: var(--color-bg) !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: linear-gradient(180deg, #1c0f2e 0%, #000000 100%) !important;
+  background: var(--color-bg) !important;
 }
 
 #root {
-  background: linear-gradient(180deg, #1c0f2e 0%, #000000 100%) !important;
+  background: var(--color-bg) !important;
 }
 
 /* Page Transitions */
@@ -89,7 +89,7 @@ html {
     transform: scale(0.9);
   }
   to {
-    opacity: 0.15;
+    opacity: 0.28;
     transform: scale(1);
   }
 }
@@ -118,7 +118,7 @@ html {
 .container {
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  background: linear-gradient(180deg, #1c0f2e 0%, #000000 100%) !important;
+  background: var(--color-bg) !important;
 }
 
 /* Layout */
@@ -138,7 +138,7 @@ html {
 .header-title {
   font-size: 32px;
   font-weight: 800;
-  color: var(--text);
+  color: var(--color-text);
   margin: 0;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -147,7 +147,7 @@ html {
 .header-accent {
   width: 120px;
   height: 6px;
-  background: var(--brand);
+  background: var(--color-gold);
   border-radius: 6px;
   margin-top: 4px;
 }
@@ -163,8 +163,8 @@ html {
 .category-card {
   width: 176px;
   height: 176px;
-  background: var(--panel);
-  border: 1.5px solid var(--brand);
+  background: var(--color-card);
+  border: 1.5px solid var(--color-gold);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-glow);
   position: relative;
@@ -180,11 +180,12 @@ html {
 .category-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-glow), 0 12px 40px rgba(23, 12, 31, 0.3);
+  background: color-mix(in oklab, var(--color-card) 92%, #000 8%);
 }
 
 .category-card:active {
   transform: scale(0.99);
-  background: linear-gradient(135deg, var(--panel) 0%, rgba(245, 210, 108, 0.1) 100%);
+  background: color-mix(in oklab, var(--color-card) 92%, #000 8%);
   transition: all 0.2s ease-in-out;
 }
 
@@ -194,20 +195,20 @@ html {
   left: 12px;
   width: 28px;
   height: 28px;
-  background: var(--brand);
+  background: var(--color-gold);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
   font-weight: 700;
-  color: #1F1328;
+  color: var(--color-text);
 }
 
 .category-title {
   font-size: 16px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--color-text);
   line-height: 1.3;
   letter-spacing: 0.3px;
   text-transform: uppercase;
@@ -222,7 +223,7 @@ html {
   right: -10%;
   bottom: -8%;
   opacity: 0;
-  filter: saturate(0) brightness(1.2) invert(1);
+  filter: opacity(0.28);
   pointer-events: none;
   user-select: none;
   z-index: 1;
@@ -252,8 +253,8 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--panel);
-  border-top: 1px solid var(--brand-ghost);
+  background: var(--color-tabbar);
+  border-top: 1px solid rgba(255, 211, 105, 0.2);
   padding: 16px;
   display: flex;
   justify-content: space-around;
@@ -267,7 +268,7 @@ html {
   border: 1px solid transparent;
   border-radius: var(--radius-md);
   padding: 12px 16px;
-  color: var(--muted);
+  color: #FFFFFF;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
@@ -279,14 +280,14 @@ html {
 }
 
 .nav-button:hover {
-  background: var(--panel-2);
-  border-color: var(--brand-ghost);
+  background: rgba(255, 211, 105, 0.1);
+  border-color: rgba(255, 211, 105, 0.3);
 }
 
 .nav-button.active {
-  background: var(--panel);
-  border-color: var(--brand);
-  color: var(--text);
+  background: rgba(255, 211, 105, 0.15);
+  border-color: var(--color-gold);
+  color: #FFFFFF;
 }
 
 .nav-button svg {
@@ -303,11 +304,11 @@ html {
 }
 
 .back-button {
-  background: rgba(245,210,108,.15);
+  background: rgba(255, 211, 105, 0.15);
   border: none;
   border-radius: 20px;
   padding: 8px 16px;
-  color: var(--brand);
+  color: var(--color-gold);
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
@@ -318,13 +319,13 @@ html {
 }
 
 .back-button:hover {
-  background: rgba(245,210,108,.25);
+  background: rgba(255, 211, 105, 0.25);
 }
 
 .submenu-title {
   font-size: 24px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--color-text);
   margin: 0;
   text-transform: uppercase;
 }
@@ -336,8 +337,8 @@ html {
 }
 
 .submenu-item {
-  background: var(--panel);
-  border: 1.5px solid var(--brand);
+  background: var(--color-card);
+  border: 1.5px solid var(--color-gold);
   border-radius: var(--radius-lg);
   padding: 20px;
   height: 72px;
@@ -351,23 +352,24 @@ html {
 .submenu-item:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-glow);
+  background: color-mix(in oklab, var(--color-card) 92%, #000 8%);
 }
 
 .submenu-item:active {
   transform: scale(0.99);
-  background: linear-gradient(135deg, var(--panel) 0%, rgba(245, 210, 108, 0.1) 100%);
+  background: color-mix(in oklab, var(--color-card) 92%, #000 8%);
   transition: all 0.2s ease-in-out;
 }
 
 .submenu-item-title {
   font-size: 16px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--color-text);
   flex: 1;
 }
 
 .submenu-item-arrow {
-  color: var(--brand);
+  color: var(--color-gold);
   font-size: 20px;
   font-weight: 700;
 }
@@ -375,11 +377,11 @@ html {
 /* CTA Button */
 .cta-button {
   grid-column: 1 / 3;
-  background: var(--brand);
+  background: var(--color-gold);
   border: none;
   border-radius: var(--radius-lg);
   padding: 16px 20px;
-  color: #1F1328;
+  color: var(--color-text);
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
@@ -390,17 +392,18 @@ html {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+  box-shadow: var(--shadow-glow);
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow), 0 0 20px rgba(255, 215, 0, 0.6);
+  box-shadow: var(--shadow-glow), 0 0 20px rgba(255, 211, 105, 0.6);
+  background: color-mix(in oklab, var(--color-gold) 92%, #000 8%);
 }
 
 .cta-button:active {
   transform: scale(0.99);
-  background: linear-gradient(135deg, var(--brand) 0%, rgba(255, 215, 0, 0.8) 100%);
+  background: color-mix(in oklab, var(--color-gold) 92%, #000 8%);
   transition: all 0.2s ease-in-out;
 }
 
