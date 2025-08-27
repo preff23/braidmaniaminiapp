@@ -228,7 +228,7 @@ svg {
   z-index: 1;
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
 }
 
 /* CTA button pulse animation */
@@ -389,12 +389,12 @@ svg {
 }
 
 .category-card:hover .card-icon {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
   transition: filter 0.2s ease;
 }
 
 .category-card:active .card-icon {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
   transition: filter 0.1s ease;
 }
 
@@ -403,16 +403,16 @@ svg {
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
   opacity: 0;
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
 }
 
 .category-card--special-icon:hover .card-icon {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
   transition: filter 0.2s ease;
 }
 
 .category-card--special-icon:active .card-icon {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
   transition: filter 0.1s ease;
 }
 
