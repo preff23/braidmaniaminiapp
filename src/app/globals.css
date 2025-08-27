@@ -9,9 +9,8 @@
   --text-on-pink: #FFFFFF;  /* белый текст */
   --accent-gold: #FFD54F;  /* золотистые элементы (не менять) */
 
-  /* Градиент фона */
-  --bg-top: #fecbdc;       /* основной цвет */
-  --bg-bottom: #ffb9c;     /* градиентный цвет */
+  /* Фон приложения */
+  --bg-color: #ffcfdf;     /* простой цвет фона */
 
   /* Карточки и кнопки */
   --card-bg: #e67cbd;      /* фон карточек */
@@ -32,7 +31,7 @@
   --nav-shadow: rgba(0,0,0,0.25);
 
   /* Существующие переменные */
-  --color-bg: #fecbdc;
+  --color-bg: #ffcfdf;
   --color-card: #e67cbd;
   --color-icon-ghost: #f7cbd8;
   --color-gold: #FFD54F
@@ -47,11 +46,11 @@
 
 /* Глобальные стили для чистого фона */
 html, body, #root, .App, .AppRoot, .AppWrapper {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) !important;
+  background: var(--bg-color) !important;
   position: relative;
 }
 
-/* Псевдоэлемент с градиентом */
+/* Псевдоэлемент с фоном */
 html::before, body::before, #root::before {
   content: '';
   position: fixed;
@@ -59,7 +58,7 @@ html::before, body::before, #root::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  background: var(--bg-color);
   z-index: -1;
   pointer-events: none;
 }
@@ -81,8 +80,8 @@ html::before, body::before, #root::before {
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
-  background-color: var(--bg-top) !important;
+  background: var(--bg-color);
+  background-color: var(--bg-color) !important;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -96,16 +95,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) !important;
+  background: var(--bg-color) !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) !important;
+  background: var(--bg-color) !important;
 }
 
 #root {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) !important;
+  background: var(--bg-color) !important;
 }
 
 /* Page Transitions */
@@ -206,7 +205,7 @@ html {
 .container {
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) !important;
+  background: var(--bg-color) !important;
 }
 
 /* Layout */
