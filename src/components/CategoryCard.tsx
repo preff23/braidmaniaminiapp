@@ -31,11 +31,12 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
     <div className={cardClasses} onClick={onClick} id={id}>
       <div className="category-badge">{count}</div>
       <div className="category-title">{title}</div>
-      <div className="card-icon" id={specialIcon ? 'rocket-icon' : undefined}>
-        <svg width="100%" height="100%" viewBox="0 0 24 24">
-          <use href={`/photo/${icon}`} />
-        </svg>
-      </div>
+      <img 
+        src={`/photo/${icon}`} 
+        alt="" 
+        className="card-icon"
+        id={specialIcon ? 'rocket-icon' : undefined}
+      />
     </div>
   );
 };
