@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #E487A7;
+  --color-bg: #d66f9a;
   --color-card: #F47FB0;
   --color-icon-ghost: #D46A92;
   --color-gold: #FFD700;
@@ -16,14 +16,32 @@
   --shadow-card: 0 4px 20px rgba(244, 127, 176, 0.15);
 }
 
+/* Глобальные стили для чистого фона */
+html, body, #root, .App, .AppRoot, .AppWrapper {
+  background: #d66f9a !important;
+  background-image: none !important;
+}
+
+[class*="overlay"], [class*="veil"], [class*="bgGradient"], .bg-gradient, .bg-overlay {
+  display: none !important;
+  background: none !important;
+}
+
+.App, .AppRoot, .AppWrapper {
+  opacity: 1 !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
 * {
   box-sizing: border-box;
 }
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: #E487A7;
-  background-color: #E487A7 !important;
+  background: #d66f9a;
+  background-color: #d66f9a !important;
+  background-image: none !important;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -36,16 +54,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: #E487A7 !important;
+  background: #d66f9a !important;
+  background-image: none !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: #E487A7 !important;
+  background: #d66f9a !important;
+  background-image: none !important;
 }
 
 #root {
-  background: #E487A7 !important;
+  background: #d66f9a !important;
+  background-image: none !important;
 }
 
 /* Page Transitions */
