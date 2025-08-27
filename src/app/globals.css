@@ -120,7 +120,7 @@ html {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
 }
 
@@ -405,7 +405,6 @@ html {
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
-  transition: transform 0.6s ease-in-out;
   text-transform: uppercase;
   letter-spacing: 0.3px;
   display: flex;
@@ -413,17 +412,19 @@ html {
   justify-content: center;
   gap: 12px;
   box-shadow: var(--shadow-card);
-  animation: ctaPulse 5s ease-in-out infinite;
+  animation: ctaPulse 3s ease-in-out infinite;
+  will-change: transform;
 }
 
 .cta-button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: var(--shadow-card), 0 0 20px rgba(255, 209, 102, 0.6), 0 2px 6px rgba(0,0,0,0.15);
   background: linear-gradient(135deg, var(--color-gold) 0%, #FFE799 100%);
+  transition: all 0.3s ease;
 }
 
 .cta-button:active {
-  transform: scale(0.99);
+  transform: scale(0.98);
   background: linear-gradient(135deg, var(--color-gold) 0%, #FFE799 100%);
   transition: all 0.2s ease-in-out;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
