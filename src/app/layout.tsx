@@ -25,7 +25,6 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={inter.className}>
-        <div id="spark" aria-hidden="true"></div>
         <TelegramProvider>
           {children}
         </TelegramProvider>
