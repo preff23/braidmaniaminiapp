@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #d66f9a;
+  --color-bg: #D46A92;
   --color-card: #F47FB0;
   --color-icon-ghost: #D46A92;
   --color-gold: #FFD700;
@@ -18,7 +18,7 @@
 
 /* Глобальные стили для чистого фона */
 html, body, #root, .App, .AppRoot, .AppWrapper {
-  background: #d66f9a !important;
+  background: #D46A92 !important;
   background-image: none !important;
 }
 
@@ -39,8 +39,8 @@ html, body, #root, .App, .AppRoot, .AppWrapper {
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: #d66f9a;
-  background-color: #d66f9a !important;
+  background: #D46A92;
+  background-color: #D46A92 !important;
   background-image: none !important;
   min-height: 100vh;
   margin: 0;
@@ -54,18 +54,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: #d66f9a !important;
+  background: #D46A92 !important;
   background-image: none !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: #d66f9a !important;
+  background: #D46A92 !important;
   background-image: none !important;
 }
 
 #root {
-  background: #d66f9a !important;
+  background: #D46A92 !important;
   background-image: none !important;
 }
 
@@ -151,7 +151,8 @@ html {
 .container {
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  background: linear-gradient(135deg, #FFD6E8, #FFB3C1) !important;
+  background: #D46A92 !important;
+  background-image: none !important;
 }
 
 /* Layout */
