@@ -17,6 +17,9 @@
   --icon-light: #f7cbd8;   /* цвет иконок */
   --card-shadow: 0px 4px 12px rgba(0,0,0,0.12); /* мягкая тень */
 
+  /* Цвет иконок = цвет фона */
+  --bm-icon-color: #f8cad4;
+
   /* Карточки */
   --card-fill: rgba(255, 255, 255, 0.06); /* НЕ меняет розовую заливку, лишь лёгкий слой для глубины */
   --card-icon: rgba(0, 0, 0, 0.14);       /* базовый цвет иконок внутри карточек (повышаем контраст) */
@@ -228,7 +231,23 @@ svg {
   z-index: 1;
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+}
+
+.card-icon svg {
+  fill: var(--bm-icon-color) !important;
+  color: var(--bm-icon-color) !important;
+  stroke: none !important;
+}
+
+.card-icon svg [fill]:not([fill="none"]) { 
+  fill: currentColor !important; 
+}
+
+.card-icon svg [stroke] { 
+  stroke: currentColor !important; 
 }
 
 /* CTA button pulse animation */
@@ -389,13 +408,25 @@ svg {
 }
 
 .category-card:hover .card-icon {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
-  transition: filter 0.2s ease;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  transition: all 0.2s ease;
+}
+
+.category-card:hover .card-icon svg {
+  fill: var(--bm-icon-color) !important;
+  color: var(--bm-icon-color) !important;
 }
 
 .category-card:active .card-icon {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
-  transition: filter 0.1s ease;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  transition: all 0.1s ease;
+}
+
+.category-card:active .card-icon svg {
+  fill: var(--bm-icon-color) !important;
+  color: var(--bm-icon-color) !important;
 }
 
 /* Special icon for "С чего начать новичку" */
@@ -403,17 +434,35 @@ svg {
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
   opacity: 0;
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+.category-card--special-icon .card-icon svg {
+  fill: var(--bm-icon-color) !important;
+  color: var(--bm-icon-color) !important;
 }
 
 .category-card--special-icon:hover .card-icon {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
-  transition: filter 0.2s ease;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  transition: all 0.2s ease;
+}
+
+.category-card--special-icon:hover .card-icon svg {
+  fill: var(--bm-icon-color) !important;
+  color: var(--bm-icon-color) !important;
 }
 
 .category-card--special-icon:active .card-icon {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(320deg) brightness(110%) contrast(95%);
-  transition: filter 0.1s ease;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  transition: all 0.1s ease;
+}
+
+.category-card--special-icon:active .card-icon svg {
+  fill: var(--bm-icon-color) !important;
+  color: var(--bm-icon-color) !important;
 }
 
 /* Premium effects for special cards */
