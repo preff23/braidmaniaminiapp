@@ -28,22 +28,22 @@ html, body, #root {
 body {
   margin: 0;
   font-family: system-ui, Inter, 'Segoe UI', Roboto, Arial, sans-serif;
-  background: linear-gradient(180deg, #FFD6E8 0%, #F8AFC8 100%);
+  background: linear-gradient(135deg, #FFD6E8, #FFB3C1);
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: linear-gradient(180deg, #FFD6E8 0%, #F8AFC8 100%) !important;
+  background: linear-gradient(135deg, #FFD6E8, #FFB3C1) !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: linear-gradient(180deg, #FFD6E8 0%, #F8AFC8 100%) !important;
+  background: linear-gradient(135deg, #FFD6E8, #FFB3C1) !important;
 }
 
 #root {
-  background: linear-gradient(180deg, #FFD6E8 0%, #F8AFC8 100%) !important;
+  background: linear-gradient(135deg, #FFD6E8, #FFB3C1) !important;
 }
 
 /* Page Transitions */
@@ -89,7 +89,7 @@ html {
     transform: scale(0.9);
   }
   to {
-    opacity: 0.3;
+    opacity: 0.35;
     transform: scale(1);
   }
 }
@@ -120,7 +120,7 @@ html {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.02);
+    transform: scale(1.03);
   }
 }
 
@@ -128,7 +128,7 @@ html {
 .container {
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  background: linear-gradient(180deg, #FFD6E8 0%, #F8AFC8 100%) !important;
+  background: linear-gradient(135deg, #FFD6E8, #FFB3C1) !important;
 }
 
 /* Layout */
@@ -189,7 +189,7 @@ html {
 
 .category-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-card), 0 12px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-card), 0 12px 40px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0,0,0,0.15);
   background: color-mix(in oklab, var(--color-card) 92%, #000 8%);
 }
 
@@ -197,6 +197,7 @@ html {
   transform: scale(0.99);
   background: color-mix(in oklab, var(--color-card) 92%, #000 8%);
   transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .category-badge {
@@ -233,7 +234,7 @@ html {
   right: -10%;
   bottom: -8%;
   opacity: 0;
-  filter: opacity(0.3) brightness(0) saturate(100%) hue-rotate(320deg) brightness(0.6) saturate(1.2);
+  filter: opacity(0.35) brightness(0) saturate(100%) hue-rotate(320deg) brightness(0.6) saturate(1.2);
   pointer-events: none;
   user-select: none;
   z-index: 1;
@@ -314,11 +315,11 @@ html {
 }
 
 .back-button {
-  background: rgba(255, 209, 102, 0.15);
-  border: none;
+  background: #FF9EBB;
+  border: 1px solid #E38FA8;
   border-radius: 20px;
   padding: 8px 16px;
-  color: var(--color-gold);
+  color: #FFFFFF;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
@@ -329,7 +330,13 @@ html {
 }
 
 .back-button:hover {
-  background: rgba(255, 209, 102, 0.25);
+  background: color-mix(in oklab, #FF9EBB 92%, #000 8%);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.back-button:active {
+  transform: scale(0.99);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .submenu-title {
@@ -362,7 +369,7 @@ html {
 
 .submenu-item:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-card), 0 12px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-card), 0 12px 40px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0,0,0,0.15);
   background: color-mix(in oklab, var(--color-card) 92%, #000 8%);
 }
 
@@ -370,6 +377,7 @@ html {
   transform: scale(0.99);
   background: color-mix(in oklab, var(--color-card) 92%, #000 8%);
   transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .submenu-item-title {
@@ -392,11 +400,11 @@ html {
   border: none;
   border-radius: var(--radius-lg);
   padding: 16px 20px;
-  color: #2E2E2E;
+  color: #2B1E1F;
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.6s ease-in-out;
   text-transform: uppercase;
   letter-spacing: 0.3px;
   display: flex;
@@ -404,12 +412,12 @@ html {
   justify-content: center;
   gap: 12px;
   box-shadow: var(--shadow-card);
-  animation: ctaPulse 3s ease-in-out infinite;
+  animation: ctaPulse 5s ease-in-out infinite;
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-card), 0 0 20px rgba(255, 209, 102, 0.6);
+  box-shadow: var(--shadow-card), 0 0 20px rgba(255, 209, 102, 0.6), 0 2px 6px rgba(0,0,0,0.15);
   background: linear-gradient(135deg, var(--color-gold) 0%, #FFE799 100%);
 }
 
@@ -417,6 +425,7 @@ html {
   transform: scale(0.99);
   background: linear-gradient(135deg, var(--color-gold) 0%, #FFE799 100%);
   transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 /* Responsive */
