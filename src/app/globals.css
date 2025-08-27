@@ -4,9 +4,9 @@
 
 :root {
   /* Градиент фона c затемнением сверху */
-  --bg-top: #c75d88;      /* темнее сверху */
-  --bg-mid: #e776a1;      /* плавный переход */
-  --bg-bottom: #f59bbd;   /* светлее снизу */
+  --bg-top: #B44D79;      /* тёмный верх (для читаемости BRAID MANIA) */
+  --bg-mid: #E967A3;      /* яркая середина (больше сочности) */
+  --bg-bottom: #FFB0C9;   /* светлый низ */
 
   /* Карточки */
   --card-fill: rgba(255, 255, 255, 0.06); /* НЕ меняет розовую заливку, лишь лёгкий слой для глубины */
@@ -22,7 +22,7 @@
   --nav-shadow: rgba(0,0,0,0.25);
 
   /* Существующие переменные */
-  --color-bg: #c75d88;
+  --color-bg: #B44D79;
   --color-card: #F47FB0;
   --color-icon-ghost: #D46A92;
   --color-gold: #FFD700;
@@ -37,7 +37,8 @@
 
 /* Глобальные стили для чистого фона */
 html, body, #root, .App, .AppRoot, .AppWrapper {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 38%, var(--bg-bottom) 100%) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%) !important;
+  background-attachment: fixed !important;
   background-image: none !important;
   position: relative;
 }
@@ -50,9 +51,19 @@ html::before, body::before, #root::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 38%, var(--bg-bottom) 100%);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%);
   z-index: -1;
   pointer-events: none;
+}
+
+/* Мягкое световое пятно снизу для сочности */
+html::after, body::after, #root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(1200px 700px at 50% 85%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 60%);
+  z-index: -1;
 }
 
 [class*="overlay"], [class*="veil"], [class*="bgGradient"], .bg-gradient, .bg-overlay {
@@ -72,7 +83,7 @@ html::before, body::before, #root::before {
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 38%, var(--bg-bottom) 100%);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%);
   background-color: var(--bg-top) !important;
   background-image: none !important;
   min-height: 100vh;
@@ -89,7 +100,7 @@ html::after, body::after, #root::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 38%, var(--bg-bottom) 100%);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%);
   z-index: -1;
   pointer-events: none;
 }
@@ -101,18 +112,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 38%, var(--bg-bottom) 100%) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%) !important;
+  background-attachment: fixed !important;
   background-image: none !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 38%, var(--bg-bottom) 100%) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%) !important;
+  background-attachment: fixed !important;
   background-image: none !important;
 }
 
 #root {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 38%, var(--bg-bottom) 100%) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%) !important;
+  background-attachment: fixed !important;
   background-image: none !important;
 }
 
@@ -198,7 +212,8 @@ html {
 .container {
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 38%, var(--bg-bottom) 100%) !important;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%) !important;
+  background-attachment: fixed !important;
   background-image: none !important;
 }
 
