@@ -269,6 +269,9 @@ html {
   background: var(--color-gold);
   border-radius: 3px;
   margin-top: 7px;
+  display: block;
+  content: "";
+  min-height: 3px;
 }
 
 /* Grid */
