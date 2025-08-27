@@ -244,9 +244,9 @@ html {
 
 /* Special icon for "С чего начать новичку" */
 .category-card--special-icon .watermark {
-  filter: saturate(0) brightness(1.2) invert(1) hue-rotate(45deg) saturate(1.6) brightness(1.4);
-  animation: iconAppear 0.4s ease-out forwards, rocketPulse 3s ease-in-out infinite;
-  animation-delay: 0.2s, 1s;
+  filter: brightness(0) saturate(100%) brightness(1.1);
+  animation: rocketPulse 3s ease-in-out infinite;
+  animation-delay: 1s;
   opacity: 0.35;
 }
 
