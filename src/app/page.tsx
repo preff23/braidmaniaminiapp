@@ -45,7 +45,12 @@ function paintRocketOnce() {
     // Если иконка — SVG, продублируй:
     try {
       const paths = (iconEl as unknown as SVGElement).querySelectorAll('path, use');
-      paths.forEach(p => (p as any).style.fill = 'var(--spark-color)');
+      paths.forEach(p => {
+        const pathElement = p as SVGPathElement | SVGUseElement;
+        if (pathElement.style) {
+          pathElement.style.fill = 'var(--spark-color)';
+        }
+      });
     } catch {}
     sessionStorage.setItem('rocketPainted', '1');
   };
