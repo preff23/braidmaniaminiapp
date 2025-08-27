@@ -3,10 +3,16 @@
 @tailwind utilities;
 
 :root {
+  /* Новая палитра по ТЗ */
+  --pink-soft: #F6C2D2;    /* бледно-розовый: фон приложения + фон иконок */
+  --pink-strong: #F07FB0;   /* ярко-розовый: фон карточек */
+  --text-on-pink: #FFFFFF;  /* белый текст */
+  --accent-gold: #FFD94D;  /* золотые элементы (не менять) */
+
   /* Градиент фона c затемнением сверху */
-  --bg-top: #B44D79;      /* тёмный верх (для читаемости BRAID MANIA) */
-  --bg-mid: #E967A3;      /* яркая середина (больше сочности) */
-  --bg-bottom: #FFB0C9;   /* светлый низ */
+  --bg-top: #F6C2D2;       /* бледно-розовый */
+  --bg-mid: #F6C2D2;       /* бледно-розовый */
+  --bg-bottom: #F6C2D2;    /* бледно-розовый */
 
   /* Карточки */
   --card-fill: rgba(255, 255, 255, 0.06); /* НЕ меняет розовую заливку, лишь лёгкий слой для глубины */
@@ -22,20 +28,18 @@
   /* Низ навигации */
   --nav-shadow: rgba(0,0,0,0.25);
 
-  /* Жёлтые элементы - более мягкие оттенки */
-  --color-gold: #FFD94D;  /* пастельно-жёлтый вместо яркого #FFD700 */
-
   /* Иконки - светлый акцент */
   --icon-light: #F9C9DC;  /* светлый розовый для иконок */
   --icon-light-hover: #FADCE9; /* ещё светлее при hover */
 
   /* Существующие переменные */
-  --color-bg: #B44D79;
-  --color-card: #F47FB0;
-  --color-icon-ghost: #D46A92;
+  --color-bg: #F6C2D2;
+  --color-card: #F07FB0;
+  --color-icon-ghost: #F6C2D2;
+  --color-gold: #FFD94D;
   --color-text: #FFFFFF;
   --color-text-muted: #FFFFFF;
-  --color-tabbar: #F47FB0;
+  --color-tabbar: #F07FB0;
   --shadow-glow: rgba(244, 127, 176, 0.3);
   --radius-lg: 16px;
   --radius-md: 12px;
@@ -44,13 +48,12 @@
 
 /* Глобальные стили для чистого фона */
 html, body, #root, .App, .AppRoot, .AppWrapper {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%) !important;
-  background-attachment: fixed !important;
+  background: var(--pink-soft) !important;
   background-image: none !important;
   position: relative;
 }
 
-/* Псевдоэлемент с градиентом */
+/* Псевдоэлемент с фоном */
 html::before, body::before, #root::before {
   content: '';
   position: fixed;
@@ -58,7 +61,7 @@ html::before, body::before, #root::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%);
+  background: var(--pink-soft);
   z-index: -1;
   pointer-events: none;
 }
@@ -90,8 +93,8 @@ html::after, body::after, #root::after {
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%);
-  background-color: var(--bg-top) !important;
+  background: var(--pink-soft);
+  background-color: var(--pink-soft) !important;
   background-image: none !important;
   min-height: 100vh;
   margin: 0;
@@ -99,7 +102,7 @@ html, body, #root, .container {
   position: relative;
 }
 
-/* Фоновый слой с градиентом */
+/* Фоновый слой */
 html::after, body::after, #root::after {
   content: '';
   position: fixed;
@@ -107,7 +110,7 @@ html::after, body::after, #root::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%);
+  background: var(--pink-soft);
   z-index: -1;
   pointer-events: none;
 }
@@ -119,21 +122,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%) !important;
-  background-attachment: fixed !important;
+  background: var(--pink-soft) !important;
   background-image: none !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%) !important;
-  background-attachment: fixed !important;
+  background: var(--pink-soft) !important;
   background-image: none !important;
 }
 
 #root {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%) !important;
-  background-attachment: fixed !important;
+  background: var(--pink-soft) !important;
   background-image: none !important;
 }
 
@@ -219,8 +219,7 @@ html {
 .container {
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 42%, #FFA4C4 70%, var(--bg-bottom) 100%) !important;
-  background-attachment: fixed !important;
+  background: var(--pink-soft) !important;
   background-image: none !important;
 }
 
@@ -241,7 +240,7 @@ html {
 .header-title {
   font-size: 32px;
   font-weight: 800;
-  color: var(--text-white);
+  color: var(--text-on-pink);
   margin: 0;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -268,8 +267,8 @@ html {
 .category-card {
   width: 176px;
   height: 176px;
-  background: var(--color-card);
-  border: 1.5px solid var(--color-gold);
+  background: var(--pink-strong);
+  border: 1.5px solid var(--accent-gold);
   border-radius: 12px;
   box-shadow: var(--card-shadow);
   position: relative;
@@ -311,14 +310,14 @@ html {
   left: 12px;
   width: 28px;
   height: 28px;
-  background: var(--color-gold);
+  background: var(--accent-gold);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
   font-weight: 700;
-  color: var(--text-white);
+  color: var(--text-on-pink);
   text-shadow: 0 1px 1px var(--text-shadow);
   z-index: 2;
 }
@@ -326,7 +325,7 @@ html {
 .category-title {
   font-size: 16px;
   font-weight: 700;
-  color: var(--text-white);
+  color: var(--text-on-pink);
   line-height: 1.3;
   letter-spacing: 0.3px;
   text-transform: uppercase;
@@ -348,6 +347,9 @@ html {
   z-index: 1;
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
+  /* Иконки теперь бледно-розовые как фон */
+  background-color: var(--pink-soft);
+  opacity: 0.85;
 }
 
 .category-card:hover .watermark {
@@ -393,7 +395,7 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--color-tabbar);
+  background: var(--pink-strong);
   border-top: 1px solid rgba(255, 209, 102, 0.2);
   padding: 16px;
   display: flex;
@@ -427,8 +429,8 @@ html {
 
 .nav-button.active {
   background: rgba(255, 209, 102, 0.15);
-  border-color: var(--color-gold);
-  color: var(--text-white);
+  border-color: var(--accent-gold);
+  color: var(--text-on-pink);
   text-shadow: 0 1px 1px var(--text-shadow);
 }
 
@@ -447,11 +449,11 @@ html {
 }
 
 .back-button {
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.25);
+  background: var(--pink-strong);
+  border: 1px solid var(--accent-gold);
   border-radius: 20px;
   padding: 8px 16px;
-  color: var(--text-white);
+  color: var(--text-on-pink);
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
@@ -476,7 +478,7 @@ html {
 .submenu-title {
   font-size: 24px;
   font-weight: 700;
-  color: var(--text-white);
+  color: var(--text-on-pink);
   margin: 0;
   text-transform: uppercase;
   text-shadow: 0 1px 1px var(--text-shadow);
@@ -489,8 +491,8 @@ html {
 }
 
 .submenu-item {
-  background: var(--color-card);
-  border: 1.5px solid var(--color-gold);
+  background: var(--pink-strong);
+  border: 1.5px solid var(--accent-gold);
   border-radius: 12px;
   padding: 20px;
   height: 72px;
@@ -518,13 +520,13 @@ html {
 .submenu-item-title {
   font-size: 16px;
   font-weight: 600;
-  color: var(--text-white);
+  color: var(--text-on-pink);
   flex: 1;
   text-shadow: 0 1px 1px var(--text-shadow);
 }
 
 .submenu-item-arrow {
-  color: var(--text-white);
+  color: var(--text-on-pink);
   font-size: 20px;
   font-weight: 700;
   text-shadow: 0 1px 1px var(--text-shadow);
@@ -533,7 +535,7 @@ html {
 /* CTA Button */
 .cta-button {
   grid-column: 1 / 3;
-  background: var(--color-gold);
+  background: var(--accent-gold);
   border: none;
   border-radius: 12px;
   padding: 16px 20px;
