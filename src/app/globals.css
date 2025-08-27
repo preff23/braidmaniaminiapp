@@ -378,7 +378,7 @@ svg {
   right: -10%;
   bottom: -8%;
   opacity: 0;
-  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.3) saturate(1.2);
+  filter: brightness(0) saturate(100%) hue-rotate(320deg) brightness(1.8) saturate(1.5);
   pointer-events: none;
   user-select: none;
   z-index: 1;
@@ -387,30 +387,30 @@ svg {
 }
 
 .category-card:hover .watermark {
-  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.5) saturate(1.3);
+  filter: brightness(0) saturate(100%) hue-rotate(320deg) brightness(2.0) saturate(1.7);
   transition: filter 0.2s ease;
 }
 
 .category-card:active .watermark {
-  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.7) saturate(1.4);
+  filter: brightness(0) saturate(100%) hue-rotate(320deg) brightness(2.2) saturate(1.9);
   transition: filter 0.1s ease;
 }
 
 /* Special icon for "С чего начать новичку" */
 .category-card--special-icon .watermark {
-  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.3) saturate(1.2);
+  filter: brightness(0) saturate(100%) hue-rotate(320deg) brightness(1.8) saturate(1.5);
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
   opacity: 0;
 }
 
 .category-card--special-icon:hover .watermark {
-  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.5) saturate(1.3);
+  filter: brightness(0) saturate(100%) hue-rotate(320deg) brightness(2.0) saturate(1.7);
   transition: filter 0.2s ease;
 }
 
 .category-card--special-icon:active .watermark {
-  filter: brightness(0) saturate(100%) hue-rotate(340deg) brightness(1.7) saturate(1.4);
+  filter: brightness(0) saturate(100%) hue-rotate(320deg) brightness(2.2) saturate(1.9);
   transition: filter 0.1s ease;
 }
 
