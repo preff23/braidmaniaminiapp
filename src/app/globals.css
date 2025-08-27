@@ -50,19 +50,6 @@ html, body, #root, .App, .AppRoot, .AppWrapper {
   position: relative;
 }
 
-/* Псевдоэлемент с фоном */
-html::before, body::before, #root::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--bg-color);
-  z-index: -1;
-  pointer-events: none;
-}
-
 [class*="overlay"], [class*="veil"], [class*="bgGradient"], .bg-gradient, .bg-overlay {
   display: none !important;
   background: none !important;
@@ -72,6 +59,7 @@ html::before, body::before, #root::before {
   opacity: 1 !important;
   filter: none !important;
   backdrop-filter: none !important;
+  background: var(--bg-color) !important;
 }
 
 * {
@@ -240,7 +228,7 @@ svg {
   z-index: 1;
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
-  filter: brightness(0);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
 }
 
 /* CTA button pulse animation */
@@ -401,12 +389,12 @@ svg {
 }
 
 .category-card:hover .card-icon {
-  filter: brightness(0);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
   transition: filter 0.2s ease;
 }
 
 .category-card:active .card-icon {
-  filter: brightness(0);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
   transition: filter 0.1s ease;
 }
 
@@ -415,16 +403,16 @@ svg {
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
   opacity: 0;
-  filter: brightness(0);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
 }
 
 .category-card--special-icon:hover .card-icon {
-  filter: brightness(0);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
   transition: filter 0.2s ease;
 }
 
 .category-card--special-icon:active .card-icon {
-  filter: brightness(0);
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(100%) hue-rotate(340deg) brightness(120%) contrast(90%);
   transition: filter 0.1s ease;
 }
 
