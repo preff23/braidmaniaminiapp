@@ -20,6 +20,21 @@
 html, body, #root, .App, .AppRoot, .AppWrapper {
   background: #D46A92 !important;
   background-image: none !important;
+  position: relative;
+}
+
+/* Псевдоэлемент с теми же фильтрами что и у иконок */
+html::before, body::before, #root::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  filter: opacity(0.35) brightness(0) saturate(100%) hue-rotate(340deg) brightness(0.8) saturate(0.9);
+  z-index: -1;
+  pointer-events: none;
 }
 
 [class*="overlay"], [class*="veil"], [class*="bgGradient"], .bg-gradient, .bg-overlay {
@@ -39,12 +54,27 @@ html, body, #root, .App, .AppRoot, .AppWrapper {
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: #D46A92;
-  background-color: #D46A92 !important;
+  background: transparent;
+  background-color: transparent !important;
   background-image: none !important;
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  position: relative;
+}
+
+/* Фоновый слой с теми же фильтрами что и у иконок */
+html::after, body::after, #root::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  filter: opacity(0.35) brightness(0) saturate(100%) hue-rotate(340deg) brightness(0.8) saturate(0.9);
+  z-index: -1;
+  pointer-events: none;
 }
 
 body {
@@ -54,18 +84,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: #D46A92 !important;
+  background: transparent !important;
   background-image: none !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: #D46A92 !important;
+  background: transparent !important;
   background-image: none !important;
 }
 
 #root {
-  background: #D46A92 !important;
+  background: transparent !important;
   background-image: none !important;
 }
 
@@ -151,7 +181,7 @@ html {
 .container {
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  background: #D46A92 !important;
+  background: transparent !important;
   background-image: none !important;
 }
 
