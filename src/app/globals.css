@@ -4,18 +4,18 @@
 
 :root {
   /* Новая палитра по ТЗ */
-  --pink-soft: #F6C2D2;    /* бледно-розовый: фон приложения + фон иконок */
-  --pink-strong: #F07FB0;   /* ярко-розовый: фон карточек */
+  --pink-soft: #dba8c9;    /* единый фон приложения + цвет иконок */
+  --pink-strong: #e574b9;   /* яркие карточки */
   --text-on-pink: #FFFFFF;  /* белый текст */
-  --accent-gold: #FFD54F;  /* золотистые элементы */
+  --accent-gold: #FFD54F;  /* золотистые элементы (не менять) */
 
   /* Градиент фона */
-  --bg-top: #c24a73;       /* тёмный верх */
-  --bg-bottom: #f29dbd;    /* светлый низ */
+  --bg-top: #dba8c9;       /* единый цвет */
+  --bg-bottom: #dba8c9;    /* единый цвет */
 
   /* Карточки и кнопки */
-  --card-bg: #e7568a;      /* фон кнопок/карточек */
-  --icon-light: #f28dae;   /* светлые иконки */
+  --card-bg: #e574b9;      /* яркие карточки */
+  --icon-light: #dba8c9;   /* цвет иконок */
   --card-shadow: 0px 4px 12px rgba(0,0,0,0.12); /* мягкая тень */
 
   /* Карточки */
@@ -32,13 +32,13 @@
   --nav-shadow: rgba(0,0,0,0.25);
 
   /* Существующие переменные */
-  --color-bg: #c24a73;
-  --color-card: #e7568a;
-  --color-icon-ghost: #f28dae;
+  --color-bg: #dba8c9;
+  --color-card: #e574b9;
+  --color-icon-ghost: #dba8c9;
   --color-gold: #FFD54F;
   --color-text: #FFFFFF;
   --color-text-muted: #FFFFFF;
-  --color-tabbar: #e7568a;
+  --color-tabbar: #e574b9;
   --shadow-glow: rgba(244, 127, 176, 0.3);
   --radius-lg: 16px;
   --radius-md: 12px;
@@ -47,12 +47,12 @@
 
 /* Глобальные стили для чистого фона */
 html, body, #root, .App, .AppRoot, .AppWrapper {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 25%, var(--bg-bottom) 100%) !important;
+  background: var(--pink-soft) !important;
   background-image: none !important;
   position: relative;
 }
 
-/* Псевдоэлемент с градиентом */
+/* Псевдоэлемент с фоном */
 html::before, body::before, #root::before {
   content: '';
   position: fixed;
@@ -60,7 +60,7 @@ html::before, body::before, #root::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 25%, var(--bg-bottom) 100%);
+  background: var(--pink-soft);
   z-index: -1;
   pointer-events: none;
 }
@@ -92,8 +92,8 @@ html::after, body::after, #root::after {
 
 /* Основной фон приложения */
 html, body, #root, .container {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 25%, var(--bg-bottom) 100%);
-  background-color: var(--bg-top) !important;
+  background: var(--pink-soft);
+  background-color: var(--pink-soft) !important;
   background-image: none !important;
   min-height: 100vh;
   margin: 0;
@@ -109,7 +109,7 @@ html::after, body::after, #root::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 25%, var(--bg-bottom) 100%);
+  background: var(--pink-soft);
   z-index: -1;
   pointer-events: none;
 }
@@ -121,18 +121,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   /* Предотвращаем белый фон при переходах */
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 25%, var(--bg-bottom) 100%) !important;
+  background: var(--pink-soft) !important;
   background-image: none !important;
 }
 
 /* Предотвращаем белый фон на всех элементах */
 html {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 25%, var(--bg-bottom) 100%) !important;
+  background: var(--pink-soft) !important;
   background-image: none !important;
 }
 
 #root {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 25%, var(--bg-bottom) 100%) !important;
+  background: var(--pink-soft) !important;
   background-image: none !important;
 }
 
@@ -218,7 +218,7 @@ html {
 .container {
   opacity: 0;
   animation: fadeIn 0.3s ease-out forwards;
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 25%, var(--bg-bottom) 100%) !important;
+  background: var(--pink-soft) !important;
   background-image: none !important;
 }
 
@@ -266,7 +266,7 @@ html {
 .category-card {
   width: 176px;
   height: 176px;
-  background: var(--card-bg);
+  background: var(--pink-strong);
   border: 2px solid var(--accent-gold);
   border-radius: 12px;
   box-shadow: var(--card-shadow);
@@ -282,13 +282,13 @@ html {
 }
 
 .category-card:hover {
-  background: color-mix(in oklab, var(--card-bg) 95%, rgba(0,0,0,0.05));
+  background: color-mix(in oklab, var(--pink-strong) 95%, rgba(0,0,0,0.05));
   transform: scale(1.02);
   box-shadow: 0px 6px 16px rgba(0,0,0,0.15);
 }
 
 .category-card:active {
-  background: color-mix(in oklab, var(--card-bg) 92%, rgba(0,0,0,0.08));
+  background: color-mix(in oklab, var(--pink-strong) 92%, rgba(0,0,0,0.08));
   transform: scale(1.01);
   transition: all 0.1s ease;
 }
@@ -403,7 +403,7 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--card-bg);
+  background: var(--pink-strong);
   border-top: 2px solid var(--accent-gold);
   padding: 16px;
   display: flex;
@@ -457,7 +457,7 @@ html {
 }
 
 .back-button {
-  background: var(--card-bg);
+  background: var(--pink-strong);
   border: 2px solid var(--accent-gold);
   border-radius: 20px;
   padding: 8px 16px;
@@ -474,13 +474,13 @@ html {
 }
 
 .back-button:hover {
-  background: color-mix(in oklab, var(--card-bg) 95%, rgba(0,0,0,0.05));
+  background: color-mix(in oklab, var(--pink-strong) 95%, rgba(0,0,0,0.05));
   transform: scale(1.02);
   box-shadow: 0px 6px 16px rgba(0,0,0,0.15);
 }
 
 .back-button:active {
-  background: color-mix(in oklab, var(--card-bg) 92%, rgba(0,0,0,0.08));
+  background: color-mix(in oklab, var(--pink-strong) 92%, rgba(0,0,0,0.08));
   transform: scale(1.01);
   transition: all 0.1s ease;
 }
@@ -511,7 +511,7 @@ html {
 }
 
 .submenu-item {
-  background: var(--card-bg);
+  background: var(--pink-strong);
   border: 2px solid var(--accent-gold);
   border-radius: 12px;
   padding: 20px;
@@ -525,13 +525,13 @@ html {
 }
 
 .submenu-item:hover {
-  background: color-mix(in oklab, var(--card-bg) 95%, rgba(0,0,0,0.05));
+  background: color-mix(in oklab, var(--pink-strong) 95%, rgba(0,0,0,0.05));
   transform: scale(1.02);
   box-shadow: 0px 6px 16px rgba(0,0,0,0.15);
 }
 
 .submenu-item:active {
-  background: color-mix(in oklab, var(--card-bg) 92%, rgba(0,0,0,0.08));
+  background: color-mix(in oklab, var(--pink-strong) 92%, rgba(0,0,0,0.08));
   transform: scale(1.01);
   transition: all 0.1s ease;
 }
@@ -567,7 +567,7 @@ html {
 /* CTA Button */
 .cta-button {
   grid-column: 1 / 3;
-  background: var(--card-bg);
+  background: var(--pink-strong);
   border: 2px solid var(--accent-gold);
   border-radius: 12px;
   padding: 16px 20px;
@@ -588,13 +588,13 @@ html {
 }
 
 .cta-button:hover {
-  background: color-mix(in oklab, var(--card-bg) 95%, rgba(0,0,0,0.05));
+  background: color-mix(in oklab, var(--pink-strong) 95%, rgba(0,0,0,0.05));
   transform: scale(1.02);
   box-shadow: 0px 6px 16px rgba(0,0,0,0.15);
 }
 
 .cta-button:active {
-  background: color-mix(in oklab, var(--card-bg) 92%, rgba(0,0,0,0.08));
+  background: color-mix(in oklab, var(--pink-strong) 92%, rgba(0,0,0,0.08));
   transform: scale(1.01);
   transition: all 0.1s ease;
 }
