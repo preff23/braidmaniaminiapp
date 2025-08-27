@@ -35,7 +35,7 @@
   --color-bg: #95507A;
   --color-card: #e574b9;
   --color-icon-ghost: #95507A;
-  --color-gold: #FFD54F;
+  --color-gold: #FFD54F
   --color-text: #FFFFFF;
   --color-text-muted: #FFFFFF;
   --color-tabbar: #e574b9;
@@ -566,7 +566,7 @@ html {
 }
 
 .submenu-item-title {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--text-on-pink);
   flex: 1;
@@ -579,7 +579,7 @@ html {
   text-overflow: ellipsis;
   line-height: 1.3;
   /* Автоматическое уменьшение размера шрифта */
-  font-size: clamp(10px, 2.8vw, 12px);
+  font-size: clamp(9px, 2.5vw, 11px);
 }
 
 .submenu-item-arrow {
