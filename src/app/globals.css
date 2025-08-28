@@ -160,12 +160,7 @@ body {
   animation-delay: 0.3s;
 }
 
-/* Иконка graduation остается прежнего размера */
-.card-icon[data-icon="graduation.svg"] {
-  width: 94.5% !important;
-  right: -12.6% !important; /* сдвинули влево на 5% (было -17.6%, стало -12.6%) */
-  bottom: -5.6% !important; /* подняли на 10% (было -15.6%, стало -5.6%) */
-}
+
 
 /* Точечные изменения для каждой иконки */
 
@@ -187,7 +182,8 @@ body {
 
 /* МК И СКИДКИ УЧАСТНИКАМ ГРУППЫ - graduation-pink.svg */
 .card-icon[data-icon="graduation.svg"] {
-  right: -17.6% !important; /* подвинули вправо на 5% (было -12.6%, стало -17.6%) */
+  right: -23.2543% !important; /* подвинули вправо на 5% (было -18.2543%, стало -23.2543%) */
+  bottom: -15.7884% !important; /* опустили на 5% вниз (было -10.7884%, стало -15.7884%) */
 }
 
 /* ТУТОРИАЛЫ НА СЕБЕ - videocam-pink.svg */
@@ -213,9 +209,7 @@ body {
   bottom: -17.7884% !important; /* опустили на 7% вниз (было -10.7884%, стало -17.7884%) */
 }
 
-.card-icon[data-icon="graduation.svg"] img {
-  transform: scale(0.945); /* graduation остается прежнего размера */
-}
+
 
 .card-icon img {
   width: 100%;
@@ -265,26 +259,7 @@ body {
   }
 }
 
-/* Анимация для иконки graduation */
-.card-icon[data-icon="graduation.svg"] {
-  animation: iconAppearGraduation 0.6s ease-out forwards;
-  animation-delay: 0.3s;
-}
 
-@keyframes iconAppearGraduation {
-  0% {
-    opacity: 0;
-    transform: scale(0.945) translateY(20px) rotate(-5deg);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(0.945) translateY(-5px) rotate(2deg);
-  }
-  100% {
-    opacity: 0.9;
-    transform: scale(0.945) translateY(0) rotate(0deg);
-  }
-}
 
 /* Кнопка "Купить курс" */
 .cta-button {
