@@ -10,7 +10,7 @@ interface SvgIconProps {
 const SvgIcon: React.FC<SvgIconProps> = ({ iconName, className, id, 'aria-hidden': ariaHidden }) => {
   const getIconPath = (name: string) => {
     const iconMap: { [key: string]: string } = {
-      'flag.svg': '/photo/flag.svg',
+      'flag.svg': '/photo/flag-green.svg',
       'graduation.svg': '/photo/graduation.svg',
       'image.svg': '/photo/image.svg',
       'light.svg': '/photo/light.svg',
@@ -21,7 +21,7 @@ const SvgIcon: React.FC<SvgIconProps> = ({ iconName, className, id, 'aria-hidden
       'bag.svg': '/photo/bag.svg',
     };
     
-    return iconMap[name] || '/photo/flag.svg';
+    return iconMap[name] || '/photo/flag-green.svg';
   };
 
   return (
