@@ -131,9 +131,9 @@ body {
 /* Иконки */
 .card-icon {
   position: absolute;
-  width: 200%; /* Увеличил в ~2.4 раза с 84% до 200% для лучшей видимости */
-  right: -15%;
-  bottom: -10%;
+  width: 150%; /* Уменьшил с 200% до 150% для лучшего баланса */
+  right: -12%;
+  bottom: -8%;
   opacity: 0.9;
   pointer-events: none;
   user-select: none;
@@ -155,13 +155,13 @@ body {
 .card-icon rect,
 .card-icon polygon,
 .card-icon g {
-  fill: currentColor !important;
-  stroke: currentColor !important;
+  fill: #00ff00 !important;
+  stroke: #00ff00 !important;
 }
 
 /* Дополнительные правила для img тегов с SVG */
 .card-icon img {
-  filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+  filter: brightness(0) saturate(100%) invert(84%) sepia(100%) saturate(1000%) hue-rotate(60deg) brightness(100%) contrast(100%);
 }
 
 @keyframes iconAppear {
