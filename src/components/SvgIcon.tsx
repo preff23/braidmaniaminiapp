@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 
 interface SvgIconProps {
   iconName: string;
@@ -26,14 +25,13 @@ const SvgIcon: React.FC<SvgIconProps> = ({ iconName, className, id, 'aria-hidden
   };
 
   return (
-    <Image 
+    <img 
       src={getIconPath(iconName)}
       alt=""
-      width={24}
-      height={24}
       className={className}
       id={id}
       aria-hidden={ariaHidden}
+      style={{ width: '100%', height: 'auto' }}
     />
   );
 };
