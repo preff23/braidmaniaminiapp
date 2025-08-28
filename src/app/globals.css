@@ -169,43 +169,46 @@ body {
 
 /* Точечные изменения для каждой иконки */
 
-/* С ЧЕГО НАЧАТЬ НОВИЧКУ - flag.svg -> flag-pink.svg */
+/* С ЧЕГО НАЧАТЬ НОВИЧКУ - flag-pink.svg */
 .card-icon[data-icon="flag.svg"] {
   bottom: -20.7884% !important; /* опустили на 10% вниз (было -10.7884%, стало -20.7884%) */
 }
 
-/* ПОЛЕЗНЫЕ ЛАЙФХАКИ - light.svg -> light-pink.svg */
+/* ПОЛЕЗНЫЕ ЛАЙФХАКИ - light-pink.svg */
 .card-icon[data-icon="light.svg"] {
   right: -28.2543% !important; /* подвинули вправо на 10% (было -18.2543%, стало -28.2543%) */
   bottom: -20.7884% !important; /* опустили на 10% вниз (было -10.7884%, стало -20.7884%) */
 }
 
-/* ПРАКТИКА - scissors.svg -> scissors-pink.svg */
+/* ПРАКТИКА - scissors-pink.svg */
 .card-icon[data-icon="scissors.svg"] {
   bottom: -15.7884% !important; /* опустили на 5% вниз (было -10.7884%, стало -15.7884%) */
 }
 
-/* МК И СКИДКИ УЧАСТНИКАМ ГРУППЫ - graduation.svg -> graduation-pink.svg (уже настроено выше) */
+/* МК И СКИДКИ УЧАСТНИКАМ ГРУППЫ - graduation-pink.svg */
+.card-icon[data-icon="graduation.svg"] {
+  right: -17.6% !important; /* подвинули вправо на 5% (было -12.6%, стало -17.6%) */
+}
 
-/* ТУТОРИАЛЫ НА СЕБЕ - videocam.svg -> videocam-pink.svg */
+/* ТУТОРИАЛЫ НА СЕБЕ - videocam-pink.svg */
 .card-icon[data-icon="videocam.svg"] {
   right: -23.2543% !important; /* подвинули вправо на 5% (было -18.2543%, стало -23.2543%) */
   bottom: -15.7884% !important; /* опустили на 5% вниз (было -10.7884%, стало -15.7884%) */
 }
 
-/* СЕКРЕТНЫЕ МАТЕРИАЛЫ - lock.svg -> lock-pink.svg */
+/* СЕКРЕТНЫЕ МАТЕРИАЛЫ - lock-pink.svg */
 .card-icon[data-icon="lock.svg"] {
   right: -23.2543% !important; /* подвинули вправо на 5% (было -18.2543%, стало -23.2543%) */
   bottom: -15.7884% !important; /* опустили на 5% вниз (было -10.7884%, стало -15.7884%) */
 }
 
-/* РАБОТЫ УЧЕНИКОВ - image.svg -> image-pink.svg */
+/* РАБОТЫ УЧЕНИКОВ - image-pink.svg */
 .card-icon[data-icon="image.svg"] {
   right: -21.2543% !important; /* подвинули вправо на 3% (было -18.2543%, стало -21.2543%) */
   bottom: -25.7884% !important; /* опустили на 15% вниз (было -10.7884%, стало -25.7884%) */
 }
 
-/* ЗНАКОМСТВО - users.svg -> users-pink.svg */
+/* ЗНАКОМСТВО - users-pink.svg */
 .card-icon[data-icon="users.svg"] {
   bottom: -17.7884% !important; /* опустили на 7% вниз (было -10.7884%, стало -17.7884%) */
 }
