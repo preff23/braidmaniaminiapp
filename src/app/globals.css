@@ -8,7 +8,7 @@
   --text-white: #ffffff;
   --accent-gold: #FFD54F;
   --text-shadow: rgba(0,0,0,0.22);
-  --card-icon-color: #f8cad4;
+  --card-icon-color: #00ff00; /* Яркий зеленый цвет */
 }
 
 * {
@@ -131,7 +131,7 @@ body {
 /* Иконки */
 .card-icon {
   position: absolute;
-  width: 84%;
+  width: 420%; /* Увеличил в 5 раз с 84% до 420% */
   right: -10%;
   bottom: -8%;
   opacity: 0.85;
@@ -140,7 +140,7 @@ body {
   z-index: 1;
   animation: iconAppear 0.4s ease-out forwards;
   animation-delay: 0.2s;
-  color: var(--card-icon-color);
+  color: #00ff00; /* Яркий зеленый цвет */
 }
 
 .card-icon img {
