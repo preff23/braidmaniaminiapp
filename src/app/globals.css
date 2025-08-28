@@ -147,6 +147,7 @@ body {
   width: 100%;
   height: auto;
   display: block;
+  transform: scale(0.7); /* Уменьшаем размер изображения на 30% */
 }
 
 /* На случай, если внутри svg есть внутренние fill/stroke, бьём их !important */
