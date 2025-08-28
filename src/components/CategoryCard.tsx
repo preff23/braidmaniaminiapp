@@ -32,7 +32,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
     <div className={cardClasses} onClick={onClick} id={id}>
       <div className="card-content card-content-padding">
         <div className="category-badge">{count}</div>
-        <div className="category-title">{title}</div>
+        <div className="category-title" style={{ whiteSpace: 'pre-line' }}>{title}</div>
       </div>
       <SvgIcon 
         iconName={icon}

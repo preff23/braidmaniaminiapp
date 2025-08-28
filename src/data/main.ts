@@ -12,7 +12,7 @@ export const mainCategories = [
   },
   {
     id: "lifehacks",
-    title: "ПОЛЕЗНЫЕ ЛАЙФХАКИ В ПЛЕТЕНИИ",
+    title: "ПОЛЕЗНЫЕ\nЛАЙФХАКИ\nВ ПЛЕТЕНИИ",
     icon: "light.svg",
     links: [
       { title: "Уход за локонами", url: "https://t.me/arinabraidsPRO/210" },
