@@ -37,6 +37,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
       <SvgIcon 
         iconName={icon}
         className="card-icon"
+        data-icon={icon}
         aria-hidden
         id={specialIcon ? 'rocket-icon' : undefined}
       />

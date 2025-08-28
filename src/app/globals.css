@@ -148,16 +148,21 @@ body {
 /* Иконки */
 .card-icon {
   position: absolute;
-  width: 94.5%; /* уменьшили с 135% на 30% */
-  right: -17.6%; /* сдвинули вправо на 10% (было -8%, стало -17.6%) */
-  bottom: -15.6%; /* сдвинули вниз на 10% (было -6%, стало -15.6%) */
+  width: 85.05%; /* уменьшили с 94.5% на 10% */
+  right: -19.36%; /* сдвинули вправо пропорционально */
+  bottom: -17.16%; /* сдвинули вниз пропорционально */
   opacity: 0.9;
   pointer-events: none;
   user-select: none;
   z-index: 1; /* ниже текста карточки */
-  animation: iconAppear 0.4s ease-out forwards;
-  animation-delay: 0.2s;
   color: #00ff00; /* Яркий зеленый цвет */
+}
+
+/* Иконка graduation остается прежнего размера */
+.card-icon[data-icon="graduation.svg"] {
+  width: 94.5%;
+  right: -17.6%;
+  bottom: -15.6%;
 }
 
 .card-icon img {
@@ -186,20 +191,78 @@ body {
 /* Адаптив: на маленьких экранах можно чуть уменьшить выход иконки за край */
 @media (max-width: 380px) {
   .card-icon {
-    width: 91%; /* уменьшили с 130% на 30% */
-    right: -15.4%; /* сдвинули вправо на 10% (было -6%, стало -15.4%) */
-    bottom: -13.5%; /* сдвинули вниз на 10% (было -5%, стало -13.5%) */
+    width: 81.9%; /* уменьшили с 91% на 10% */
+    right: -16.94%; /* сдвинули вправо пропорционально */
+    bottom: -14.85%; /* сдвинули вниз пропорционально */
+  }
+  
+  /* Иконка graduation остается прежнего размера */
+  .card-icon[data-icon="graduation.svg"] {
+    width: 91%;
+    right: -15.4%;
+    bottom: -13.5%;
   }
 }
 
-@keyframes iconAppear {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 0.85;
+/* Анимация удалена, так как иконки больше не анимируются */
+
+/* Кнопка "Купить курс" */
+.cta-button {
+  background: linear-gradient(135deg, #FF6B9D, #C44569, #FF8E53);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 16px;
+  padding: 20px 32px;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 8px 32px rgba(255, 107, 157, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: ctaPulse 2s ease-in-out infinite, ctaGradient 3s ease infinite;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(255, 107, 157, 0.4);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+.cta-button svg {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Анимация пульсации для кнопки */
+@keyframes ctaPulse {
+  0%, 100% {
     transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Анимация градиента для кнопки */
+@keyframes ctaGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
