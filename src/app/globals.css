@@ -131,7 +131,7 @@ body {
 /* Иконки */
 .card-icon {
   position: absolute;
-  width: 100%; /* Уменьшил с 130% до 100% (на 30%) */
+  width: 70%; /* Уменьшил с 100% до 70% (на 30%) */
   right: -10%;
   bottom: -6%;
   opacity: 0.9;
