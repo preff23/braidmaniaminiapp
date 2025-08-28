@@ -30,8 +30,10 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
 
   return (
     <div className={cardClasses} onClick={onClick} id={id}>
-      <div className="category-badge">{count}</div>
-      <div className="category-title">{title}</div>
+      <div className="card-content card-content-padding">
+        <div className="category-badge">{count}</div>
+        <div className="category-title">{title}</div>
+      </div>
       <SvgIcon 
         iconName={icon}
         className="card-icon"
