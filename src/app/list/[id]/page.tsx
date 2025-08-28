@@ -7,14 +7,14 @@ import { usefulCategories } from '../../../data/useful';
 import LinkListCard from '../../../components/LinkListCard';
 
 interface SubListPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-export default function SubListPage({ params }: SubListPageProps) {
+export default async function SubListPage({ params }: SubListPageProps) {
   const router = useRouter();
-  const { id } = params;
+  const { id } = await params;
 
   // Объединяем все категории для поиска
   const allCategories = [...mainCategories, ...usefulCategories];
