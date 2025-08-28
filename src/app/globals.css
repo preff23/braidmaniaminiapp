@@ -148,9 +148,9 @@ body {
 /* Иконки */
 .card-icon {
   position: absolute;
-  width: 85.05%; /* уменьшили с 94.5% на 10% */
-  right: -19.36%; /* сдвинули вправо пропорционально */
-  bottom: -17.16%; /* сдвинули вниз пропорционально */
+  width: 76.545%; /* уменьшили с 85.05% на 10% */
+  right: -21.296%; /* сдвинули вправо пропорционально */
+  bottom: -18.876%; /* сдвинули вниз пропорционально */
   opacity: 0.9;
   pointer-events: none;
   user-select: none;
@@ -191,9 +191,9 @@ body {
 /* Адаптив: на маленьких экранах можно чуть уменьшить выход иконки за край */
 @media (max-width: 380px) {
   .card-icon {
-    width: 81.9%; /* уменьшили с 91% на 10% */
-    right: -16.94%; /* сдвинули вправо пропорционально */
-    bottom: -14.85%; /* сдвинули вниз пропорционально */
+    width: 73.71%; /* уменьшили с 81.9% на 10% */
+    right: -18.634%; /* сдвинули вправо пропорционально */
+    bottom: -16.335%; /* сдвинули вниз пропорционально */
   }
   
   /* Иконка graduation остается прежнего размера */
@@ -225,7 +225,7 @@ body {
   box-shadow: 0 8px 32px rgba(255, 107, 157, 0.3);
   position: relative;
   overflow: hidden;
-  animation: ctaPulse 2s ease-in-out infinite, ctaGradient 3s ease infinite;
+  animation: ctaPulse 3s ease-in-out infinite, ctaGradient 4s ease infinite, ctaDarken 5s ease-in-out infinite;
 }
 
 .cta-button:hover {
@@ -249,7 +249,7 @@ body {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 }
 
@@ -263,6 +263,16 @@ body {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+/* Анимация переливания в более темный цвет */
+@keyframes ctaDarken {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(0.85);
   }
 }
 
