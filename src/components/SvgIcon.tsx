@@ -10,18 +10,18 @@ interface SvgIconProps {
 const SvgIcon: React.FC<SvgIconProps> = ({ iconName, className, id, 'aria-hidden': ariaHidden }) => {
   const getIconPath = (name: string) => {
     const iconMap: { [key: string]: string } = {
-      'flag.svg': '/photo/flag-green.svg',
-      'light.svg': '/photo/light-green.svg',
-      'scissors.svg': '/photo/scissors-green.svg',
-      'graduation.svg': '/photo/graduation-green.svg',
-      'videocam.svg': '/photo/videocam-green.svg',
-      'lock.svg': '/photo/lock-green.svg',
-      'image.svg': '/photo/image-green.svg',
-      'users.svg': '/photo/users-green.svg',
-      'bag.svg': '/photo/bag-green.svg',
+      'flag.svg': '/photo/flag-pink.svg',
+      'light.svg': '/photo/light-pink.svg',
+      'scissors.svg': '/photo/scissors-pink.svg',
+      'graduation.svg': '/photo/graduation-pink.svg',
+      'videocam.svg': '/photo/videocam-pink.svg',
+      'lock.svg': '/photo/lock-pink.svg',
+      'image.svg': '/photo/image-pink.svg',
+      'users.svg': '/photo/users-pink.svg',
+      'bag.svg': '/photo/bag-pink.svg',
     };
     
-    return iconMap[name] || '/photo/flag-green.svg';
+    return iconMap[name] || '/photo/flag-pink.svg';
   };
 
   return (
