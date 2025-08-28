@@ -11,14 +11,14 @@ const SvgIcon: React.FC<SvgIconProps> = ({ iconName, className, id, 'aria-hidden
   const getIconPath = (name: string) => {
     const iconMap: { [key: string]: string } = {
       'flag.svg': '/photo/flag-green.svg',
-      'graduation.svg': '/photo/graduation.svg',
-      'image.svg': '/photo/image.svg',
-      'light.svg': '/photo/light.svg',
-      'lock.svg': '/photo/lock.svg',
-      'scissors.svg': '/photo/scissors.svg',
-      'users.svg': '/photo/users.svg',
-      'videocam.svg': '/photo/videocam.svg',
-      'bag.svg': '/photo/bag.svg',
+      'light.svg': '/photo/light-green.svg',
+      'scissors.svg': '/photo/scissors-green.svg',
+      'graduation.svg': '/photo/graduation-green.svg',
+      'videocam.svg': '/photo/videocam-green.svg',
+      'lock.svg': '/photo/lock-green.svg',
+      'image.svg': '/photo/image-green.svg',
+      'users.svg': '/photo/users-green.svg',
+      'bag.svg': '/photo/bag-green.svg',
     };
     
     return iconMap[name] || '/photo/flag-green.svg';
