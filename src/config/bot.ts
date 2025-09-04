@@ -1,8 +1,8 @@
 // Конфигурация Telegram Bot
 export const BOT_CONFIG = {
-  token: '8408738770:AAEBJnp2it6gbxHfaakxyCi-XMDFdtiMJGA',
+  token: process.env.TELEGRAM_BOT_TOKEN || '8408738770:AAEBJnp2it6gbxHfaakxyCi-XMDFdtiMJGA',
   username: 'Braid_mania_bot',
-  webAppUrl: 'https://your-app.vercel.app', // Замените на URL вашего приложения после деплоя
+  webAppUrl: process.env.WEBAPP_URL || 'https://braidmaniaminiapp.vercel.app',
 };
 
 // Ссылки для открытия Mini App
